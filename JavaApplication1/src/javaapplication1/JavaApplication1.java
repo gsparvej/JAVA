@@ -14,6 +14,7 @@ public class JavaApplication1 {
         short roll=12952;
         int number=659565599;
         float price=15205.75f;
+        
       
         
         
