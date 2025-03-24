@@ -25,6 +25,7 @@ public class JavaApplication1 {
         System.out.println(roll);
         System.out.println(number);
         System.out.println(price);
+        System.out.println(id);
     }
     
 }
