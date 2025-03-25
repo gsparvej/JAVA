@@ -1,20 +1,26 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
- */
+
 package secondclass;
 
-/**
- *
- * @author Admin
- */
+import java.util.Scanner;
+
+
 public class SecondClass {
 
-    /**
-     * @param args the command line arguments
-     */
+   
     public static void main(String[] args) {
-        // TODO code application logic here
+       Scanner input=new Scanner(System.in);
+        System.out.println("Enter 1st Number");
+       int number1=input.nextInt();
+       System.out.println("Enter 2nd Number");
+       int number2=input.nextInt();
+        float result=(float)number1/number2;
+        System.out.println(result+" is your result");
+        
+
+
+
+        
+
     }
     
 }
