@@ -1,20 +1,17 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
- */
+
 package practicejava;
 
-/**
- *
- * @author MY COMPUTER
- */
+import java.util.Scanner;
+
+
 public class PracticeJava {
 
-    /**
-     * @param args the command line arguments
-     */
+    
     public static void main(String[] args) {
-        // TODO code application logic here
+         Scanner val=new Scanner(System.in);
+        float num1=val.nextFloat();
+        float result=(float) (Math.pow(num1, 3.5));
+        System.out.println(result+" Result");
     }
     
 }
