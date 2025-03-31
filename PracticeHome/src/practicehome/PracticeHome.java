@@ -1,20 +1,20 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
- */
+
 package practicehome;
 
-/**
- *
- * @author MY COMPUTER
- */
+import java.util.Scanner;
+
 public class PracticeHome {
 
-    /**
-     * @param args the command line arguments
-     */
+    
     public static void main(String[] args) {
-        // TODO code application logic here
+        Scanner power=new Scanner(System.in);
+        System.out.println("Enter m's value ");
+       float m=power.nextFloat();
+        System.out.println("Enter r's value ");
+       float r=power.nextFloat();
+        float result= (float) (m*Math.pow(r, 2));
+        System.out.println(result+" Is Your Result ");
+        
     }
     
 }
