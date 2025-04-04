@@ -28,8 +28,8 @@ public class PracticeHome {
         System.out.println("Enter Product Price taxes");
          double tax=taxes.nextDouble();
         double pay=PurchaseAmount*(tax/100);
-        double result=PurchaseAmount+pay;
-        System.out.println(result+" You Must Pay For This Product ");
+        double result=(PurchaseAmount+pay)/100;
+        System.out.println( "$ "+result+" You Must Pay For This Product ");
         
         
     }
