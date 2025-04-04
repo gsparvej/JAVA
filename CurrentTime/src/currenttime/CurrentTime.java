@@ -14,7 +14,7 @@ public class CurrentTime {
         long TotalMinutes=TotalSeconds/60;
         long CurrentMinutes=TotalMinutes%60;
         long TotalHour=TotalMinutes/60;
-        long CurrentHour=(TotalHour%24);
+        long CurrentHour=(TotalHour%12)+6;
         System.out.println(Totalmiliseconds+" Miliseconds is "+CurrentHour+" : "+CurrentMinutes+" : "+currentSeconds+" : ");
     }
     
