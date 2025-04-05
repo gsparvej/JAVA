@@ -48,17 +48,36 @@ public class PracticeHome {
 //           System.out.println(year+" Years "+CurrentDays+" Days ");
 //           System.out.println(day);
 
-             int a = 6;
-             int b = a++;
-            System.out.println(a);
-            System.out.println(b);
-        
+//             int a = 6;
+//             int b = a++;
+//            System.out.println(a);
+//            System.out.println(b);
+//        
+//            
+//             a = 6;
+//             System.out.println(a);
+//             b = ++a;
+//            System.out.println(a);
+//            System.out.println(b);
+
+                Scanner s = new Scanner(System.in);
+                System.out.println("Enter Interest Rate like as 12.5% : ");
+                double interestRate=s.nextDouble();
+                double monthlyInterestRate=interestRate/1200;
+                System.out.println("Enter Year : ");
+                int numberOfYear=s.nextInt();
+                System.out.println("Enter Loan Amount : ");
+                double loanAmount=s.nextDouble();
+                double monthlyPayment=loanAmount*monthlyInterestRate / (1-1/Math.pow(1+monthlyInterestRate, numberOfYear*12));
+                double totalAmount=monthlyPayment*numberOfYear*12;
+                System.out.println("Monthly Payment is "+monthlyPayment);
+                System.out.println("Total Payment is "+totalAmount);
+                
             
-             a = 6;
-             System.out.println(a);
-             b = ++a;
-            System.out.println(a);
-            System.out.println(b);
+            
+            
+            
+            
         
     }
     
