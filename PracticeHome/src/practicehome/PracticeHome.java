@@ -39,15 +39,26 @@ public class PracticeHome {
 //        System.out.println("Your m/s result is "+result+"m/s ");
 
         
-           Scanner minutes=new Scanner(System.in);
-           System.out.println("Enter Your Minutes");
-           double input=minutes.nextDouble();
-           int year=(int)input/518400;
-           int day=(int)input%518400;
-           int CurrentDays=day/1440;
-           System.out.println(year+" Years "+CurrentDays+" Days ");
-           System.out.println(day);
+//           Scanner minutes=new Scanner(System.in);
+//           System.out.println("Enter Your Minutes");
+//           double input=minutes.nextDouble();
+//           int year=(int)input/518400;
+//           int day=(int)input%518400;
+//           int CurrentDays=day/1440;
+//           System.out.println(year+" Years "+CurrentDays+" Days ");
+//           System.out.println(day);
+
+             int a = 6;
+             int b = a++;
+            System.out.println(a);
+            System.out.println(b);
         
+            
+             a = 6;
+             System.out.println(a);
+             b = ++a;
+            System.out.println(a);
+            System.out.println(b);
         
     }
     
