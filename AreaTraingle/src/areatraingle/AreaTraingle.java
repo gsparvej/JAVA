@@ -17,13 +17,13 @@ public class AreaTraingle {
         System.out.println("The Area of This Traingle is : "+resultOfArea);
         
         
-        if(resultOfArea<200){
+        if(resultOfArea>200){
             System.out.println("The Area of This Traingle is High");
         }
-        else if(resultOfArea<150){
+        else if(resultOfArea>150){
             System.out.println("The Area of This Traingle is Mediam");
     }
-        else if(resultOfArea<100){
+        else if(resultOfArea>100){
         System.out.println("The Area of This Traingle is Low");
         }
                
