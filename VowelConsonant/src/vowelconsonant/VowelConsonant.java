@@ -1,20 +1,22 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
- */
+
 package vowelconsonant;
 
-/**
- *
- * @author MY COMPUTER
- */
+import java.util.Scanner;
+
+
 public class VowelConsonant {
 
-    /**
-     * @param args the command line arguments
-     */
+    
     public static void main(String[] args) {
-        // TODO code application logic here
+        Scanner vc=new Scanner(System.in);
+        System.out.println(" Check Vowel or Consonant ");
+        System.out.println(" Enter English Latter : ");
+        char input;
+        char a = 0;
+        
+        if (input=a){
+            System.out.println(input+" Its Vowel");
+        }
     }
     
 }
