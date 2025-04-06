@@ -1,20 +1,28 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
- */
+
 package largestnumber;
 
-/**
- *
- * @author MY COMPUTER
- */
+import java.util.Scanner;
+
+
 public class LargestNumber {
 
-    /**
-     * @param args the command line arguments
-     */
+    
     public static void main(String[] args) {
-        // TODO code application logic here
+        Scanner input=new Scanner(System.in);
+        
+        System.out.println("Check Largest Number ");
+        System.out.println(" Please Enter 1st Number : ");
+        
+        float number1=input.nextFloat();
+        System.out.println(" Please Enter 2nd Number : ");
+        float number2=input.nextFloat();
+        
+        if(number1>number2){
+            System.out.println(number1+" Its a Largest Number ");
+        }
+        else{
+            System.out.println(number2+" Its a Largest Number ");
+        }
     }
     
 }
