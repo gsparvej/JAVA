@@ -14,8 +14,11 @@ public class VowelConsonant {
             System.out.println("Enter Your Finding Alphabet Like as A or B ");
             String alphabet= input.next().toLowerCase();
             
-            if(alphabet="a" || alphabet="e"){
-                System.out.println("Vowel");
+            if(alphabet.equalsIgnoreCase("a") || alphabet.equalsIgnoreCase("e")|| alphabet.equalsIgnoreCase("i") || alphabet.equalsIgnoreCase("o") || alphabet.equalsIgnoreCase("u")){
+                System.out.println(" Its Vowel");
+            }
+            else{
+                System.out.println(" Its Consonant ");
             }
     }
      
