@@ -14,6 +14,7 @@ public class GradePoint {
         
         if(result>100){
             System.out.println("Please Enter Correct Result Below 100 ");
+            result=r.nextInt();
         }
 
         else if(result<=69){
@@ -22,7 +23,7 @@ public class GradePoint {
         else if(result<=79){
             System.out.println("Your Grade is 'C' ");
         }
-        else if(result<=79){
+        else if(result<=89){
             System.out.println("Your Grade is 'B' ");
         }
          else if(result<=100){
