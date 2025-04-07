@@ -1,20 +1,33 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
- */
+
 package gradepoint;
 
-/**
- *
- * @author MY COMPUTER
- */
+import java.util.Scanner;
+
+
 public class GradePoint {
 
-    /**
-     * @param args the command line arguments
-     */
+    
     public static void main(String[] args) {
-        // TODO code application logic here
+        Scanner r=new Scanner(System.in);
+        System.out.println("Enter Your Result ");
+        int result=r.nextInt();
+        
+        if(result>=90){
+            System.out.println("Your Grade is 'A' ");
+        }
+        else if(result>=89){
+            System.out.println("Your Grade is 'B' ");
+        }
+        else if(result>=79){
+            System.out.println("Your Grade is 'C' ");
+        }
+        else if(result>=69){
+            System.out.println("Your Grade is 'D' ");
+        }
+        
+        else {
+            System.out.println("Your Grade is 'F' ");
+        }
     }
     
 }
