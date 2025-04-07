@@ -75,7 +75,16 @@ public class PracticeHome {
                 
 
 
-
+                Scanner input=new Scanner(System.in);
+                
+                System.out.println("Enter 1st Number ");
+                int n1=input.nextInt();
+                
+                System.out.println("Enter 2nd Number ");
+                int n2=input.nextInt();
+                
+                int result=n1+n2;
+                System.out.println(result+"");
            
             
             
