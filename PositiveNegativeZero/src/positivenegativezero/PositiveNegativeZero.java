@@ -13,7 +13,7 @@ public class PositiveNegativeZero {
         System.out.println("To Check Its Positive , Negative or Zero   ");
         System.out.println("Enter A Number : ");
         
-        int input=value.nextInt();
+        float input=value.nextFloat();
         
         if(input>0){
             System.out.println(input+" Its a Positive Number ");
