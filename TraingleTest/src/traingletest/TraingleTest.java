@@ -41,6 +41,64 @@ public class TraingleTest {
         float distanceBC=(float)Math.sqrt(Math.pow(result3, 2)+Math.pow(result4, 2));
         
         float distanceCA=(float)Math.sqrt(Math.pow(result5, 2)+Math.pow(result6, 2));
+        
+        if(distanceAB>distanceBC &&distanceAB>distanceCA ){
+            System.out.println(distanceAB+ " distanceAB is largest ");
+            
+            
+            float result7=distanceAB;
+            float result8=distanceBC;
+            float result9=distanceCA;
+            
+            float val1=(float) Math.pow(result7, 2);
+            float val2=(float) Math.pow(((float) Math.pow(result8, 2)+ Math.pow(result9, 2)), 2);
+            
+            if(val1==val2){
+                System.out.println(" Its a Right-angled Triangle");
+            }
+            else{
+                System.out.println(" Its Other Type Of Traingle ");
+            }
+        }
+        else if(distanceBC>distanceAB && distanceBC> distanceCA){
+            System.out.println(distanceBC+" distanceBC is largest ");
+            
+            
+            float result7=distanceBC;
+            float result8=distanceAB;
+            float result9=distanceCA;
+            
+            float val1=(float) Math.pow(result7, 2);
+            float val2=(float) Math.pow(((float) Math.pow(result8, 2)+ Math.pow(result9, 2)), 2);
+            
+            if(val1==val2){
+                System.out.println(" Its a Right-angled Triangle");
+            }
+            else{
+                System.out.println(" Its Other Type Of Traingle ");
+            }
+            
+        }
+        else{
+            System.out.println(distanceCA+" distanceCA is largest ");
+            
+            
+            
+            float result7=distanceCA;
+            float result8=distanceAB;
+            float result9=distanceBC;
+            
+            float val1=(float) Math.pow(result7, 2);
+            float val2=(float) Math.pow(((float) Math.pow(result8, 2)+ Math.pow(result9, 2)), 2);
+            
+            if(val1==val2){
+                System.out.println(" Its a Right-angled Triangle");
+            }
+            else{
+                System.out.println(" Its Other Type Of Traingle ");
+            }
+            
+        }
     }
     
 }
