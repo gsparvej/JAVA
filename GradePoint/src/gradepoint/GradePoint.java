@@ -16,6 +16,9 @@ public class GradePoint {
             System.out.println("Please Enter Correct Result Below 100 ");
             result=r.nextInt();
         }
+        else if(result<=0){
+            System.out.println("Please Enter Correct Result Greater Than Zero");
+        }
 
         else if(result<=69){
             System.out.println("Your Grade is 'D' ");
