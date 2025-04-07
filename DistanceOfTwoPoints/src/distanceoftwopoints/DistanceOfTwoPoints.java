@@ -23,7 +23,7 @@ public class DistanceOfTwoPoints {
         
         int result1=x2-x1;
         int result2=y2-y1;
-        float distance=(float)Math.pow((Math.pow(result1, 2)+Math.pow(result2, 2)), 1/2);
+        float distance=(float)Math.sqrt(Math.pow(result1, 2)+Math.pow(result2, 2));
         
         System.out.println(distance+"");
         
