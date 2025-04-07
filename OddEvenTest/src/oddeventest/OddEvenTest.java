@@ -12,7 +12,7 @@ public class OddEvenTest {
         System.out.println("Enter 1st number");
         float n1=val.nextFloat();
         if(n1%2==0){
-            System.out.println(n1+" it is a Even number");
+            System.out.println(n1+" it is an Even number");
         }
         else{
             System.out.println(n1+" it is an Odd number");
