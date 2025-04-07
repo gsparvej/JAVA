@@ -46,17 +46,17 @@ public class TraingleTest {
             System.out.println(distanceAB+ " distanceAB is largest ");
             
             
-            float result7=distanceAB;
-            float result8=distanceBC;
-            float result9=distanceCA;
+//            float result7=distanceAB;
+//            float result8=distanceBC;
+//            float result9=distanceCA;
             
-            float val1=(float) Math.pow(result7, 2);
-            float val2=(float) Math.pow(((float) Math.pow(result8, 2)+ Math.pow(result9, 2)), 2);
+            float val1=(float) Math.pow(distanceAB, 2);
+            float val2=(float) Math.pow(((float) Math.pow(distanceBC, 2)+ Math.pow(distanceCA, 2)), 2);
             
             // test Coordinates for Right-Angle Traiangle 
             // (2,5), (-1,1), (2,1)
             
-            if(val1==val2){
+            if(val1 == val2){
                 System.out.println(" Its a Right-angled Triangle");
             }
             else{
