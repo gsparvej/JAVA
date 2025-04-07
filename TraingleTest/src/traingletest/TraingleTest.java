@@ -53,6 +53,9 @@ public class TraingleTest {
             float val1=(float) Math.pow(result7, 2);
             float val2=(float) Math.pow(((float) Math.pow(result8, 2)+ Math.pow(result9, 2)), 2);
             
+            // test Coordinates for Right-Angle Traiangle 
+            // (2,5), (-1,1), (2,1)
+            
             if(val1==val2){
                 System.out.println(" Its a Right-angled Triangle");
             }
