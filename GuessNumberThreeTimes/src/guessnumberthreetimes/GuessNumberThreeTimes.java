@@ -21,10 +21,11 @@ public class GuessNumberThreeTimes {
 
             if (userInput == randomNumber) {
                 System.out.println("You Win!");
-                isGuessed = true;
+                 isGuessed = true;
                 break;
             } else if (userInput < randomNumber) {
                 System.out.println("Too low!");
+               
             } else {
                 System.out.println("Too high!");
             }
@@ -36,7 +37,7 @@ public class GuessNumberThreeTimes {
             System.out.println("Better Luck Next Time! The correct number was: " + randomNumber);
         }
 
-        s.close();
+        // s.close();
     }
 
 }
