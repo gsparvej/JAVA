@@ -8,7 +8,7 @@ public class GuessNumberThreeTimes {
         Scanner s = new Scanner(System.in);
         int randomNumber = (int) (Math.random() * 10); // generates number from 0 to 9
         
-        System.out.println("Gues "+ randomNumber);
+        System.out.println("Guess "+ randomNumber);
 
         System.out.println("Guess a number between 0 and 9. You have 3 attempts.");
 
