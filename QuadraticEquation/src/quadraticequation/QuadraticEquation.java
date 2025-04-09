@@ -39,11 +39,14 @@ public class QuadraticEquation {
         System.out.println(root2+"");
         
         
-         if(root== (int)root ){
+         if( discriminant>0 && root== (int)root ){
              System.out.println(root+" Real , Unequal and Rational ");
         }
+         else if(discriminant>0 && !(root== (int)root)){
+             System.out.println(" Real , Unequal and Irrational ");
+         }
         else{
-             System.out.println(root+" Real , Unequal and Irrational ");
+             System.out.println(root+"  ");
         }
         
     }
