@@ -33,16 +33,17 @@ public class QuadraticEquation {
         
         
         float root=(float) Math.sqrt(discriminant);
-        int root2 = (int) root;
         
+        
+        int root2 = (int) root;      
         System.out.println(root2+"");
         
         
          if(root== (int)root ){
-             System.out.println(root+" this is right number ");
+             System.out.println(root+" Real , Unequal and Rational ");
         }
         else{
-             System.out.println(root+" this is wrong number ");
+             System.out.println(root+" Real , Unequal and Irrational ");
         }
         
     }
