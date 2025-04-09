@@ -26,10 +26,11 @@ public class FactorialUsingDoWhile {
             }
             
             while(count<=input);
-        
+            
+            System.out.println(factorial+"");
         
         }
-        System.out.println(factorial+"");
+        
     }
     
 }
