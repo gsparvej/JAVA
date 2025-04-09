@@ -28,14 +28,21 @@ public class QuadraticEquation {
         System.out.printf(" Is 2nd Root %2.3f \n ",x2);
         
         float discriminant=(float) (Math.pow(b, 2)-4*a*c);
-        float root=(float) Math.sqrt(discriminant);
-        float root2=root%
         
-        if(discriminant>0 && ){
-            
+        System.out.println(discriminant+"  discriminant is ");
+        
+        
+        float root=(float) Math.sqrt(discriminant);
+        int root2 = (int) root;
+        
+        System.out.println(root2+"");
+        
+        
+         if(root== (int)root ){
+             System.out.println(root+" this is right number ");
         }
         else{
-        
+             System.out.println(root+" this is wrong number ");
         }
         
     }
