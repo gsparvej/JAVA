@@ -35,7 +35,7 @@ public class QuadraticEquation {
         float root=(float) Math.sqrt(discriminant);
         
         
-        int root2 = (int) root;      
+        int root2 = (int) root;      // eta diye purnoborgo test koresi....... 
         System.out.println(root2+"");
         
         
