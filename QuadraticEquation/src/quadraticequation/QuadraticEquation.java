@@ -40,16 +40,16 @@ public class QuadraticEquation {
         
         
          if( discriminant>0 && root== (int)root ){
-             System.out.println(x1+","+x2+"Are Real , Unequal and Rational ");
+             System.out.println(x1+","+x2+"\n"+"Are Real , Unequal and Rational ");
         }
          else if(discriminant>0 && !(root== (int)root)){
-             System.out.println(x1+","+x2+" Are Real , Unequal and Irrational ");
+             System.out.println(x1+","+x2+"\n"+" Are Real , Unequal and Irrational ");
          }
          else if(discriminant==0){
-             System.out.println(x1+","+x2+" The Roots of the Equation are Real and Equal ");
+             System.out.println(x1+","+x2+"\n"+" The Roots of the Equation are Real and Equal ");
          }
         else{
-             System.out.println(x1+","+x2+" The Two Roots are always Imaginary to each other  ");
+             System.out.println(x1+","+x2+"\n"+" The Two Roots are always Imaginary to each other  ");
         }
         
     }
