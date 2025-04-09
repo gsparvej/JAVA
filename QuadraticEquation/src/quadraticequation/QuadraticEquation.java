@@ -26,6 +26,18 @@ public class QuadraticEquation {
         
         float x2= (float) (-b-Math.sqrt((Math.pow(b, 2)-4*a*c)))/2*a;
         System.out.printf(" Is 2nd Root %2.3f \n ",x2);
+        
+        float discriminant=(float) (Math.pow(b, 2)-4*a*c);
+        float root=(float) Math.sqrt(discriminant);
+        float root2=root%
+        
+        if(discriminant>0 && ){
+            
+        }
+        else{
+        
+        }
+        
     }
     
 }
