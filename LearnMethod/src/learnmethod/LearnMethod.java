@@ -14,9 +14,11 @@ public class LearnMethod {
 
         String oddEven = findOddEven(num);
         String prime = doPrime(num);
+        float root=squareRoot(num);
 
         System.out.println(oddEven + "");
         System.out.println(prime + "");
+        System.out.println("Square Root of "+num+" is "+root);
 
     }
 
@@ -72,12 +74,15 @@ public class LearnMethod {
     
     // square Root Method //***** start
     
-    public static float squareRoot(){
+    
+    
+    
+    public static float squareRoot(int num){
     
     float end;
     
     
-    
+    end=(float) Math.sqrt(num);
     
     return end;
         
