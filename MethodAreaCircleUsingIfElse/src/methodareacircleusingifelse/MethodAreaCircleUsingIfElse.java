@@ -43,7 +43,7 @@ public class MethodAreaCircleUsingIfElse {
     
     
     
-    result= (Math.PI*Math.pow(radious, 2));
+    // result= (Math.PI*Math.pow(radious, 2));
     return (float) result;
     
     }
