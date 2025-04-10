@@ -1,27 +1,25 @@
-
 package learnmethod;
 
 import java.util.Scanner;
 
-
 public class LearnMethod {
 
-    
     public static void main(String[] args) {
-        
-        Scanner s=new Scanner(System.in);
-        
+
+        Scanner s = new Scanner(System.in);
+
         System.out.println("Enter Value ");
-        int num1=s.nextInt();
-        
-        String result=doPrime(num1);
-        
-        System.out.println(result);
-        
+
+        int num = s.nextInt();
+
+        String oddEven = findOddEven(num);
+        String prime = doPrime(num);
+
+        System.out.println(oddEven + "");
+        System.out.println(prime + "");
+
     }
-    
-    
-    
+
     public static String doPrime(int num1){
     
     
@@ -43,6 +41,26 @@ public class LearnMethod {
         }
         
          return result;
+         
+         
+        
+         
+        
     
+    }
+    
+    // odd even by method //****start ****
+    public static String findOddEven(int num) {
+
+        String result = "";
+
+        if (num % 2 == 0) {
+            result = num + " it is an Even number";
+        } else {
+            result = num + " it is an Odd number";
+        }
+
+        return result;
+
     }
 }
