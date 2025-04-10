@@ -6,7 +6,7 @@ public class ContinueBreakUse {
 
     
     public static void main(String[] args) {
-        int targetValue=50;
+        int targetValue=100;
         int count=1;
         
         while (targetValue >= count){
