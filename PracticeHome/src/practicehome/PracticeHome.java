@@ -90,7 +90,7 @@ public class PracticeHome {
             Scanner s=new Scanner(System.in);
             System.out.println(" Enter Number ");
             int input=s.nextInt();
-            System.out.println(" Enter Name  ");
+            System.out.println(" Enter Text  ");
             String  text=s.next();
            for(int i=1;i<=input;i++){
            
