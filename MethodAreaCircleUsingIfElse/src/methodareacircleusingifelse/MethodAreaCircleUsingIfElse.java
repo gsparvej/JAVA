@@ -10,7 +10,13 @@ public class MethodAreaCircleUsingIfElse {
     public static void main(String[] args) {
         
         Scanner s=new Scanner(System.in);
+        
+        System.out.println("Enter Radious Value ");
         float radious=s.nextFloat();
+        
+        float result=areaCircle(radious);
+        
+        System.out.println(result+"");
         
     }
     
@@ -26,12 +32,12 @@ public class MethodAreaCircleUsingIfElse {
     if (radious <= 0) {
             System.out.println("Enter positve value of radious ");
             
-            float radius = s.nextFloat();
-            double result =  ( Math.PI * Math.pow(radius, 2));
-            System.out.println("" + result);
+             radious = s.nextFloat();
+             result =  ( Math.PI * Math.pow(radious, 2));
+            // System.out.println("" + result);
         } else {
-            double result2 = (Math.PI * Math.pow(radious, 2));
-            System.out.println(" The Area Of " + result2);
+             result = (Math.PI * Math.pow(radious, 2));
+            // System.out.println(" The Area Of " + result2);
         }
     
     
