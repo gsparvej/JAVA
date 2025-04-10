@@ -27,14 +27,8 @@ public class LearnMethod {
     
         int count=0;
         String result=" ";
-        
-        
-        
-        
-        
+     
         for(int i=1;i<=num1;i++){
-            
-            
             
                if(num1%i==0){
                    count++;
