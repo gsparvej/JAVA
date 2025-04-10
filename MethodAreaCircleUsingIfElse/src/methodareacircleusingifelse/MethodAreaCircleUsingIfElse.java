@@ -32,6 +32,8 @@ public class MethodAreaCircleUsingIfElse {
     if (radious <= 0) {
             System.out.println("Enter positve value of radious ");
             
+            Scanner s=new Scanner(System.in);
+            
              radious = s.nextFloat();
              result =  ( Math.PI * Math.pow(radious, 2));
             // System.out.println("" + result);

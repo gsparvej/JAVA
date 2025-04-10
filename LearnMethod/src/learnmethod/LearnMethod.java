@@ -65,4 +65,24 @@ public class LearnMethod {
         return result;
 
     }
+    
+    
+    
+    
+    
+    // square Root Method //***** start
+    
+    public static float squareRoot(){
+    
+    float end;
+    
+    
+    
+    
+    return end;
+        
+    }
+    
+    
+    
 }
