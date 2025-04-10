@@ -1,20 +1,32 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
- */
+
 package methodradiousvaluecircle;
 
-/**
- *
- * @author Admin
- */
+import java.util.Scanner;
+
+
 public class MethodRadiousValueCircle {
 
-    /**
-     * @param args the command line arguments
-     */
+    
     public static void main(String[] args) {
-        // TODO code application logic here
+        
+        Scanner s=new Scanner(System.in);
+        
+        System.out.println("Enter Radious Value ");
+        float radious=s.nextFloat();
+        
+        float result=doAreaCircle(radious);
+        
+        System.out.println(result+"");
+                
+        
     }
     
+    
+    public static float doAreaCircle( float radious){
+    
+        double result;
+        
+        result= (Math.PI*Math.pow(radious, 2));
+        return (float) result;
+    }
 }
