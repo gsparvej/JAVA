@@ -22,7 +22,7 @@ public class MethodRadiousValueCircle {
     }
     
     
-    public static float doAreaCircle( float radious){
+    public static float doAreaCircle( float radious){   // its called METHOD //****
     
         double result;
         
