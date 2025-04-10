@@ -50,6 +50,8 @@ public class LearnMethod {
     }
     
     // odd even by method //****start ****
+    
+    
     public static String findOddEven(int num) {
 
         String result = "";
