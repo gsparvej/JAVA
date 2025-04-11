@@ -169,25 +169,22 @@ public class PracticeHome {
             
             // 1-50 sum 
             
-            Scanner s=new Scanner(System.in);
-            System.out.println("Enter no to sum 1 to it ");
-            System.out.println(" How Much You Want ");
-            int n=s.nextInt();
-            int sum=0;
-            int count = 0;
-            int i;
-            
-            for ( i=1;i<n;i++){
-                sum+=i;
-//                
-//                count++;
-                System.out.print(i+"+");
-            }
-            sum+=i;
-            count++;
-            System.out.print(i+"");
-//            System.out.println("----");
-            System.out.print( " = "+sum+"\n");
+//            Scanner s=new Scanner(System.in);
+//            System.out.println("Enter no to sum 1 to it ");
+//            System.out.println(" How Much You Want ");
+//            int n=s.nextInt();
+//            int sum=0;
+//            int count = 0;
+//            int i;
+//            
+//            for ( i=1;i<n;i++){
+//                sum+=i;
+//                System.out.print(i+"+");
+//            }
+//            sum+=i;
+//            count++;
+//            System.out.print(i+"");
+//            System.out.print( " = "+sum+"\n");
             
             
             
@@ -234,6 +231,26 @@ public class PracticeHome {
 //            }
             
             
+
+
+
+            Scanner s=new Scanner(System.in);
+            System.out.println("Enter no to Multiplication 1 to it ");
+            System.out.println(" How Much You Want ");
+            int n=s.nextInt();
+            int mul=1;
+            int count = 0;
+            int i;
+            
+            for ( i=1;i<n;i++){
+                mul*=i;
+                System.out.print(i+"*");
+                //System.out.println("");
+            }
+            mul*=i;
+            count++;
+            System.out.print(i+"");
+            System.out.print( " = "+mul+"\n");
             
        
             
