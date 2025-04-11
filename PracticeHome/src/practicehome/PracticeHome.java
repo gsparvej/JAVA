@@ -190,29 +190,47 @@ public class PracticeHome {
             
             
             
+            // show traiangle type star *****  start// 
             
-            
-            Scanner s=new Scanner(System.in);
-            System.out.println("Enter no to sum 1 to it ");
-            System.out.println(" How Much You Want ");
-            int n=s.nextInt();
-            int sum=0;
-            int count = 0;
-            int i;
-            
-            for ( i=0;i<=n;i++){
-                
-                for(int j=1;j<=i;j++){
-                System.out.print("*");
-                }
-//                sum+=i;
+//            Scanner s=new Scanner(System.in);
+//            System.out.println("Enter no to sum 1 to it ");
+//            System.out.println(" How Much You Want ");
+//            int n=s.nextInt();
+//            int sum=0;
+//            int count = 0;
+//            int i;
+//            
+//            for ( i=0;i<=n;i++){
 //                
-//                count++;
-            System.out.println("*");
-                
-            }
+//                for(int j=1;j<=i;j++){
+//                System.out.print("*");
+//                }
+////                sum+=i;
+////                
+////                count++;
+//            System.out.println("*");
+//                
+//            }
 //            System.out.println("----");
 //            System.out.println("sum of=" + sum+"");
+
+
+
+            // Multiplication Table start //*****
+            
+            Scanner s=new Scanner(System.in);
+            System.out.println(" Which Class's Multiplication Table will watch ");
+            int n=s.nextInt();
+            int i;
+            int b=10;
+          
+            
+            
+            for( i=1;i<=b;i++){
+            System.out.println(n+"*"+i+"="+(n*i));
+            }
+            
+            
             
        
             
