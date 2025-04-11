@@ -103,26 +103,47 @@ public class PracticeHome {
         // factorial test/// start *****
         
         
+//        Scanner s=new Scanner(System.in);
+//        
+//        System.out.println(" Enter a number " +"\n"+" To check Factorial ");
+//        
+//        int input =s.nextInt();
+//        int count=1;
+//        long factorial =1;
+//        
+//       if(input<0){
+//           System.out.println(" Please Enter Greater Than Zero ");
+//           input=s.nextInt();
+//           
+//           
+//           
+//            for(int i=1;i<=input;i++){
+//            factorial*=count;
+//            count++;
+//        }
+//       }
+//        System.out.println(factorial+"");
+
+        
+        
+        
+        
+        // chatgpt pb ***  1-100 odd number print//
+        
         Scanner s=new Scanner(System.in);
+        int input=s.nextInt();
         
-        System.out.println(" Enter a number " +"\n"+" To check Factorial ");
-        
-        int input =s.nextInt();
-        int count=1;
-        long factorial =1;
-        
-       if(input<0){
-           System.out.println(" Please Enter Greater Than Zero ");
-           input=s.nextInt();
-           
-           
-           
-            for(int i=1;i<=input;i++){
-            factorial*=count;
+        int count=0;
+        for(int i=1;i<=input;i++){
+            if(i%2==0){
+                 System.out.println(i+" This is Even Number ");
+                 count++;
+            }
             count++;
+        // System.out.println(i+" This is Even Number ");
         }
-       }
-        System.out.println(factorial+"");
+        
+        
                 
             
             
