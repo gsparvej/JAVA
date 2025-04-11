@@ -169,22 +169,22 @@ public class PracticeHome {
             
             // 1-50 sum 
             
-//            Scanner s=new Scanner(System.in);
-//            System.out.println("Enter no to sum 1 to it ");
-//            System.out.println(" How Much You Want ");
-//            int n=s.nextInt();
-//            int sum=0;
-//            int count = 0;
-//            int i;
-//            
-//            for ( i=1;i<=n;i++){
-//                sum+=i;
-//                
-//                count++;
-//                System.out.println(i+"");
-//            }
+            Scanner s=new Scanner(System.in);
+            System.out.println("Enter no to sum 1 to it ");
+            System.out.println(" How Much You Want ");
+            int n=s.nextInt();
+            int sum=0;
+            int count = 0;
+            int i;
+            
+            for ( i=1;i<=n;i++){
+                sum+=i;
+                
+                count++;
+                System.out.print(i+"+");
+            }
 //            System.out.println("----");
-//            System.out.println("sum of=" + sum+"");
+            System.out.print( "= "+sum+"\n");
             
             
             
@@ -218,17 +218,17 @@ public class PracticeHome {
 
             // Multiplication Table start //*****
             
-            Scanner s=new Scanner(System.in);
-            System.out.println(" Which Class's Multiplication Table will watch ");
-            int n=s.nextInt();
-            int i;
-            int b=10;
-          
-            
-            
-            for( i=1;i<=b;i++){
-            System.out.println(n+"*"+i+"="+(n*i));
-            }
+//            Scanner s=new Scanner(System.in);
+//            System.out.println(" Which Class's Multiplication Table will watch ");
+//            int n=s.nextInt();
+//            int i;
+//            int b=10;
+//          
+//            
+//            
+//            for( i=1;i<=b;i++){
+//            System.out.println(n+"*"+i+"="+(n*i));
+//            }
             
             
             
