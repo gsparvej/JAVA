@@ -1,6 +1,7 @@
 
 package practicehome;
 
+import static java.lang.Character.digit;
 import java.util.Scanner;
 
 public class PracticeHome {
@@ -232,28 +233,59 @@ public class PracticeHome {
             
             
 
+            // see ***** start///********
+
+//            Scanner s=new Scanner(System.in);
+//            System.out.println("Enter no to Multiplication 1 to it ");
+//            System.out.println(" How Much You Want ");
+//            int n=s.nextInt();
+//            int mul=1;
+//            int count = 0;
+//            int i;
+//            
+//            for ( i=1;i<n;i++){
+//                mul*=i;
+//                System.out.print(i+"*");
+//                //System.out.println("");
+//            }
+//            mul*=i;
+//            count++;
+//            System.out.print(i+"");
+//            System.out.print( " = "+mul+"\n");
 
 
-            Scanner s=new Scanner(System.in);
-            System.out.println("Enter no to Multiplication 1 to it ");
-            System.out.println(" How Much You Want ");
-            int n=s.nextInt();
-            int mul=1;
-            int count = 0;
-            int i;
-            
-            for ( i=1;i<n;i++){
-                mul*=i;
-                System.out.print(i+"*");
-                //System.out.println("");
-            }
-            mul*=i;
-            count++;
-            System.out.print(i+"");
-            System.out.print( " = "+mul+"\n");
-            
-       
-            
+
+
+//        Scanner s=new Scanner(System.in);
+//        System.out.println("Enter a big number for sum ");
+//        int n=s.nextInt();
+//        int sum=0;
+//        
+//        while(n !=0){
+//        int digit =n%10;
+//        sum+=digit;
+//        n=n/10;
+//            System.out.print(digit+"+");
+//        }
+//        
+//        System.out.println("="+sum+"");
+        
+        
+        
+        
+        
+        
+        Scanner s=new Scanner(System.in);
+        System.out.println("Enter a big number for sum ");
+        int n=s.nextInt();
+         // int sum=0;
+        
+        while(n !=0){
+        int digit =n%10;
+        // sum+=digit;
+        n=n/10;
+            System.out.print(digit+ "");
+        }
                     
             
         

@@ -63,6 +63,14 @@ public class MethodPracticeHome {
         
         
         
+        System.out.println(" Enter A Number to Reverse ");
+        int number=s.nextInt();
+        
+        String reverse=doReverseNumber(number);
+        System.out.println(reverse+"This is Reverse of "+number);
+        
+        
+        
     }
     
     
@@ -243,13 +251,36 @@ public class MethodPracticeHome {
             count++;
         }
        }
-        result=(int) factorial;
+            else{
+                for(int i=1;i<=f;i++){
+            factorial*=count;
+            count++;
+                }
+        
+            }
+            result=(int) factorial;
             
             
             
             return result;
+        }
         
         
+        
+        
+        public static String doReverseNumber(int number){
+        
+            String result=" " ;
+            
+            
+            while(number !=0){
+        int digit =number%10;
+        // sum+=digit;
+        number=number/10;
+             result=digit+ "";
+        }
+            return  result;
+            
         
         }
     
