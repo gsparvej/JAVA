@@ -130,23 +130,93 @@ public class PracticeHome {
         
         // chatgpt pb ***  1-100 odd number print//
         
-        Scanner s=new Scanner(System.in);
-        int input=s.nextInt();
-        
-        int count=0;
-        for(int i=1;i<=input;i++){
-            if(i%2==0){
-                 System.out.println(i+" This is Even Number ");
-                 count++;
-            }
-           
-        
-        }
+//        Scanner s=new Scanner(System.in);
+//        int input=s.nextInt();
+//        
+//        int count=0;
+//        for(int i=1;i<=input;i++){
+//            if(i%2==0){
+//                 System.out.println(i+" This is Even Number ");
+//                 count++;
+//            }
+//           
+//        
+//        }
         
         
                 
             
+            // using while loop 
             
+//            Scanner s= new Scanner(System.in);
+//            
+//            System.out.println("Enter a number to show all even number in it ");
+//            
+//            int n=s.nextInt();
+//            int count=1;
+//            
+//            while(count<=n){
+//              
+//            
+//                    if(count%2==1){
+//                    count++;
+//                    continue;
+//                    }
+//                    System.out.println(count+" This is Even number ");
+//                    count++;
+//            }
+            
+            
+            // 1-50 sum 
+            
+//            Scanner s=new Scanner(System.in);
+//            System.out.println("Enter no to sum 1 to it ");
+//            System.out.println(" How Much You Want ");
+//            int n=s.nextInt();
+//            int sum=0;
+//            int count = 0;
+//            int i;
+//            
+//            for ( i=1;i<=n;i++){
+//                sum+=i;
+//                
+//                count++;
+//                System.out.println(i+"");
+//            }
+//            System.out.println("----");
+//            System.out.println("sum of=" + sum+"");
+            
+            
+            
+            
+            
+            
+            
+            Scanner s=new Scanner(System.in);
+            System.out.println("Enter no to sum 1 to it ");
+            System.out.println(" How Much You Want ");
+            int n=s.nextInt();
+            int sum=0;
+            int count = 0;
+            int i;
+            
+            for ( i=0;i<=n;i++){
+                
+                for(int j=1;j<=i;j++){
+                System.out.print("*");
+                }
+//                sum+=i;
+//                
+//                count++;
+            System.out.println("*");
+                
+            }
+//            System.out.println("----");
+//            System.out.println("sum of=" + sum+"");
+            
+       
+            
+                    
             
         
     }
