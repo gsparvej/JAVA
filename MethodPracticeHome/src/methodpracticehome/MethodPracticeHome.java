@@ -1,20 +1,77 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
- */
+
 package methodpracticehome;
 
-/**
- *
- * @author MY COMPUTER
- */
+import java.util.Scanner;
+
+
 public class MethodPracticeHome {
 
-    /**
-     * @param args the command line arguments
-     */
+    
     public static void main(String[] args) {
-        // TODO code application logic here
+        
+        Scanner s=new Scanner(System.in);
+        System.out.println(" Enter a Number ");
+        int input=s.nextInt();
+        
+        
+        String oddEven=findOddEven(input);
+        System.out.println(oddEven+ "");
+        
+        
+        
+        //  positive negative zero 
+        
+        System.out.println(" To check Its Negative / positive or zero ");
+        System.out.println("Enter a Number ");
+        float n=s.nextFloat();
+        
+        String positiveNegativ=findNegativePositiveZero((int) n);
+        System.out.println(positiveNegativ+"");
+        
+        
+        
     }
+    
+    
+    public static String findOddEven(int input){
+    
+    String result;
+    
+    if(input%2==0){
+            result=input+" it is an Even number";
+        }
+        else{
+            result=input+" it is an Odd number";
+        }
+    
+    
+    return result;
+    
+    }
+    
+    
+    //positive negative zero find with METHOD//****** start****
+    
+    public static String findNegativePositiveZero(int n){
+    
+    String output;
+    
+    if(n>0){
+        output= n+" It is Positive Number ";
+    }
+    else if(n<0){
+        output= n+" It is Negative Number ";
+    }
+    else {
+        output= n+" It is a Zero Number ";
+    }
+    
+    
+    return output;
+    
+    
+    }
+    
+    
     
 }
