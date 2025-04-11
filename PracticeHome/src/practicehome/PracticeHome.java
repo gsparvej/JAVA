@@ -139,8 +139,8 @@ public class PracticeHome {
                  System.out.println(i+" This is Even Number ");
                  count++;
             }
-            count++;
-        // System.out.println(i+" This is Even Number ");
+           
+        
         }
         
         
