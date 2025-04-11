@@ -96,10 +96,52 @@ public class MethodPracticeHome {
     public static String doDateMonthYear(int day, int month, int year){
     
     String result;
+    String newMonth;
     
     
+        switch (month) {
+            case 1:
+                newMonth="January";
+                break;
+                case 2:
+                newMonth="February";
+                break;
+                case 3:
+                newMonth="March";
+                break;
+                case 4:
+                newMonth="April";
+                break;
+                case 5:
+                newMonth="May";
+                break;
+                case 6:
+                newMonth="June";
+                break;
+                case 7:
+                newMonth="July";
+                break;
+                case 8:
+                newMonth="August";
+                break;
+                case 9:
+                newMonth="September";
+                break;
+                case 10:
+                newMonth="October";
+                break;
+                case 11:
+                newMonth="Novenber";
+                break;
+                case 12:
+                newMonth="December";
+                break;
+            default:
+                throw new AssertionError();
+        }
     
-    result=day+","+month+" ,"+year;
+    
+    result=newMonth+" "+day+" ," +year;
     
     return result;
     
