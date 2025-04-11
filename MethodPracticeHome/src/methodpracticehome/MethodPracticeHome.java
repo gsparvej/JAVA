@@ -45,6 +45,16 @@ public class MethodPracticeHome {
         
         
         
+        
+        System.out.println(" To Check Leap Year ");
+        System.out.println("Enter a Year :");
+        int a=s.nextInt();
+        
+        String leapYear=findLeapYear(a);
+        System.out.println(leapYear+"");
+        
+        
+        
     }
     
     
@@ -91,7 +101,7 @@ public class MethodPracticeHome {
     
     
     
-    
+    // getDate//****** start******
     
     public static String doDateMonthYear(int day, int month, int year){
     
@@ -173,6 +183,39 @@ public class MethodPracticeHome {
     
     
     }
+    
+    
+    // find Leap Year//*** start*****
+    
+    public static String findLeapYear(int a){
+    
+        String submit;
+        
+        
+        if(a%4==0 && !(a%100==0)){
+            submit=a+" is a Leap Year";
+        }
+        else if(a%400==0){
+            submit=a+" is a Leap Year";
+        }
+        else{
+            submit=a+" is Not a Leap Year";
+        }
+        
+        
+        return submit;
+        
+        
+    
+    }
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     
