@@ -87,15 +87,43 @@ public class PracticeHome {
 //                System.out.println(result+"");
            
             
-            Scanner s=new Scanner(System.in);
-            System.out.println(" Enter Number ");
-            int input=s.nextInt();
-            System.out.println(" Enter Text  ");
-            String  text=s.next();
-           for(int i=1;i<=input;i++){
+//            Scanner s=new Scanner(System.in);
+//            System.out.println(" Enter Number ");
+//            int input=s.nextInt();
+//            System.out.println(" Enter Text  ");
+//            String  text=s.next();
+//           for(int i=1;i<=input;i++){
+//           
+//               System.out.println(text);
+//           }
+
+
+
+
+        // factorial test/// start *****
+        
+        
+        Scanner s=new Scanner(System.in);
+        
+        System.out.println(" Enter a number " +"\n"+" To check Factorial ");
+        
+        int input =s.nextInt();
+        int count=1;
+        long factorial =1;
+        
+       if(input<0){
+           System.out.println(" Please Enter Greater Than Zero ");
+           input=s.nextInt();
            
-               System.out.println(text);
-           }
+           
+           
+            for(int i=1;i<=input;i++){
+            factorial*=count;
+            count++;
+        }
+       }
+        System.out.println(factorial+"");
+                
             
             
             

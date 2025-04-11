@@ -55,6 +55,14 @@ public class MethodPracticeHome {
         
         
         
+        System.out.println(" Enter a number to find Factorial ");
+        int f=s.nextInt();
+        
+        int factorial=doFactorial(f);
+        System.out.println(factorial+"");
+        
+        
+        
     }
     
     
@@ -204,10 +212,46 @@ public class MethodPracticeHome {
         
         
         return submit;
-        
-        
     
     }
+    
+    
+    
+    
+     /// Factorial /// start ******
+        
+        
+        
+        public static int doFactorial(int f){
+            
+            int result ;
+            int count=1;
+        long factorial =1;
+            
+            
+            
+            
+            if(f<0){
+           System.out.println(" Please Enter Greater Than Zero ");
+           Scanner s=new Scanner(System.in);
+           f=s.nextInt();
+           
+           
+           
+            for(int i=1;i<=f;i++){
+            factorial*=count;
+            count++;
+        }
+       }
+        result=(int) factorial;
+            
+            
+            
+            return result;
+        
+        
+        
+        }
     
     
     
