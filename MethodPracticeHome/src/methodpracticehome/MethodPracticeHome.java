@@ -30,6 +30,21 @@ public class MethodPracticeHome {
         
         
         
+        
+        System.out.println("Enter Day ");
+        int day=s.nextInt();
+        
+        System.out.println(" Enter Month ");
+        int month=s.nextInt();
+        
+        System.out.println(" Enter Year ");
+        int year=s.nextInt();
+        
+        String view=doDateMonthYear(day, month, year);
+        System.out.println(view+"");
+        
+        
+        
     }
     
     
@@ -68,6 +83,25 @@ public class MethodPracticeHome {
     
     
     return output;
+    
+    
+    }
+    
+    
+    
+    
+    
+    
+    
+    public static String doDateMonthYear(int day, int month, int year){
+    
+    String result;
+    
+    
+    
+    result=day+","+month+" ,"+year;
+    
+    return result;
     
     
     }
