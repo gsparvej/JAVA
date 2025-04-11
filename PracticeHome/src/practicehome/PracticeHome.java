@@ -177,14 +177,17 @@ public class PracticeHome {
             int count = 0;
             int i;
             
-            for ( i=1;i<=n;i++){
+            for ( i=1;i<n;i++){
                 sum+=i;
-                
-                count++;
+//                
+//                count++;
                 System.out.print(i+"+");
             }
+            sum+=i;
+            count++;
+            System.out.print(i+"");
 //            System.out.println("----");
-            System.out.print( "= "+sum+"\n");
+            System.out.print( " = "+sum+"\n");
             
             
             
