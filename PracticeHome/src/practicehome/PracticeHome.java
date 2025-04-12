@@ -256,36 +256,36 @@ public class PracticeHome {
 
 
 
-//        Scanner s=new Scanner(System.in);
-//        System.out.println("Enter a big number for sum ");
-//        int n=s.nextInt();
-//        int sum=0;
-//        
-//        while(n !=0){
-//        int digit =n%10;
-//        sum+=digit;
-//        n=n/10;
-//            System.out.print(digit+"+");
-//        }
-//        
-//        System.out.println("="+sum+"");
-        
-        
-        
-        
-        
-        
         Scanner s=new Scanner(System.in);
         System.out.println("Enter a big number for sum ");
         int n=s.nextInt();
-         // int sum=0;
+        int sum=0;
         
         while(n !=0){
         int digit =n%10;
-        // sum+=digit;
+        sum+=digit;
         n=n/10;
-            System.out.print(digit+ "");
+            System.out.print(digit+"+");
         }
+        
+        System.out.println("="+sum+"");
+        
+        
+        
+        
+        
+        
+//        Scanner s=new Scanner(System.in);
+//        System.out.println("Enter a big number for sum ");
+//        int n=s.nextInt();
+//         // int sum=0;
+//        
+//        while(n !=0){
+//        int digit =n%10;
+//        // sum+=digit;
+//        n=n/10;
+//            System.out.print(digit+ "");
+//        }
                     
             
         
