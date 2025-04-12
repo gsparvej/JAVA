@@ -25,6 +25,26 @@ public class LearnMethodOverLoading {
         sum(myArray);
         
         
+        
+        
+        int result1=sum();
+        System.out.println(result1+" fixed value result ");
+        
+        
+        System.out.println("Enter a's value ");
+        int a=s.nextInt();
+        int result2=sum(a); // this is method called//
+        System.out.println(result2+"");
+        
+        System.out.println(" Enter b's value ");
+        int b =s.nextInt();
+        System.out.println(" Enter c's value ");
+        int c=s.nextInt();
+        
+        int result3=sum(b, c);
+        System.out.println(result3+"");
+        
+        
     }
     
     
@@ -38,10 +58,10 @@ public class LearnMethodOverLoading {
     return a+20;
     
     }
-    public static int sum(int a,int b){
+    public static int sum(int b,int c){
        
     
-    return a+b;
+    return b+c;
     
     }
     
