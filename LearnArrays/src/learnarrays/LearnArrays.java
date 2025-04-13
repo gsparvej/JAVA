@@ -33,7 +33,12 @@ public class LearnArrays {
             // dui vabei kora jay //*****
 
         String names[]={"parvej","rakib","eiasin","rahmat","atik"};
-        int marks[]={65,75,85,95,70};
+       int marks[]={65,75,85,95,70};
+        
+        
+        
+        
+        
         
         
         for(int i=0;i<=4;i++){
