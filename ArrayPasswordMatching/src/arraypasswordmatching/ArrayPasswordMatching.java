@@ -27,9 +27,14 @@ public class ArrayPasswordMatching {
             if(newPass.equals(passwords[j])){
                 System.out.println("welcome");
             }
+            
+            else{
+                System.out.println("Sorry ! try Again later ");
+            }
            
             
         }
+            
             
             
         
