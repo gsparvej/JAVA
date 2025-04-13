@@ -93,26 +93,46 @@ public class PracticeHomeChatgpt {
 //        }
         
 
+
+
+        // Palindrome in words start // ******* 
             
-              Scanner s=new Scanner(System.in);
-              System.out.println(" Enter Name to Palidrome ");
-              String name=s.nextLine();
-              
-              name=name.toLowerCase();
-              String reverse="";
-              
-              for(int i=name.length()-1;i>=0;i--){
-              reverse+=name.charAt(i);
-                  //System.out.print(reverse+"");
-              }
-              System.out.println(reverse+"");
-              
-              if(name.equals(reverse)){
-                  System.out.println(name+" Its Palindrome is "+reverse);
-              }
-              else{
-              System.out.println(name+" Its Not A Palindrome " +reverse);
-              }
+//              Scanner s=new Scanner(System.in);
+//              System.out.println(" Enter Name to Palidrome ");
+//              String name=s.nextLine();
+//              
+//              name=name.toLowerCase();
+//              String reverse="";
+//              
+//              for(int i=name.length()-1;i>=0;i--){
+//              reverse+=name.charAt(i);
+//                  //System.out.print(reverse+"");
+//              }
+//              System.out.println(reverse+"");
+//              
+//              if(name.equals(reverse)){
+//                  System.out.println(name+" Its Palindrome is "+reverse);
+//              }
+//              else{
+//              System.out.println(name+" Its Not A Palindrome " +reverse);
+//              }
+
+
+
+
+//            Scanner s=new Scanner(System.in);
+//            System.out.println("Enter a Number ");
+//            int a =s.nextInt();
+//            int c;
+//            int count=0;
+//            for(int i=1;i<=a;i++){
+//                if(i==a){
+//                count++;
+//                continue;
+//                }
+//                System.out.println(i+"");
+//                count++;
+//            }
             
         
     }
