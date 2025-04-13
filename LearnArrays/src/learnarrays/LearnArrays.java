@@ -38,7 +38,7 @@ public class LearnArrays {
         
         for(int i=0;i<=4;i++){
         
-            System.out.println(names[i]+" = "+marks[i]);
+            System.out.println(i+1+". "+names[i]+" = "+marks[i]);
             
         }
         
