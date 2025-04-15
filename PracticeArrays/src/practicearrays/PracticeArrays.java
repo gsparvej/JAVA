@@ -23,11 +23,25 @@ public class PracticeArrays {
             if(name.equalsIgnoreCase(names[i])){
 
                 System.out.println("Enter Password ");
+                String userPassword=s.next();
+                int j=i;
+                
+                if(userPassword.equalsIgnoreCase(passwords[j])){
+                    
+                    System.out.println(" Welcome to your page ");
+                
+                }
+                else{
+                    System.out.println(" It's wrong \"Try Again\" ");
+                }
+                
+              
+                
+                
                 
             }
-            else{
-                System.out.println("No Matched ");
-            }
+            
+            
         
         }
         
