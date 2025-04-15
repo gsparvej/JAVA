@@ -34,6 +34,9 @@ public class ArrayPasswordMatching {
            
             
         }
+            else{
+                System.out.println("SORRY ! Your Username is unmatched .Try Again later");
+            }
             
             
             
