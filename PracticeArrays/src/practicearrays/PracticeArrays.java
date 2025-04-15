@@ -1,6 +1,8 @@
 
 package practicearrays;
 
+import java.util.Scanner;
+
 
 public class PracticeArrays {
 
@@ -11,14 +13,39 @@ public class PracticeArrays {
         int[] marks={87,89,56,87,70,90,75};
         
         
+        Scanner s=new Scanner(System.in);
+        System.out.println("Enter A Name ");
+        String name=s.next();
         
         
+        for(int i=0;i<names.length;i++){
+            
+            if(name.equalsIgnoreCase(names[i])){
+
+                System.out.println("Enter Password ");
+                
+            }
+            else{
+                System.out.println("No Matched ");
+            }
         
-        for(int i=0;i<=6;i++){
-        
-        System.out.println("His name is "+names[i]+" got "+marks[i]+" marks.");
-            System.out.println("His name is "+names[i]+" his Password is "+passwords[i]);
         }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+//        for(int i=0;i<=6;i++){
+//           System.out.println("His name is "+names[i]+" got "+marks[i]+" marks.");
+//           System.out.println("His name is "+names[i]+" his Password is "+passwords[i]);
+//        }
     }
     
 }
