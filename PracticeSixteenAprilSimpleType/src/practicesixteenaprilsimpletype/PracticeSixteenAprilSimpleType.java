@@ -106,37 +106,57 @@ public class PracticeSixteenAprilSimpleType {
         // guess number random.math// start****4
         
         
-        int randomNumber=(int) (Math.random()*10);
-        System.out.println(randomNumber+"");
-        
-//        System.out.println(" Enter Your Guessing Number ");
-//        int guessNumber=s.nextInt();
-        int count=0;
-        boolean isGuessed= false;
-        
-        while(count<3){
-            System.out.println("Enter Your Guess Number ");
-            int userInput=s.nextInt();
-            
-            if(userInput==randomNumber){
-                System.out.println("You Win");
-                isGuessed=true;
-                break;
-                
-            }
-            else if(userInput>randomNumber){
-                System.out.println("Too High !!! ");
-                
-            }
-            else {
-                System.out.println(" Too Low !!! ");
-            }
-            count++;
-        }
-        if(!isGuessed){
-            System.out.println("Better Luck Next Time , Thank You ! ");
-        }
+//        int randomNumber=(int) (Math.random()*10);
+//        System.out.println(randomNumber+"");
+//        
+////        System.out.println(" Enter Your Guessing Number ");
+////        int guessNumber=s.nextInt();
+//        int count=0;
+//        boolean isGuessed= false;
+//        
+//        while(count<3){
+//            System.out.println("Enter Your Guess Number ");
+//            int userInput=s.nextInt();
+//            
+//            if(userInput==randomNumber){
+//                System.out.println("You Win");
+//                isGuessed=true;
+//                break;
+//                
+//            }
+//            else if(userInput>randomNumber){
+//                System.out.println("Too High !!! ");
+//                
+//            }
+//            else {
+//                System.out.println(" Too Low !!! ");
+//            }
+//            count++;
+//        }
+//        if(!isGuessed){
+//            System.out.println("Better Luck Next Time , Thank You ! ");
+//        }
 
+
+
+
+
+            System.out.println("Enter a Number to check its Prime or Not ");
+            int p=s.nextInt();
+            int count=0;
+            
+            for(int i=1;i<=p;i++){
+            if(p%i==0){
+                count++;
+            }
+            }
+            if(count==2){
+                System.out.println(p+" Its Prime ");
+            }
+            else{
+                System.out.println(p+" Its Not a Prime ");
+            }
+            
         
         
         
