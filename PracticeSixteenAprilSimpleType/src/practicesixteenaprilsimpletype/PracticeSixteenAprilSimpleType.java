@@ -139,23 +139,50 @@ public class PracticeSixteenAprilSimpleType {
 
 
 
+// Prime Number check start/// ***** 5
 
 
-            System.out.println("Enter a Number to check its Prime or Not ");
-            int p=s.nextInt();
-            int count=0;
-            
-            for(int i=1;i<=p;i++){
-            if(p%i==0){
-                count++;
+
+//            System.out.println("Enter a Number to check its Prime or Not ");
+//            int p=s.nextInt();
+//            int count=0;
+//            
+//            for(int i=1;i<=p;i++){
+//            if(p%i==0){
+//                count++;
+//            }
+//            }
+//            if(count==2){
+//                System.out.println(p+" Its Prime ");
+//            }
+//            else{
+//                System.out.println(p+" Its Not a Prime ");
+//            }
+
+
+
+        System.out.println("Enter a Number ");
+        int input=s.nextInt();
+        
+        
+        for(int i=2;i<=input;i++){
+        boolean isPrime=true;
+        
+        
+        for(int j=2;j<=Math.sqrt(i);j++){
+        
+            if(i%j==0){
+            isPrime=false;
+            break;
             }
-            }
-            if(count==2){
-                System.out.println(p+" Its Prime ");
-            }
-            else{
-                System.out.println(p+" Its Not a Prime ");
-            }
+        }
+        
+        
+        
+        if(isPrime){
+            System.out.print(i+" ");
+        }
+        }
             
         
         
