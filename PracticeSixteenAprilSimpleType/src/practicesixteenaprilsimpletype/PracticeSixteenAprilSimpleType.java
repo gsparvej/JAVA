@@ -161,6 +161,10 @@ public class PracticeSixteenAprilSimpleType {
 
 
 
+
+// 1-joto porjonto prime number dekhte chai //start ***** 6
+
+
         System.out.println("Enter a Number ");
         int input=s.nextInt();
         
