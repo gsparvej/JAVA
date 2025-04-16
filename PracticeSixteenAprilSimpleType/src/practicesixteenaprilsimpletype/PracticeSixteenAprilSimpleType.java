@@ -86,23 +86,57 @@ public class PracticeSixteenAprilSimpleType {
 
         //factorial using do while loop// start**** 3 or 
         
-        System.out.println(" Enter a Number ");
-        int n=s.nextInt();
-        int count=1;
-        int factorial=1;
+//        System.out.println(" Enter a Number ");
+//        int n=s.nextInt();
+//        int count=1;
+//        int factorial=1;
+//        
+//        if (n<0){
+//            System.out.println("Enter positive or Greater Than zero value ");
+//            
+//            do{
+//            factorial*=count;
+//            count++;
+//            }
+//            while(count<=n);
+//            System.out.println(factorial+"");
+//            System.out.println(count+"");
+//        }
         
-        if (n<0){
-            System.out.println("Enter positive or Greater Than zero value ");
+        // guess number random.math// start****4
+        
+        
+        int randomNumber=(int) (Math.random()*10);
+        System.out.println(randomNumber+"");
+        
+//        System.out.println(" Enter Your Guessing Number ");
+//        int guessNumber=s.nextInt();
+        int count=0;
+        boolean isGuessed= false;
+        
+        while(count<3){
+            System.out.println("Enter Your Guess Number ");
+            int userInput=s.nextInt();
             
-            do{
-            factorial*=count;
-            count++;
+            if(userInput==randomNumber){
+                System.out.println("You Win");
+                isGuessed=true;
+                break;
+                
             }
-            while(count<=n);
-            System.out.println(factorial+"");
-            System.out.println(count+"");
+            else if(userInput>randomNumber){
+                System.out.println("Too High !!! ");
+                
+            }
+            else {
+                System.out.println(" Too Low !!! ");
+            }
+            count++;
         }
-        
+        if(!isGuessed){
+            System.out.println("Better Luck Next Time , Thank You ! ");
+        }
+
         
         
         
