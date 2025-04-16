@@ -18,6 +18,15 @@ public class FactorialUsingDoWhile {
         
         if(input<0){
             System.out.println(" Enter Positive Number ");
+            
+            do{
+            factorial*=count;
+            count++;
+            }
+            
+            while(count<=input);
+            
+            System.out.println(factorial+""); // etate ektu pb ase , solve krte hbe 
         }
         else{
             do{
