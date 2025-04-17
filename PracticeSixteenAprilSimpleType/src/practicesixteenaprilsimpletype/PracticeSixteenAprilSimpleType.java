@@ -196,54 +196,83 @@ public class PracticeSixteenAprilSimpleType {
         
         
         
-        String[] names={"Shimul","Imran","Masud","Istiaque","Atik","Reja","Rakib","Eiasin"};
-        String[] password={"123","234","132","432","543","567","876","904"};
-        
-        System.out.println(" Enter User Name ");
-        String userName=s.next();
-       
-        
-        for(int i=0;i<names.length;i++){
-        
-            if(userName.equalsIgnoreCase(names[i])){
-                System.out.println(" Enter Your Password ");
-                String newPassword=s.next();
-                int j=i;
-                
-                
-                if(newPassword.equals(password[j])){
-                    System.out.println("Welcome To Your Page ");
-                   
-                }
-                
-                else{
-                    System.out.println("Sorry, Your Password is not matched ");
-                }
-                
-            }
-             
-            
-             
-            
-            
-        }
-        for(int i=0;i<names.length;i++){
-            
-        if(! userName.equalsIgnoreCase(names[i])){
-                
-            }
-        
-        }
-        System.out.println(" User Name is not Matched , please Try Again ");
+//        String[] names={"Shimul","Imran","Masud","Istiaque","Atik","Reja","Rakib","Eiasin"};
+//        String[] password={"123","234","132","432","543","567","876","904"};
+//        
+//        System.out.println(" Enter User Name ");
+//        String userName=s.next();
+//       
+//        
+//        for(int i=0;i<names.length;i++){
+//        
+//            if(userName.equalsIgnoreCase(names[i])){
+//                System.out.println(" Enter Your Password ");
+//                String newPassword=s.next();
+//                int j=i;
+//                boolean status=true;
+//                
+//                
+//                if(newPassword.equals(password[j])){
+//                    System.out.println("Welcome To Your Page ");
+//                   
+//                }
+//                
+//                else{
+//                    System.out.println("Sorry, Your Password is not matched ");
+//                    status=false;
+//                }
+//                
+//            }
+//             
+//            
+//             
+//            
+//            
+//        }
+//        for(int i=0;i<names.length;i++){
+//            
+//        if(! userName.equalsIgnoreCase(names[i])){
+//                
+//            }
+//        
+//        }
+//        System.out.println(" User Name is not Matched , please Try Again ");
 
 
         // find large number from array //start***** 8
         
         
+//        int[] numbers={23,54,57,75,89,88,49,90,21};
+//        int indexOfMax=0;
+//        int max=numbers[0];
+//        
+//        for(int i=1;i<numbers.length;i++){
+//        if(numbers[i]>max){
+//        max=numbers[i];
+//        indexOfMax=i;
+//        }
+//        }
+//        System.out.println(max+"");
+        
+
+
+
+        // find minimum number from array start***** 9
         
         
+        int[] numbers={23,54,57,75,89,88,49,90,21};
+        int min=numbers[0];
+        int indexOfMin=0;
         
-        
+        for(int i=1;i<numbers.length;i++){
+            if(numbers[i]<min){
+            min=numbers[i];
+            indexOfMin=i;
+            }
+            System.out.print(min+" ");
+        }
+        System.out.println("----------");
+        System.out.println(min+"");
     }
     
 }
