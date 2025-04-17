@@ -25,8 +25,8 @@ public class FindMaxMinUsingMethod {
     
         Scanner s=new Scanner(System.in);
 //        System.out.println("Enter Limit ");
-        int n=s.nextInt();
-        int[] numbers=new int[n];
+       // int n=s.nextInt();
+        int[] numbers=new int[limit];
         int maxNumber=0;            // sir evabe kore dise ....
         int minNumber=999999999;
         int result = 0;
