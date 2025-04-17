@@ -15,7 +15,7 @@ public class FindMaxAndMinNumberUsingArray {
         System.out.println("Enter Limit ");
         int n=s.nextInt();
         int[] numbers=new int[n];
-        int maxNumber=0;
+        int maxNumber=0;            // sir evabe kore dise ....
         int minNumber=999999999;
 //        System.out.println(numbers.toString()+" ");
         
