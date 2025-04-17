@@ -196,6 +196,34 @@ public class PracticeSixteenAprilSimpleType {
         
         
         
+        String[] names={"Shimul","Imran","Masud","Istiaque","Atik","Reja","Rakib","Eiasin"};
+        String[] password={"123","234","132","432","543","567","876","904"};
+        
+        System.out.println(" Enter User Name ");
+        String userName=s.next();
+        
+        for(int i=0;i<names.length;i++){
+        
+            if(userName.equalsIgnoreCase(names[i])){
+                System.out.println(" Enter Your Password ");
+                String newPassword=s.next();
+                int j=i;
+                
+                if(newPassword.equals(password[j])){
+                    System.out.println("Welcome To Your Page ");
+                }
+                else{
+                    System.out.println("Sorry, Your Password is not matched ");
+                }
+                
+            }
+            
+            else{
+                System.out.println(" User Name is not Matched , please Try Again ");
+            }
+            
+            
+        }
         
         
         
