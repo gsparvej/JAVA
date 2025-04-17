@@ -295,27 +295,45 @@ public class PracticeSixteenAprilSimpleType {
 
             // swaping 3 digits start***** 11
             
-            int a=10;
-            int b=20;
-            int c=30;
-            
-            System.out.print(a+" ");
-            System.out.print(b+" ");
-            System.out.println(c+" ");
-            
-            int temp1=a;
-            int temp2=b;
-            
-            a=c;
-            c=b;
-            b=temp1;
-            
-            
-            
-            System.out.print(a+" ");
-            System.out.print(b+" ");
-            System.out.print(c+" ");
+//            int a=10;
+//            int b=20;
+//            int c=30;
+//            
+//            System.out.print(a+" ");
+//            System.out.print(b+" ");
+//            System.out.println(c+" ");
+//            
+//            int temp1=a;
+//            int temp2=b;
+//            
+//            a=c;
+//            c=b;
+//            b=temp1;
+//            
+//            
+//            
+//            System.out.print(a+" ");
+//            System.out.print(b+" ");
+//            System.out.print(c+" ");
        
+
+
+            // sum of array index start //****** 12
+            
+            int[] numbers={23,54,57,75,89,88,49,90,21};
+            int sum=0;
+            
+            for(int i=0;i<numbers.length;i++){
+            sum+=numbers[i];
+                System.out.print(numbers[i]+"+");
+            }
+            System.out.print("="+sum+"\n");
+            
+            
+            
+
+
+
     }
     
 }
