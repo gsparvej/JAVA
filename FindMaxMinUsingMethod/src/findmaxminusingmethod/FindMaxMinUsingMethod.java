@@ -12,8 +12,8 @@ public class FindMaxMinUsingMethod {
         
         Scanner s=new Scanner(System.in);
         System.out.println("Enter Your Limit ");
-        int limit = 0;
-//        int limit=s.nextInt();
+       
+        int limit=s.nextInt();
         int finale=findMaxMin(limit);
         System.out.println(finale+"");
         
@@ -51,8 +51,8 @@ public class FindMaxMinUsingMethod {
             result=minNumber;
             }
         }
-        System.out.println(" Max Number "+maxNumber);
-        System.out.println(" Min Number "+minNumber);
+       // System.out.println(" Max Number "+maxNumber);
+        //System.out.println(" Min Number "+minNumber);
     
     return result;
     }
