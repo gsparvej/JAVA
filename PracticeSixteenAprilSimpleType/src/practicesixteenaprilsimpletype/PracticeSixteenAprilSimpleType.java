@@ -201,6 +201,7 @@ public class PracticeSixteenAprilSimpleType {
         
         System.out.println(" Enter User Name ");
         String userName=s.next();
+        boolean status=true;
         
         for(int i=0;i<names.length;i++){
         
@@ -208,21 +209,30 @@ public class PracticeSixteenAprilSimpleType {
                 System.out.println(" Enter Your Password ");
                 String newPassword=s.next();
                 int j=i;
+                status=true;
                 
                 if(newPassword.equals(password[j])){
                     System.out.println("Welcome To Your Page ");
+                    status=false;
                 }
+                
                 else{
                     System.out.println("Sorry, Your Password is not matched ");
                 }
                 
             }
+            continue;
             
-            else{
+             
+            
+            
+        }
+        for(int i=0;i<names.length;i++){
+            
+        if(! userName.equalsIgnoreCase(names[i])){
                 System.out.println(" User Name is not Matched , please Try Again ");
             }
-            
-            
+        status=false;
         }
         
         
