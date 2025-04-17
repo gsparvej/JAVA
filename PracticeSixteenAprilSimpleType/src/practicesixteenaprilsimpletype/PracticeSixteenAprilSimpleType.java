@@ -201,7 +201,7 @@ public class PracticeSixteenAprilSimpleType {
         
         System.out.println(" Enter User Name ");
         String userName=s.next();
-        boolean status=true;
+       
         
         for(int i=0;i<names.length;i++){
         
@@ -209,11 +209,11 @@ public class PracticeSixteenAprilSimpleType {
                 System.out.println(" Enter Your Password ");
                 String newPassword=s.next();
                 int j=i;
-                status=true;
+                
                 
                 if(newPassword.equals(password[j])){
                     System.out.println("Welcome To Your Page ");
-                    status=false;
+                   
                 }
                 
                 else{
@@ -221,7 +221,7 @@ public class PracticeSixteenAprilSimpleType {
                 }
                 
             }
-            continue;
+             
             
              
             
@@ -230,10 +230,17 @@ public class PracticeSixteenAprilSimpleType {
         for(int i=0;i<names.length;i++){
             
         if(! userName.equalsIgnoreCase(names[i])){
-                System.out.println(" User Name is not Matched , please Try Again ");
+                
             }
-        status=false;
+        
         }
+        System.out.println(" User Name is not Matched , please Try Again ");
+
+
+        // find large number from array //start***** 8
+        
+        
+        
         
         
         
