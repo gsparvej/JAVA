@@ -1,6 +1,8 @@
 
 package practicesixteenaprilsimpletype;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
 import java.util.Scanner;
 
 
@@ -320,16 +322,52 @@ public class PracticeSixteenAprilSimpleType {
 
             // sum of array index start //****** 12
             
-            int[] numbers={23,54,57,75,89,88,49,90,21};
-            int sum=0;
+//            int[] numbers={23,54,57,75,89,88,49,90,21};
+//            int sum=0;
+//            
+//            for(int i=0;i<numbers.length;i++){
+//            sum+=numbers[i];
+//                System.out.print(numbers[i]+"+");
+//            }
+//            System.out.print("="+sum+"\n");
             
-            for(int i=0;i<numbers.length;i++){
-            sum+=numbers[i];
-                System.out.print(numbers[i]+"+");
+            
+        // Multi Dimensional Array // start***** 13
+        
+        
+        
+        int[][] myArrays=new int[3][4];
+        System.out.println(Arrays.deepToString(myArrays));
+        
+        myArrays[0][0]=3;
+        myArrays[0][1]=4;
+        myArrays[0][2]=5;
+        myArrays[0][3]=6;
+        myArrays[1][0]=9;
+        myArrays[1][1]=98;
+        myArrays[1][2]=4;
+        myArrays[1][3]=2;
+        myArrays[2][0]=21;
+        myArrays[2][1]=20;
+        myArrays[2][2]=28;
+        myArrays[2][3]=2;
+        
+        
+        System.out.println(Arrays.deepToString(myArrays));
+        System.out.println("\n");
+        
+        
+        for(int row=0;row<myArrays.length;row++){
+        
+            for(int col=0;col<myArrays[row].length;col++){
+                System.out.print(myArrays[row][col]+" ");
             }
-            System.out.print("="+sum+"\n");
-            
-            
+            System.out.println("\n");
+        }
+        
+        
+       
+        
             
 
 
