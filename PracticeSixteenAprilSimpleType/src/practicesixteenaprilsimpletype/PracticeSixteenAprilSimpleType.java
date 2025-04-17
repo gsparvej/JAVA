@@ -165,29 +165,37 @@ public class PracticeSixteenAprilSimpleType {
 // 1-joto porjonto prime number dekhte chai //start ***** 6
 
 
-        System.out.println("Enter a Number ");
-        int input=s.nextInt();
-        
-        
-        for(int i=2;i<=input;i++){
-        boolean isPrime=true;
-        
-        
-        for(int j=2;j<=Math.sqrt(i);j++){
-        
-            if(i%j==0){
-            isPrime=false;
-            break;
-            }
-        }
-        
-        
-        
-        if(isPrime){
-            System.out.print(i+" ");
-        }
-        }
+//        System.out.println("Enter a Number ");
+//        int input=s.nextInt();
+//        
+//        
+//        for(int i=2;i<=input;i++){
+//        boolean isPrime=true;
+//        
+//        
+//        for(int j=2;j<=Math.sqrt(i);j++){
+//        
+//            if(i%j==0){
+//            isPrime=false;
+//            break;
+//            }
+//        }
+//        
+//        
+//        
+//        if(isPrime){
+//            System.out.print(i+" ");
+//        }
+//        }
             
+        
+
+
+
+        // Array Password Matching// start ******7
+        
+        
+        
         
         
         
