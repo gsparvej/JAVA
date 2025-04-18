@@ -14,13 +14,13 @@ public class FindMaxMinUsingMethod {
         System.out.println("Enter Your Limit ");
        
         int limit=s.nextInt();
-        int finale=findMaxMin(limit);
+        String finale=findMaxMin(limit);
         System.out.println(finale+"");
         
     }
     
     
-    public static int findMaxMin(int limit){
+    public static String findMaxMin(int limit){
     
     
         Scanner s=new Scanner(System.in);
@@ -29,10 +29,10 @@ public class FindMaxMinUsingMethod {
         int[] numbers=new int[limit];
         int maxNumber=0;            // sir evabe kore dise ....
         int minNumber=999999999;
-        int result = 0;
+     
 //        System.out.println(numbers.toString()+" ");
         
-        for(int i=0;i<n;i++){
+        for(int i=0;i<limit;i++){
         
             System.out.println("Enter number "+(i+1));    
             int userInput=s.nextInt();
@@ -44,16 +44,16 @@ public class FindMaxMinUsingMethod {
         
             if(number>maxNumber){
             maxNumber=number;
-            result=maxNumber;
+//            result=maxNumber;
             }
             if(number<minNumber){
             minNumber=number;
-            result=minNumber;
+//            result=minNumber;
             }
         }
        // System.out.println(" Max Number "+maxNumber);
         //System.out.println(" Min Number "+minNumber);
-    
+    String result=maxNumber+" is Max Number and "+"\n"+minNumber+" is Min Number ";
     return result;
     }
     
