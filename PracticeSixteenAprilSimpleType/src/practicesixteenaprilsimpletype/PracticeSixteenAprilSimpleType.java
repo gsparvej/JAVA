@@ -380,6 +380,17 @@ public class PracticeSixteenAprilSimpleType {
             }
         }
         System.out.println("my arrays "+Arrays.deepToString(myNumbers));
+        
+        
+        for(int rows=0;rows<myNumbers.length;rows++){
+        
+            for(int cols=0;cols<myNumbers[rows].length;cols++){
+            
+                System.out.print(myNumbers[rows][cols]+" ");
+            }
+            System.out.print("\n");
+        }
+        
 
 
 
