@@ -336,39 +336,53 @@ public class PracticeSixteenAprilSimpleType {
         
         
         
-        int[][] myArrays=new int[3][4];
-        System.out.println(Arrays.deepToString(myArrays));
+//        int[][] myArrays=new int[3][4];
+//        System.out.println(Arrays.deepToString(myArrays));
+//        
+//        myArrays[0][0]=3;
+//        myArrays[0][1]=4;
+//        myArrays[0][2]=5;
+//        myArrays[0][3]=6;
+//        myArrays[1][0]=9;
+//        myArrays[1][1]=98;
+//        myArrays[1][2]=4;
+//        myArrays[1][3]=2;
+//        myArrays[2][0]=21;
+//        myArrays[2][1]=20;
+//        myArrays[2][2]=28;
+//        myArrays[2][3]=2;
+//        
+//        
+//        System.out.println(Arrays.deepToString(myArrays));
+//        System.out.println("\n");
+//        
+//        
+//        for(int row=0;row<myArrays.length;row++){
+//        
+//            for(int col=0;col<myArrays[row].length;col++){
+//                System.out.print(myArrays[row][col]+" ");
+//            }
+//            System.out.println("\n");
+//        }
         
-        myArrays[0][0]=3;
-        myArrays[0][1]=4;
-        myArrays[0][2]=5;
-        myArrays[0][3]=6;
-        myArrays[1][0]=9;
-        myArrays[1][1]=98;
-        myArrays[1][2]=4;
-        myArrays[1][3]=2;
-        myArrays[2][0]=21;
-        myArrays[2][1]=20;
-        myArrays[2][2]=28;
-        myArrays[2][3]=2;
         
+        System.out.println("Enter row size ");
+        int row=s.nextInt();
+        System.out.println(" enter col size ");
+        int col=s.nextInt();
+        int[][] myNumbers=new int[row][col];
         
-        System.out.println(Arrays.deepToString(myArrays));
-        System.out.println("\n");
+        for(int i=0;i<row;i++){
         
-        
-        for(int row=0;row<myArrays.length;row++){
-        
-            for(int col=0;col<myArrays[row].length;col++){
-                System.out.print(myArrays[row][col]+" ");
+            for(int j=0;j<col;j++){
+                System.out.print("[" + i + "][" + j + "] = ");
+                myNumbers[i][j]=s.nextInt();
             }
-            System.out.println("\n");
         }
-        
-        
-       
-        
-            
+        System.out.println("my arrays "+Arrays.deepToString(myNumbers));
+
+
+
 
 
 
