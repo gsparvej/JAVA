@@ -17,6 +17,9 @@ public class Circle {
     double area=Math.PI*Math.pow(radius, 2);
     return area;
     }
-    
+    public double perimeter(){
+    double perimeter=2*Math.PI*radius;
+    return perimeter;
+    }
     
 }
