@@ -16,22 +16,17 @@ public class LearnOOP {
         
         System.out.println(c.perimeter()+" is Perimeter Of The Circle ");
         
+        
 //        Student atik=new Student("Atik ",65);
-//        Student shimul=new Student("Shimul", 70);
+//      Student shimul=new Student("Shimul", 70);
+//
+//
+//        System.out.println(atik.getResult());
+//        System.out.println(shimul.getResult());
+
+        Student atik=new Student(atik);
 
 
-        Scanner s=new Scanner(System.in);
-        System.out.println("Enter atik's marks ");
-        int atikMarks=s.nextInt();
-        System.out.println("Enter Shimul's marks");
-        int shimulMarks=s.nextInt();
-        
-       
-        Student atik=new Student("Atik");
-        Student shimul=new Student("Shimul");
-        
-        System.out.println(atik.getResult());
-        System.out.println(shimul.getResult());
     }
     
 }
