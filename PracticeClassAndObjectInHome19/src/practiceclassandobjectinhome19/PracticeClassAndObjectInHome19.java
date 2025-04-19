@@ -2,6 +2,7 @@
 package practiceclassandobjectinhome19;
 
 import identifytriangle.Triangle;
+import math.Factorial;
 import math.MaxMin;
 import math.PrimeNumber;
 
@@ -10,7 +11,7 @@ public class PracticeClassAndObjectInHome19 {
 
     public static void main(String[] args) {
        
-       Triangle t=new Triangle(5, 10);
+        Triangle t=new Triangle(5, 10);
         System.out.println("Triangle's Area is "+t.area());
         
         PrimeNumber p=new PrimeNumber();
@@ -25,6 +26,11 @@ public class PracticeClassAndObjectInHome19 {
         min.num2=9;
         min.num3=11;
         System.out.println("The Min Number is "+min.findMin());
+        
+        
+        
+        Factorial f=new Factorial(5);
+        System.out.println(""+f.findFactorial());
         
         
     }
