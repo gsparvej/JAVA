@@ -6,6 +6,9 @@ import java.util.Scanner;
 public class Method2Darray {
 
     public static void main(String[] args) {
+        
+        
+        
 
     }
 
@@ -33,6 +36,7 @@ public class Method2Darray {
             for (int col = 0; col < myNumbers[row].length; col++) {
 
                 result = myNumbers[row][col];
+                
             }
 
         }
