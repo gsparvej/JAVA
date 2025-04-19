@@ -10,11 +10,11 @@ public class PracticeClassAndObjectInHome19 {
 
     public static void main(String[] args) {
        
-//        Triangle t=new Triangle(5, 10);
-//        System.out.println("Triangle's Area is "+t.area());
-//        
-//        PrimeNumber p=new PrimeNumber();
-//        System.out.println("The Number Is "+p.findPrimeNumber());
+       Triangle t=new Triangle(5, 10);
+        System.out.println("Triangle's Area is "+t.area());
+        
+        PrimeNumber p=new PrimeNumber();
+        System.out.println("The Number Is "+p.findPrimeNumber());
         
         
         MaxMin max=new MaxMin(5, 9, 11);
