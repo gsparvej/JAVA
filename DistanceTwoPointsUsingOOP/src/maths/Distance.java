@@ -24,13 +24,17 @@ public class Distance {
         this.y1 = y1;
     }
     
-    public String getDistance(){
+    public float getDistance(){
     
         int result1=x2-x1;
         int result2=y2-y1;
 //        String return result1+" Its  "+result2;
-        return result1+" "+result2;
+        float distance=(float)Math.sqrt(Math.pow(result1, 2)+Math.pow(result2, 2));
+        return distance;
+        
     
     }
+    
+    
     
 }
