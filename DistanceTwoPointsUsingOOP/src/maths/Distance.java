@@ -9,6 +9,7 @@ public class Distance {
     int x2;
     int y2;
 
+
     public Distance() {
     }
 
@@ -24,9 +25,7 @@ public class Distance {
         this.y1 = y1;
     }
 
-    public Distance(int x1) {
-        this.x1 = x1;
-    }
+   
     
     
     
@@ -40,11 +39,7 @@ public class Distance {
         
     
     }
-    public float setCoordinates(int x1){
     
-        this.x1=x1;
-        return x1;
-    }
     
     
     
