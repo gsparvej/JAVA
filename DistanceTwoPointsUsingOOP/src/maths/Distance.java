@@ -23,6 +23,12 @@ public class Distance {
         this.x1 = x1;
         this.y1 = y1;
     }
+
+    public Distance(int x1) {
+        this.x1 = x1;
+    }
+    
+    
     
     public float getDistance(){
     
@@ -33,6 +39,11 @@ public class Distance {
         return distance;
         
     
+    }
+    public float setCoordinates(int x1){
+    
+        this.x1=x1;
+        return x1;
     }
     
     
