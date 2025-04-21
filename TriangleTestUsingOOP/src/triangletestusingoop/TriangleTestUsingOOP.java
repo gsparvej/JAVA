@@ -41,6 +41,18 @@ public class TriangleTestUsingOOP {
         System.out.println("Distance of BC is "+f.getDistance());
         System.out.println("Distance of AC is "+g.getDistance());
         
+        
+        
+        if(e.getDistance()==f.getDistance()&& e.getDistance()==g.getDistance()){
+            System.out.println("Its somobahu ");
+        }
+        else if(e.getDistance()==f.getDistance() ||e.getDistance()==g.getDistance()|| f.getDistance()==g.getDistance()||e.getDistance()==g.getDistance()){
+        
+            System.out.println("Its somo di bahu ");
+        }
+        else{
+            System.out.println("Its bisomo bahu ");
+        }
     }
     
 }

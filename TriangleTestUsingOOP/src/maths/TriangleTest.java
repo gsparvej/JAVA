@@ -43,6 +43,12 @@ public class TriangleTest {
     
     }
     
+    public float checkTriangle(){
+    
+    float finale = 0;
+    return finale;
+    } 
+    
     
 
 }
