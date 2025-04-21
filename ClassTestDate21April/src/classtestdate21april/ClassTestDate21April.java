@@ -107,17 +107,17 @@ public class ClassTestDate21April {
         
          // 4.
         
-        System.out.println("Enter Price Of This Product ");
-        float n=s.nextFloat();
-        
-        if(n>200){
-        
-            System.out.println("Discount Amount is "+(n*0.05)+"\n"+" Actual Price is "+(n-(n*0.05)));
-        }
-        else{
-        
-            System.out.println("Discount Amount is "+(n*0)+"\n"+" Actual Price is "+n);
-        }
+//        System.out.println("Enter Price Of This Product ");
+//        float n=s.nextFloat();
+//        
+//        if(n>200){
+//        
+//            System.out.println("Discount Amount is "+(n*0.05)+"\n"+" Actual Price is "+(n-(n*0.05)));
+//        }
+//        else{
+//        
+//            System.out.println("Discount Amount is "+(n*0)+"\n"+" Actual Price is "+n);
+//        }
         
 
 
