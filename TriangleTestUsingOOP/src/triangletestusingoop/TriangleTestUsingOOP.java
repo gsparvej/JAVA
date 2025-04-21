@@ -38,7 +38,7 @@ public class TriangleTestUsingOOP {
         TriangleTest g=new TriangleTest(x1, y1, x3, y3);
         
         System.out.println("Distance of AB is "+e.getDistance());
-        System.out.println("Distance of BA is "+f.getDistance());
+        System.out.println("Distance of BC is "+f.getDistance());
         System.out.println("Distance of AC is "+g.getDistance());
         
     }
