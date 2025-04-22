@@ -2,6 +2,7 @@
 package learnaccessmodifiers;
 
 import learnaccessmodifiers.mobile.AndroidMobile;
+import learnaccessmodifiers.mobile.Student;
 
 
 public class LearnAccessModifiers {
@@ -11,6 +12,19 @@ public class LearnAccessModifiers {
         
         AndroidMobile am=new AndroidMobile();
         am.getPrintDetails();
+        
+        Student s=new Student();
+        
+        s.setName("Md. Parvej Hossen");
+        s.setEmail("parvej@gmail.com");
+        s.setId(1287799);
+        s.setPhone("0189654854");
+        s.setDob("01-01-2025");
+        s.setAddress("Dhaka");
+        
+       
+        
+        s.getStudentDetails();
     }
     
 }
