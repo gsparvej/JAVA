@@ -21,8 +21,9 @@ public class AndroidMobile {
     
         mobile.type=" Smart Phone ";
         mobile.buttonStatus=false;
+        mobile.numberOfCamera=2;
         
-        System.out.println(" Operating System "+operatingSystem+" Store :"+store+" Type : "+mobile.type);
+        System.out.println(" Operating System "+operatingSystem+" Store :"+store+" Type : "+mobile.type+" Cameras :"+mobile.numberOfCamera);
     
     }
     

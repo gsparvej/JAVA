@@ -1,10 +1,7 @@
-
 package learnaccessmodifiers.mobile;
 
-
 public class Student {
-    
-    
+
     private String name;
     private String email;
     private int id;
@@ -71,17 +68,17 @@ public class Student {
     public void setDob(String dob) {
         this.dob = dob;
     }
-    
-    public void getStudentDetails(){
-    
-        System.out.println("Name :"+this.name+"\n"
-                +"Email :"+this.email+"\n"
-        +"ID :"+this.id+"\n"
-                +"Phone :"+this.phone+"\n"
-        +"Address :"+this.address+"\n"
-        +"DOB :"+this.dob);
-    
+
+    public void getStudentDetails() {
+        System.err.println("Details of " + this.name + " :");
+        System.out.println(
+                "Name    :" + this.name + "\n"
+                + "Email    :" + this.email + "\n"
+                + "ID   :" + this.id + "\n"
+                + "Phone    :" + this.phone + "\n"
+                + "Address  :" + this.address + "\n"
+                + "DOB  :" + this.dob);
+
     }
 
-  
 }

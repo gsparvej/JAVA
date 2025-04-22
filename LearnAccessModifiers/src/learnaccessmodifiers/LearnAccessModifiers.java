@@ -15,7 +15,7 @@ public class LearnAccessModifiers {
         
         Student s=new Student();
         
-        s.setName("Md. Parvej Hossen");
+        s.setName("Parvej Hossen");
         s.setEmail("parvej@gmail.com");
         s.setId(1287799);
         s.setPhone("0189654854");
