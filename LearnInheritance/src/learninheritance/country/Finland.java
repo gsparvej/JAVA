@@ -3,66 +3,34 @@ package learninheritance.country;
 
 
 public class Finland {
-    
-    
-    private String fincity;
-    private double finarea;
-    private double finpopulation;
-    private String finjob;
-    private double finsalary;
+  
+private String bestPlace;
+private String tourism;
 
     public Finland() {
     }
 
-    public Finland(String fincity, double finarea, double finpopulation, String finjob, double finsalary) {
-        this.fincity = fincity;
-        this.finarea = finarea;
-        this.finpopulation = finpopulation;
-        this.finjob = finjob;
-        this.finsalary = finsalary;
+    public Finland(String bestPlace, String tourism) {
+        this.bestPlace = bestPlace;
+        this.tourism = tourism;
     }
 
-    public String getFincity() {
-        return fincity;
+    public String getBestPlace() {
+        return bestPlace;
     }
 
-    public void setFincity(String fincity) {
-        this.fincity = fincity;
+    public void setBestPlace(String bestPlace) {
+        this.bestPlace = bestPlace;
     }
 
-    public double getFinarea() {
-        return finarea;
+    public String getTourism() {
+        return tourism;
     }
 
-    public void setFinarea(double finarea) {
-        this.finarea = finarea;
+    public void setTourism(String tourism) {
+        this.tourism = tourism;
     }
 
-    public double getFinpopulation() {
-        return finpopulation;
-    }
 
-    public void setFinpopulation(double finpopulation) {
-        this.finpopulation = finpopulation;
-    }
-
-    public String getFinjob() {
-        return finjob;
-    }
-
-    public void setFinjob(String finjob) {
-        this.finjob = finjob;
-    }
-
-    public double getFinsalary() {
-        return finsalary;
-    }
-
-    public void setFinsalary(double finsalary) {
-        this.finsalary = finsalary;
-    }
-    
-    
-    
     
 }

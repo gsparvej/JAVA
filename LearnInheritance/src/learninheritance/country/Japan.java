@@ -3,64 +3,33 @@ package learninheritance.country;
 
 
 public class Japan {
-    
-    private String city;
-    private double area;
-    private double population;
-    private String job;
-    private double salary;
+  
+    private String flower;
+    private String bestFood;
 
     public Japan() {
     }
 
-    public Japan(String city, double area, double population, String job, double salary) {
-        this.city = city;
-        this.area = area;
-        this.population = population;
-        this.job = job;
-        this.salary = salary;
+    public Japan(String flower, String bestFood) {
+        this.flower = flower;
+        this.bestFood = bestFood;
     }
 
-    public String getCity() {
-        return city;
+    public String getFlower() {
+        return flower;
     }
 
-    public void setCity(String city) {
-        this.city = city;
+    public void setFlower(String flower) {
+        this.flower = flower;
     }
 
-    public double getArea() {
-        return area;
+    public String getBestFood() {
+        return bestFood;
     }
 
-    public void setArea(double area) {
-        this.area = area;
+    public void setBestFood(String bestFood) {
+        this.bestFood = bestFood;
     }
-
-    public double getPopulation() {
-        return population;
-    }
-
-    public void setPopulation(double population) {
-        this.population = population;
-    }
-
-    public String getJob() {
-        return job;
-    }
-
-    public void setJob(String job) {
-        this.job = job;
-    }
-
-    public double getSalary() {
-        return salary;
-    }
-
-    public void setSalary(double salary) {
-        this.salary = salary;
-    }
-    
     
     
 }
