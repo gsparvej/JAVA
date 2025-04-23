@@ -81,6 +81,11 @@ public class Country {
     public void setLiteracyRate(double literacyRate) {
         this.literacyRate = literacyRate;
     }
+
+    @Override
+    public String toString() {
+        return "Country{" + "city=" + city + ", area=" + area + ", population=" + population + ", job=" + job + ", salary=" + salary + ", lifeExpectancy=" + lifeExpectancy + ", literacyRate=" + literacyRate + '}';
+    }
     
     
     

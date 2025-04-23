@@ -37,7 +37,11 @@ private String tourism;
         this.tourism = tourism;
     }
     
+    public void getDetailsFinland(){
 
+        System.out.println(" ");
+
+}
    
 
     
