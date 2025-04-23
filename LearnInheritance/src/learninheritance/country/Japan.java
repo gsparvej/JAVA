@@ -2,7 +2,7 @@
 package learninheritance.country;
 
 
-public class Japan {
+public class Japan extends Country{
   
     private String flower;
     private String bestFood;
@@ -15,21 +15,14 @@ public class Japan {
         this.bestFood = bestFood;
     }
 
-    public String getFlower() {
-        return flower;
-    }
-
-    public void setFlower(String flower) {
+    public Japan(String flower, String bestFood, String city, double area, double population, String job, double salary, double lifeExpectancy, double literacyRate) {
+        super(city, area, population, job, salary, lifeExpectancy, literacyRate);
         this.flower = flower;
-    }
-
-    public String getBestFood() {
-        return bestFood;
-    }
-
-    public void setBestFood(String bestFood) {
         this.bestFood = bestFood;
     }
+    
+    
+    
     
     
 }
