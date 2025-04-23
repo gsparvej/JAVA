@@ -20,6 +20,22 @@ public class Japan extends Country{
         this.flower = flower;
         this.bestFood = bestFood;
     }
+
+    public String getFlower() {
+        return flower;
+    }
+
+    public void setFlower(String flower) {
+        this.flower = flower;
+    }
+
+    public String getBestFood() {
+        return bestFood;
+    }
+
+    public void setBestFood(String bestFood) {
+        this.bestFood = bestFood;
+    }
     
     
     
