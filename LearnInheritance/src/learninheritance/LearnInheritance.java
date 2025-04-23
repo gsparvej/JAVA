@@ -27,6 +27,19 @@ public class LearnInheritance {
         f.setSalary(600000);
         f.setTourism("Helsinki , Turku");
         
+        
+        j.setCity("Tokio");
+        j.setArea(67532);
+        j.setBestFood("Noodles");
+        j.setJob("Python Programming ");
+        j.setLifeExpectancy(78.1);
+        j.setLiteracyRate(96.75);
+        j.setPopulation(35);
+        j.setSalary(705000);
+        j.setFlower("Blossom , Sakura");
+        
+        
+        System.err.println("Details Of "+f.getCity()+":");
         System.out.println("City Name : "+f.getCity());
         System.out.println("Area Of The City : "+f.getArea()+" Square Kilomiter ");
         System.out.println("Famous Place :"+f.getBestPlace());
@@ -36,6 +49,19 @@ public class LearnInheritance {
         System.out.println("Population : "+f.getPopulation());
         System.out.println("Salary : "+f.getSalary());
         System.out.println("Tourist Place : "+f.getTourism());
+        
+        System.out.println("----------------------");
+        
+        System.err.println("Details Of "+j.getCity()+":");
+        System.out.println("City Name : "+j.getCity());
+        System.out.println("Area Of The City : "+j.getArea()+" Square Kilomiter ");
+        System.out.println("Famous Place :"+j.getBestFood());
+        System.out.println("Job : "+j.getJob());
+        System.out.println("Life Expectancy : "+j.getLifeExpectancy());
+        System.out.println("Literacy Rate : "+j.getLiteracyRate());
+        System.out.println("Population : "+j.getPopulation());
+        System.out.println("Salary : "+j.getSalary());
+        System.out.println("Tourist Place : "+j.getFlower());
         
         
     }
