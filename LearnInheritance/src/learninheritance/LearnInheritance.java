@@ -75,7 +75,7 @@ public class LearnInheritance {
         System.out.println("Literacy Rate : "+j.getLiteracyRate());
         System.out.println("Population : "+j.getPopulation());
         System.out.println("Salary : "+j.getSalary());
-        System.out.println("Tourist Place : "+j.getFlower());
+        System.out.println("Famous Flower : "+j.getFlower());
         
         
     }
