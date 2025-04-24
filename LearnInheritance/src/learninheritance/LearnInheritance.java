@@ -41,7 +41,7 @@ public class LearnInheritance {
         j.setFlower("Blossom , Sakura");
         
         b.setCity("Dhaka");
-        b.setArea(89732786);
+        b.setArea(8786);
         b.setPerson("Dr. MD. Yunus ");
         b.setJob("Java Programming ");
         b.setLifeExpectancy(71.2);
