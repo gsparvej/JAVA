@@ -14,11 +14,11 @@ public class PracticeInheritance {
         
         Mymensingh my=new Mymensingh();
         
-        System.out.println("Enter Area : ");
+        System.out.print("Enter Area : ");
         my.setArea(s.nextDouble());
-        System.out.println("Enter Zilla List : ");
+        System.out.print("Enter Zilla List : ");
         my.setZillaList(s.nextDouble());
-        System.out.println("Enter Famous Food Name : ");
+        System.out.print("Enter Famous Food Name : ");
         my.setFamousFood(s.next());
         
         
