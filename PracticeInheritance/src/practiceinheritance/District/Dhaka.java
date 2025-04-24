@@ -22,6 +22,8 @@ public class Dhaka {
     }
 
     public double getArea() {
+        
+        area=area*2;
         return area;
     }
 
