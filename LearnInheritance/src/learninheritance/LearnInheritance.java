@@ -1,6 +1,7 @@
 
 package learninheritance;
 
+import learninheritance.country.Bangladesh;
 import learninheritance.country.Country;
 import learninheritance.country.Finland;
 import learninheritance.country.Japan;
@@ -15,6 +16,7 @@ public class LearnInheritance {
         Country c=new Country();
         Finland f=new Finland();
         Japan j=new Japan();
+        Bangladesh b=new Bangladesh();
         
         
         f.setCity("Helsinki");
@@ -37,6 +39,18 @@ public class LearnInheritance {
         j.setPopulation(35);
         j.setSalary(705000);
         j.setFlower("Blossom , Sakura");
+        
+        b.setCity("Dhaka");
+        b.setArea(89732786);
+        b.setPerson("Dr. MD. Yunus ");
+        b.setJob("Java Programming ");
+        b.setLifeExpectancy(71.2);
+        b.setLiteracyRate(81.75);
+        b.setPopulation(130);
+        b.setSalary(60900);
+        
+        b.getBangladeshDetails();
+       
         
         
         System.err.println("Details Of "+f.getCity()+":");
