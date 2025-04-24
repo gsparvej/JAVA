@@ -44,10 +44,7 @@ public class TraingleTest {
 
         if (distanceAB > distanceBC && distanceAB > distanceCA) {
             System.out.println(distanceAB + " distanceAB is largest ");
-
-//            float result7=distanceAB;
-//            float result8=distanceBC;
-//            float result9=distanceCA;
+          
             float val1 = (float) Math.pow(distanceAB, 2);
             float val2 = (float) (Math.pow(distanceBC, 2) + Math.pow(distanceCA, 2));
 
