@@ -30,6 +30,8 @@ public class LearnInheritance {
         f.setTourism("Helsinki , Turku");
         
         
+        
+        
         j.setCity("Tokio");
         j.setArea(67532);
         j.setBestFood("Noodles");
