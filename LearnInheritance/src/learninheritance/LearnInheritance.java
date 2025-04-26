@@ -13,7 +13,7 @@ public class LearnInheritance {
     
     public static void main(String[] args) {
         
-        Country c=new Country();
+      //  Country c=new Country();
         Finland f=new Finland();
         Japan j=new Japan();
         Bangladesh b=new Bangladesh();
