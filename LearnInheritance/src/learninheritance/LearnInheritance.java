@@ -53,7 +53,7 @@ public class LearnInheritance {
        
         
         
-        System.err.println("Details Of "+f.getCity()+":");
+        System.out.println("Details Of "+f.getCity()+":");
         System.out.println("City Name : "+f.getCity());
         System.out.println("Area Of The City : "+f.getArea()+" Square Kilomiter ");
         System.out.println("Famous Place :"+f.getBestPlace());
@@ -66,7 +66,7 @@ public class LearnInheritance {
         
         System.out.println("----------------------");
         
-        System.err.println("Details Of "+j.getCity()+":");
+        System.out.println("Details Of "+j.getCity()+":");
         System.out.println("City Name : "+j.getCity());
         System.out.println("Area Of The City : "+j.getArea()+" Square Kilomiter ");
         System.out.println("Famous Place :"+j.getBestFood());
