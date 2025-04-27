@@ -8,7 +8,7 @@ public class OddEvenTest {
 
     
     public static void main(String[] args) {
-               Scanner val=new Scanner(System.in);
+        Scanner val=new Scanner(System.in);
         System.out.println("Enter 1st number");
         float n1=val.nextFloat();
         if(n1%2==0){
