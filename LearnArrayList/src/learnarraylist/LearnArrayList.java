@@ -23,11 +23,19 @@ public class LearnArrayList {
         
         System.out.println(""+studentsList);
         
-        System.out.println("-----------------------------------");
+        System.out.println("--------------------------------------------------------------------");
         
         for(StudentArray student : studentsList){
         
             System.out.println(""+student);
+        }
+        
+        System.out.println("--------------------------------------------------------------------");
+        
+        for(int index=0;index< studentsList.size();index++){
+        
+            System.out.println(""+studentsList.get(index));
+        
         }
         
     
