@@ -17,11 +17,11 @@ public class EvenNumberUsingFileClass {
                 if (i % 2 == 0) {
 
 //                System.out.println(""+i);
-                    pw.print(" " + i);
+                    pw.println( i);
                 }
 
             }
-            System.out.println("Success !");
+            System.out.println("Success and Welcome !");
             pw.close();
 
         } catch (FileNotFoundException ex) {
