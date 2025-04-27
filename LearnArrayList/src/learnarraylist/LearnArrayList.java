@@ -23,7 +23,7 @@ public class LearnArrayList {
         
         for(StudentArray student : studentsList){
         
-            System.out.println(""+studentsList);
+            System.out.println(""+student);
         }
         
     
