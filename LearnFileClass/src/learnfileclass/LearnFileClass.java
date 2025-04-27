@@ -11,10 +11,10 @@ public class LearnFileClass {
     public static void main(String[] args) {
 
 
-        for (int i = 1; i <= 10; i++) {
+        for (int i = 1; i <=5; i++) {
 
             try {
-                PrintWriter pw = new PrintWriter("C:\\Users\\Admin\\Documents\\parvej"+ i +".txt");
+                PrintWriter pw = new PrintWriter("C:\\Users\\Admin\\Documents\\rakib"+ i +".txt");
                 pw.print("Hello parvej. Nice to meet you ! ");
                 System.out.println("File Created Successfully ! ");
                 pw.close();
