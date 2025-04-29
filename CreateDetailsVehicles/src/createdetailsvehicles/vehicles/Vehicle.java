@@ -43,12 +43,7 @@ public class Vehicle {
         this.color = color;
     }
 
-    public double getSalePrice() {
-        
-        double salePrice=getRegularPrice()-(getRegularPrice()*0.1);
-        
-        return salePrice;
-    }
+   
 
     public void setSalePrice(double salePrice) {
         this.salePrice = salePrice;
@@ -59,6 +54,12 @@ public class Vehicle {
         return "Vehicle{" + "salePrice=" + salePrice + '}';
     }
     
+     public double getSalePrice() {
+        
+       
+        
+        return salePrice;
+    }
     
     
 }
