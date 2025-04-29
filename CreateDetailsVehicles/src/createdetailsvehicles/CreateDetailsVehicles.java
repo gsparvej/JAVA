@@ -11,14 +11,17 @@ public class CreateDetailsVehicles {
         
         Truck t=new Truck();
         
-        t.setWeight(2001);
+        t.setWeight(2010);
         t.setRegularPrice(50000);
         
          if(t.getWeight()>2000){
-        double price;
-        price=t.getRegularPrice()-(t.getRegularPrice()*0.01);
+       // double price;
         
-        System.out.println("Regular Price is : "+t.getRegularPrice()+" And "+"After Discount You Should Pay : "+price);
+      //  t.getSalePrice();
+             System.out.println("Regular Price is : "+t.getRegularPrice()+" And "+"After Discount You Should Pay : "+t.getSalePrice());
+//        price=t.getRegularPrice()-(t.getRegularPrice()*0.01);
+//        
+//        System.out.println("Regular Price is : "+t.getRegularPrice()+" And "+"After Discount You Should Pay : "+price);
         }
          else{
          

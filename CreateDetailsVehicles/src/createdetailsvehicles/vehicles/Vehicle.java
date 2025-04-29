@@ -45,7 +45,7 @@ public class Vehicle {
 
     public double getSalePrice() {
         
-        
+        double salePrice=getRegularPrice()-(getRegularPrice()*0.1);
         
         return salePrice;
     }
