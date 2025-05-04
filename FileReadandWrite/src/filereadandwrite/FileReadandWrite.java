@@ -18,7 +18,7 @@ public class FileReadandWrite {
     public static void main(String[] args) {
         
         try {
-            PrintWriter pw=new PrintWriter("C:\\Users\\Admin\\Documents\\parvej.txt");
+            PrintWriter pw=new PrintWriter("C:\\Users\\Admin\\Documents\\parvej2.txt");
             pw.println("hello parvej . eoirfueroierio "+"\n"+"jieirjreijreioijreiojrti");
             System.out.println("Created Succesfully ! ");
             
