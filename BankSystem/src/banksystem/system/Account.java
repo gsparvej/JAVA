@@ -33,5 +33,14 @@ public class Account {
         this.balance = balance;
     }
     
+    public void getDeposit(){
     
+    
+    
+    }
+    
+    public void getWithDraw(){
+    
+    
+    }
 }
