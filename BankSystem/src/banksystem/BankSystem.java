@@ -15,7 +15,7 @@ public class BankSystem {
         
       // sa.setBalance(4500);
         sa.getDeposit(5000);
-       //  cu.getWithDraw(2000);
+         cu.getWithDraw();
     }
     
 }

@@ -1,6 +1,8 @@
 
 package banksystem.system;
 
+import java.util.Scanner;
+
 
 public class CurrentAccount extends Account{
     
@@ -27,11 +29,17 @@ public class CurrentAccount extends Account{
     }
 
     @Override
-    public void getWithDraw(double amount) {
-        super.getWithDraw(amount); 
+    public void getWithDraw() {
+        Scanner s=new Scanner(System.in);
+        System.out.println("Enter Withdrawn Amount : ");
+        double withdraw=s.nextDouble();
+       double amount=getBalance();
+        super.getWithDraw(); 
+        
+       double balance=getBalance()-withdraw;
+        System.out.println(" "+balance);
         
     }
-    
-    
+
     
 }

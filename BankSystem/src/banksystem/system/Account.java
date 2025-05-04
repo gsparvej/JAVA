@@ -50,21 +50,18 @@ public class Account {
     
     }
     
-    public void getWithDraw(double amount){
-    
-        if(amount >balance || amount == balance+500){
+    public void getWithDraw(){
+        Scanner s =new Scanner(System.in);
+        System.out.print("How Much You Withdraw : ");
+    double amount=s.nextDouble();
+    balance=getBalance();
+        if(amount>0 && balance>=amount){
         
-            balance=balance-amount+500;
-            System.out.println("You Must Pay 500 and your balance is "+balance);
+            balance-=amount;
+            System.out.println(amount+" is Withdrawn Successfully ! ");
         }
-        else if(amount<=balance){
-        
-            balance=balance-amount;
-            System.out.println("Present balance : "+balance);
-        }
-        else{
-        
-            System.out.println("Invalid choice ! ");
+       else {
+            System.out.println("Insufficient balance or invalid amount.");
         }
     
     }
