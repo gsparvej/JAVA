@@ -63,7 +63,11 @@ public class Student {
 
     @Override
     public String toString() {
-        return "\nStudent ID =" + id + "\nStudent Name=" + stuName + "\nSubject=" + subject + "\nTeacher Name=" + teacherName + "\nTSP =" + tsp;
+        return "\nStudent ID =" + id +
+                "\nStudent Name=" + stuName + 
+                "\nSubject=" + subject + 
+                "\nTeacher Name=" + teacherName + 
+                "\nTSP =" + tsp;
     }
     
     
