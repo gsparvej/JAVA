@@ -13,7 +13,7 @@ public class LearnMap {
         
         try {
             
-            Scanner s =new Scanner(System.in);
+        Scanner s =new Scanner(System.in);
         System.out.print("Enter Student ID : ");
         int id=s.nextInt();
         
@@ -37,7 +37,7 @@ public class LearnMap {
         
         
       //  System.out.println(stuInfo.toString());
-            System.err.println("------------------------");
+        System.err.println("------------------------");
         System.out.println(stuInfo.get(id).toString());
             
         } catch (Exception e) {
