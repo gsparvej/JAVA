@@ -37,11 +37,11 @@ public class LearnMap {
         
         
       //  System.out.println(stuInfo.toString());
-        
+            System.err.println("------------------------");
         System.out.println(stuInfo.get(id).toString());
             
         } catch (Exception e) {
-            
+            System.err.println("-------------------------");
             System.out.println("Data Not Found !  Try Again ");
         }
         
