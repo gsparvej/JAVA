@@ -41,5 +41,8 @@ public class Employee {
         this.salary = salary;
     }
     
+    public String empDetails(){
     
+    return "Employee Name : "+name+"\nEmployee Id : "+id+"\nSalary : "+salary;
+    }
 }

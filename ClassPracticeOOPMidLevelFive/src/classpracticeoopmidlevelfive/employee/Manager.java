@@ -25,6 +25,12 @@ public class Manager extends Employee{
     public void setTeamSize(int teamSize) {
         this.teamSize = teamSize;
     }
+
+    @Override
+    public String empDetails() {
+        
+        return "Manager's Team :"+"\nTeam Size : "+teamSize+"\n"+super.empDetails(); 
+    }
     
     
     
