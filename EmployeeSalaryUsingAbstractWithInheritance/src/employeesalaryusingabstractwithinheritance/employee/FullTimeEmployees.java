@@ -38,17 +38,17 @@ public class FullTimeEmployees extends Employees {
     }
     
     @Override
-    public String calculateSalary() {
+    public int calculateSalary() {
         
         
-        return "Salary : "+baseSalary*bonus+getDetails();
+        return baseSalary+bonus;
     }
 
     @Override
     public String getDetails() {
         
         
-        return "\nName : "+super.name+"\nAge : "+super.age;
+        return "\nName : "+super.name+"\nAge : "+super.age+"\nSalary : "+calculateSalary();
     }
     
     

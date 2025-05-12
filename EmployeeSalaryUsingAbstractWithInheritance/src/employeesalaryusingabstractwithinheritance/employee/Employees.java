@@ -33,7 +33,7 @@ public abstract class Employees {
     
     public abstract String getDetails();
     
-    public abstract String calculateSalary();
+    public abstract int calculateSalary();
     
     
 }
