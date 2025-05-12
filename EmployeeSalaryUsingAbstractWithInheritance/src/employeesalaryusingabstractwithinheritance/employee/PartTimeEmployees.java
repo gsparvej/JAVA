@@ -44,11 +44,13 @@ public class PartTimeEmployees extends Employees{
     @Override
     public String calculateSalary() {
         
-        
+        return workingHour*hourlyRate+getDetails();
     }
 
     @Override
     public String getDetails() {
         
+        
+      return "\nName : "+super.name+"\nAge : "+super.age;
     }
 }

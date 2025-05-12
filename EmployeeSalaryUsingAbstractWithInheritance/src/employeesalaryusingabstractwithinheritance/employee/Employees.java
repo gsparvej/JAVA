@@ -4,8 +4,8 @@ package employeesalaryusingabstractwithinheritance.employee;
 
 public abstract class Employees {
    
-    private String name;
-    private String age;
+    String name;
+    String age;
 
     public Employees() {
     }
