@@ -48,7 +48,7 @@ public class FullTimeEmployees extends Employees {
     public String getDetails() {
         
         
-        return "\nName : "+super.name+"\nAge : "+super.age+"\nSalary : "+calculateSalary();
+       return "\nName : "+super.name+"\nAge : "+super.age+"\nSalary : "+calculateSalary();
     }
     
     
