@@ -14,13 +14,12 @@ public class UsingPolymorphismWithArrayOOPInheritanceEleven {
         
        
         
-        Shape[] shapes=new Shape[3];
-        
-   //     shapes [0]=new Circle(5);
-        
+        Shape[] shapes=new Shape[4];
+     
        shapes[0]=new Circle(5);
        shapes[1]=new Rectangle(10, 8);
        shapes[2]=new Triangle(20, 12);
+       shapes[3]=new Circle(10);
        
         
         for(int i=0;i<shapes.length;i++){
