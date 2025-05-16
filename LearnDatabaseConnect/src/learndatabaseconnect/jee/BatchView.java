@@ -4,17 +4,67 @@
  */
 package learndatabaseconnect.jee;
 
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import learndatabaseconnect.database.StudentView;
+
 /**
  *
  * @author MY COMPUTER
  */
 public class BatchView extends javax.swing.JFrame {
 
+    
+   JEEdbUtil jb=new JEEdbUtil();
     /**
      * Creates new form BatchView
      */
     public BatchView() {
         initComponents();
+    }
+    
+    
+    public void addStudent(){
+    
+    String sql="insert into jee64(trainee_id,Name,contact_no,email,teacher_name) values(?,?,?,?,?)";
+        PreparedStatement ps;
+        try {
+            ps=jb.getCon().prepareStatement(sql);
+            
+            ps.setString(1, txtId.getText().trim());
+            ps.setString(2, txtName.getText().trim());
+            ps.setString(3, txtContactNo.getText().trim());
+            ps.setString(4, txtEmail.getText().trim());
+            ps.setString(5, txtTeacherName.getText().trim());
+           
+            
+            ps.executeUpdate();
+            ps.close();
+            jb.getCon().close();
+            JOptionPane.showMessageDialog(this, "Add Student Successfully");
+            
+            
+        } catch (SQLException ex) {
+            
+            JOptionPane.showMessageDialog(this, "! Unsuccessful !");
+            Logger.getLogger(StudentView.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    
+    }
+    
+    
+     public void resetStudentForm(){
+    
+        txtId.setText("");
+        txtName.setText("");
+        txtEmail.setText("");
+        txtContactNo.setText("");
+        txtTeacherName.setText("");
+        
+    
     }
 
     /**
@@ -26,12 +76,85 @@ public class BatchView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        txtContactNo = new javax.swing.JTextField();
+        jTextField2 = new javax.swing.JTextField();
+        jTextField3 = new javax.swing.JTextField();
+        jTextField4 = new javax.swing.JTextField();
+        txtTeacherName = new javax.swing.JTextField();
+        txtName = new javax.swing.JTextField();
+        jTextField7 = new javax.swing.JTextField();
+        jTextField8 = new javax.swing.JTextField();
+        txtId = new javax.swing.JTextField();
+        txtEmail = new javax.swing.JTextField();
+        btnReset = new javax.swing.JButton();
+        btnSubmit = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(900, 700));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jPanel1.setBackground(new java.awt.Color(242, 228, 236));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("JEE 64");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 950, 50));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 950, 50));
+        getContentPane().add(txtContactNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 120, 250, -1));
+
+        jTextField2.setText("Trainee ID");
+        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 80, -1));
+
+        jTextField3.setText("Name");
+        getContentPane().add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 80, -1));
+
+        jTextField4.setText("T_Name");
+        getContentPane().add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 110, -1, -1));
+
+        txtTeacherName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtTeacherNameActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txtTeacherName, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 110, 250, -1));
+        getContentPane().add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 90, 250, -1));
+
+        jTextField7.setText("Contact No");
+        getContentPane().add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, 80, -1));
+
+        jTextField8.setText("Email ");
+        getContentPane().add(jTextField8, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 70, -1, -1));
+        getContentPane().add(txtId, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 60, 250, -1));
+        getContentPane().add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 70, 250, -1));
+
+        btnReset.setText("Reset");
+        getContentPane().add(btnReset, new org.netbeans.lib.awtextra.AbsoluteConstraints(815, 70, 80, -1));
+
+        btnSubmit.setText("Submit");
+        btnSubmit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnSubmitMouseClicked(evt);
+            }
+        });
+        getContentPane().add(btnSubmit, new org.netbeans.lib.awtextra.AbsoluteConstraints(815, 110, 80, -1));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtTeacherNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTeacherNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtTeacherNameActionPerformed
+
+    private void btnSubmitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSubmitMouseClicked
+       
+         addStudent();
+         resetStudentForm();
+        
+    }//GEN-LAST:event_btnSubmitMouseClicked
 
     /**
      * @param args the command line arguments
@@ -69,5 +192,19 @@ public class BatchView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnReset;
+    private javax.swing.JButton btnSubmit;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField jTextField7;
+    private javax.swing.JTextField jTextField8;
+    private javax.swing.JTextField txtContactNo;
+    private javax.swing.JTextField txtEmail;
+    private javax.swing.JTextField txtId;
+    private javax.swing.JTextField txtName;
+    private javax.swing.JTextField txtTeacherName;
     // End of variables declaration//GEN-END:variables
 }
