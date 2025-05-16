@@ -5,10 +5,12 @@
 package learndatabaseconnect.database;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -23,7 +25,7 @@ public class StudentView extends javax.swing.JFrame {
      */
     public StudentView() {
         initComponents();
-       
+       showAllStudent();
     }
     
     public void addStudent(){
@@ -51,6 +53,44 @@ public class StudentView extends javax.swing.JFrame {
     
     }
     
+    // Show All Students In Table ******
+    public void showAllStudent(){
+    
+        String[] coloumnsName={"ID","Name","Email","Address"};
+        DefaultTableModel tableModel=new DefaultTableModel(coloumnsName, 0);
+        tableStuView.setModel(tableModel);
+        
+        String sql="select * from student";
+        
+        try {
+            PreparedStatement ps=db.getCon().prepareStatement(sql);
+            
+            ResultSet rs=ps.executeQuery();
+            while(rs.next()){
+            
+                int id=rs.getInt("id");
+                String name=rs.getString("name");
+                String email=rs.getString("email");
+                String address=rs.getString("address");
+                
+                
+                Object[] rowData={id,name,email,address};
+                tableModel.addRow(rowData);
+            
+               
+            }
+            
+                rs.close();
+                ps.close();
+                db.getCon().close();
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(StudentView.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    
+    }
+    
+    // Reset btn Method........*******
     public void resetStudentForm(){
     
         txtName.setText("");
@@ -87,6 +127,8 @@ public class StudentView extends javax.swing.JFrame {
         txtEmail = new javax.swing.JTextField();
         btnReset = new javax.swing.JButton();
         btnSubmit = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tableStuView = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -185,7 +227,7 @@ public class StudentView extends javax.swing.JFrame {
                 btnResetMouseClicked(evt);
             }
         });
-        getContentPane().add(btnReset, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 300, -1, -1));
+        getContentPane().add(btnReset, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 250, -1, -1));
 
         btnSubmit.setText("submit");
         btnSubmit.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -193,7 +235,22 @@ public class StudentView extends javax.swing.JFrame {
                 btnSubmitMouseClicked(evt);
             }
         });
-        getContentPane().add(btnSubmit, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 300, -1, -1));
+        getContentPane().add(btnSubmit, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 250, -1, -1));
+
+        tableStuView.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(tableStuView);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(212, 277, 490, 220));
 
         pack();
         setLocationRelativeTo(null);
@@ -207,13 +264,19 @@ public class StudentView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtAddressActionPerformed
 
+    
+    
+    // Submit Mouse method call ......*******
     private void btnSubmitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSubmitMouseClicked
         
         addStudent();
         resetStudentForm();
+        showAllStudent();
         
     }//GEN-LAST:event_btnSubmitMouseClicked
 
+    
+    // reset method call ...........*****
     private void btnResetMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnResetMouseClicked
         resetStudentForm();
     }//GEN-LAST:event_btnResetMouseClicked
@@ -266,9 +329,11 @@ public class StudentView extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
+    private javax.swing.JTable tableStuView;
     private javax.swing.JTextField txtAddress;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtName;
