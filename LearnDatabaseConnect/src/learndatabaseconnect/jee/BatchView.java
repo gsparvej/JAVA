@@ -41,7 +41,8 @@ public class BatchView extends javax.swing.JFrame {
             ps.setString(2, txtName.getText().trim());
             ps.setString(3, txtContactNo.getText().trim());
             ps.setString(4, txtEmail.getText().trim());
-            ps.setString(5, txtTeacherName.getText().trim());
+          //  ps.setString(5, txtTeacherName.getText().trim());
+            ps.setString(5,"Mohammad Emran Hossian");
            
             
             ps.executeUpdate();
@@ -222,7 +223,7 @@ public class BatchView extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(TableViewJee);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 190, 950, 410));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 190, 950, 470));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
