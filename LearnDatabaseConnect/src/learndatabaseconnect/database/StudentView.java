@@ -4,18 +4,62 @@
  */
 package learndatabaseconnect.database;
 
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author MY COMPUTER
  */
 public class StudentView extends javax.swing.JFrame {
+    
+    DbUtil db=new DbUtil();
 
     /**
      * Creates new form Student
      */
     public StudentView() {
         initComponents();
+       
     }
+    
+    public void addStudent(){
+    
+    String sql="insert into student(name,email,address) values(?,?,?)";
+        PreparedStatement ps;
+        try {
+            ps=db.getCon().prepareStatement(sql);
+            
+            ps.setString(1, txtName.getText().trim());
+            ps.setString(2, txtEmail.getText().trim());
+            ps.setString(3, txtAddress.getText().trim());
+            
+            ps.executeUpdate();
+            ps.close();
+            db.getCon().close();
+            JOptionPane.showMessageDialog(this, "Add Student Successfully");
+            
+            
+        } catch (SQLException ex) {
+            
+            JOptionPane.showMessageDialog(this, "Add Student Unsuccessful");
+            Logger.getLogger(StudentView.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    
+    }
+    
+    public void resetStudentForm(){
+    
+        txtName.setText("");
+        txtEmail.setText("");
+        txtAddress.setText("");
+    
+    }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -38,11 +82,11 @@ public class StudentView extends javax.swing.JFrame {
         jTextField1 = new javax.swing.JTextField();
         jTextField2 = new javax.swing.JTextField();
         jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        txtAddress = new javax.swing.JTextField();
+        txtName = new javax.swing.JTextField();
+        txtEmail = new javax.swing.JTextField();
+        btnReset = new javax.swing.JButton();
+        btnSubmit = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -120,42 +164,59 @@ public class StudentView extends javax.swing.JFrame {
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 210, 400));
 
-        jTextField4.setText("ferferferf");
-        jTextField4.addActionListener(new java.awt.event.ActionListener() {
+        txtAddress.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField4ActionPerformed(evt);
+                txtAddressActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 210, 240, -1));
+        getContentPane().add(txtAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 210, 240, -1));
+        getContentPane().add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 130, 240, -1));
 
-        jTextField5.setText("frferferferf");
-        getContentPane().add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 130, 240, -1));
-
-        jTextField6.setText("rferferfer");
-        jTextField6.addActionListener(new java.awt.event.ActionListener() {
+        txtEmail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField6ActionPerformed(evt);
+                txtEmailActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 170, 240, -1));
+        getContentPane().add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 170, 240, -1));
 
-        jButton1.setText("reset");
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 300, -1, -1));
+        btnReset.setText("reset");
+        btnReset.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnResetMouseClicked(evt);
+            }
+        });
+        getContentPane().add(btnReset, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 300, -1, -1));
 
-        jButton2.setText("submit");
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 300, -1, -1));
+        btnSubmit.setText("submit");
+        btnSubmit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnSubmitMouseClicked(evt);
+            }
+        });
+        getContentPane().add(btnSubmit, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 300, -1, -1));
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
+    private void txtEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField6ActionPerformed
+    }//GEN-LAST:event_txtEmailActionPerformed
 
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+    private void txtAddressActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAddressActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4ActionPerformed
+    }//GEN-LAST:event_txtAddressActionPerformed
+
+    private void btnSubmitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSubmitMouseClicked
+        
+        addStudent();
+        resetStudentForm();
+        
+    }//GEN-LAST:event_btnSubmitMouseClicked
+
+    private void btnResetMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnResetMouseClicked
+        resetStudentForm();
+    }//GEN-LAST:event_btnResetMouseClicked
 
     /**
      * @param args the command line arguments
@@ -194,8 +255,8 @@ public class StudentView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton btnReset;
+    private javax.swing.JButton btnSubmit;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -208,8 +269,8 @@ public class StudentView extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
+    private javax.swing.JTextField txtAddress;
+    private javax.swing.JTextField txtEmail;
+    private javax.swing.JTextField txtName;
     // End of variables declaration//GEN-END:variables
 }
