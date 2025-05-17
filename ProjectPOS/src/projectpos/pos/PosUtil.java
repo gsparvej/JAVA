@@ -20,7 +20,7 @@ public class PosUtil {
    public Connection getCon(){
    
        try {
-           Class.forName("driver");
+           Class.forName(driver);
            con=DriverManager.getConnection(url, user, password);
        } catch (ClassNotFoundException ex) {
            Logger.getLogger(PosView.class.getName()).log(Level.SEVERE, null, ex);

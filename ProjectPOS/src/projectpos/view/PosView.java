@@ -26,11 +26,107 @@ public class PosView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jTabbedPane1 = new javax.swing.JTabbedPane();
+        btnCustomer = new javax.swing.JButton();
+        btnHome = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        txtCustomerId = new javax.swing.JTextField();
+        txtCustomerName = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        txtCustomerCell = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        txtCustomerEmail = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        txtCustomerAddress = new javax.swing.JTextField();
+        btnCustomerDelete = new javax.swing.JButton();
+        btnCustomerAdd = new javax.swing.JButton();
+        btnCustomerReset = new javax.swing.JButton();
+        btnCustomerEdit = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(102, 255, 102));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel1.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("POS");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1100, 60));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1100, 60));
+
+        jPanel2.setBackground(new java.awt.Color(153, 255, 204));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel2.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, -1, -1));
+
+        btnCustomer.setText("Customer");
+        jPanel2.add(btnCustomer, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 150, -1));
+
+        btnHome.setText("Home");
+        jPanel2.add(btnHome, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 150, -1));
+
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 150, 540));
+
+        jLabel2.setText("ID");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 70, 50, -1));
+        getContentPane().add(txtCustomerId, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 70, 190, -1));
+
+        txtCustomerName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCustomerNameActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txtCustomerName, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 100, 190, -1));
+
+        jLabel3.setText("Name");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 100, 50, -1));
+
+        jLabel4.setText("Cell");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 70, 50, -1));
+
+        txtCustomerCell.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCustomerCellActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txtCustomerCell, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 70, 190, -1));
+
+        jLabel5.setText("Email");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 100, 40, -1));
+        getContentPane().add(txtCustomerEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 100, 190, -1));
+
+        jLabel6.setText("Address");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 130, 70, -1));
+        getContentPane().add(txtCustomerAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 130, 450, -1));
+
+        btnCustomerDelete.setText("DELETE");
+        getContentPane().add(btnCustomerDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 70, -1, -1));
+
+        btnCustomerAdd.setText("ADD");
+        getContentPane().add(btnCustomerAdd, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 70, -1, -1));
+
+        btnCustomerReset.setText("RESET");
+        getContentPane().add(btnCustomerReset, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 110, -1, -1));
+
+        btnCustomerEdit.setText("EDIT");
+        getContentPane().add(btnCustomerEdit, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 110, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtCustomerCellActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCustomerCellActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCustomerCellActionPerformed
+
+    private void txtCustomerNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCustomerNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCustomerNameActionPerformed
 
     /**
      * @param args the command line arguments
@@ -68,5 +164,25 @@ public class PosView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCustomer;
+    private javax.swing.JButton btnCustomerAdd;
+    private javax.swing.JButton btnCustomerDelete;
+    private javax.swing.JButton btnCustomerEdit;
+    private javax.swing.JButton btnCustomerReset;
+    private javax.swing.JButton btnHome;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTextField txtCustomerAddress;
+    private javax.swing.JTextField txtCustomerCell;
+    private javax.swing.JTextField txtCustomerEmail;
+    private javax.swing.JTextField txtCustomerId;
+    private javax.swing.JTextField txtCustomerName;
     // End of variables declaration//GEN-END:variables
 }
