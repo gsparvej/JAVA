@@ -63,7 +63,7 @@ public class StudentView extends javax.swing.JFrame {
         String sql="select * from student";
         
         try {
-            PreparedStatement ps=db.getCon().prepareStatement(sql);
+            PreparedStatement ps = db.getCon().prepareStatement(sql);
             
             ResultSet rs=ps.executeQuery();
             while(rs.next()){
