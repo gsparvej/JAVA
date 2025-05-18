@@ -138,6 +138,7 @@ public class BatchView extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         TableViewJee = new javax.swing.JTable();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(900, 700));
@@ -223,7 +224,15 @@ public class BatchView extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(TableViewJee);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 190, 950, 470));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 190, 950, 400));
+
+        jButton1.setText("Refresh");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 610, -1, -1));
 
         pack();
         setLocationRelativeTo(null);
@@ -237,6 +246,7 @@ public class BatchView extends javax.swing.JFrame {
        
          addStudent();
          resetStudentForm();
+         showAllStudent();
         
     }//GEN-LAST:event_btnSubmitMouseClicked
 
@@ -248,6 +258,11 @@ public class BatchView extends javax.swing.JFrame {
     private void TableViewJeeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TableViewJeeMouseClicked
         
     }//GEN-LAST:event_TableViewJeeMouseClicked
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        // TODO add your handling code here:
+        showAllStudent();
+    }//GEN-LAST:event_jButton1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -288,6 +303,7 @@ public class BatchView extends javax.swing.JFrame {
     private javax.swing.JTable TableViewJee;
     private javax.swing.JButton btnReset;
     private javax.swing.JButton btnSubmit;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
