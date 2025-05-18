@@ -230,37 +230,34 @@ public class PosView extends javax.swing.JFrame {
 
     public void showSpecificCustomer(JTable jt, String address) {
 
-//        String addres="";
+
         String[] ColoumnName = {"ID", "Name", "Cell", "Email", "Address"};
         DefaultTableModel tableModel = new DefaultTableModel(ColoumnName, 0);
         jt.setModel(tableModel);
-//        addres=txtSearchField.getText().trim();
-        String sql = "select * from customer where address ;";
+        String sql = "select * from customer where address=?";
+       
         try {
-            PreparedStatement ps = pu.getCon().prepareStatement(sql);
-            ResultSet rs = ps.executeQuery();
-            rs.getString(sql);
-
-            while (rs.next()) {
-
-                int id = rs.getInt("id");
-                String name = rs.getString("name");
-                String email = rs.getString("email");
-                String cell = rs.getString("cell");
-                // String address=rs.getString("address");
-
-                Object[] rowData = {id, name, email, cell, address};
-                tableModel.addRow(rowData);
-
+            PreparedStatement ps=pu.getCon().prepareStatement(sql);
+            ps.setString(1, address);
+            ResultSet rs=ps.executeQuery();
+            
+            while(rs.next()){
+            
+            tableModel.addRow(new Object[]{
+            
+                rs.getInt("id"),
+                rs.getString("name"),
+                rs.getString("email"),
+                rs.getString("cell"),
+                rs.getString("address")
+            
+            });  
             }
-
             rs.close();
             ps.close();
             pu.getCon().close();
-            JOptionPane.showMessageDialog(null, "Found Succesfully ");
-
+            
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "! Not Found !");
             Logger.getLogger(PosView.class.getName()).log(Level.SEVERE, null, ex);
         }
 
@@ -300,7 +297,8 @@ public class PosView extends javax.swing.JFrame {
 
     private void btnSearchMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSearchMouseClicked
 
-        showSpecificCustomer(tableCustomer, txtSearchField.getText());
+        String address=txtCustomerAddress.getText().trim();
+        showSpecificCustomer(tableCustomer, address);
 
 
     }//GEN-LAST:event_btnSearchMouseClicked
