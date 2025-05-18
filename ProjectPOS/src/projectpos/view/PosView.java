@@ -157,6 +157,11 @@ public class PosView extends javax.swing.JFrame {
         getContentPane().add(txtCustomerAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 130, 450, -1));
 
         btnCustomerDelete.setText("DELETE");
+        btnCustomerDelete.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnCustomerDeleteMouseClicked(evt);
+            }
+        });
         getContentPane().add(btnCustomerDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 70, -1, -1));
 
         btnCustomerAdd.setText("ADD");
@@ -172,10 +177,18 @@ public class PosView extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnCustomerResetMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnCustomerResetMouseEntered(evt);
+            }
         });
         getContentPane().add(btnCustomerReset, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 110, -1, -1));
 
         btnCustomerEdit.setText("EDIT");
+        btnCustomerEdit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnCustomerEditMouseClicked(evt);
+            }
+        });
         getContentPane().add(btnCustomerEdit, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 110, -1, -1));
 
         tableCustomer.setBackground(new java.awt.Color(204, 204, 255));
@@ -190,6 +203,11 @@ public class PosView extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tableCustomer.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tableCustomerMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tableCustomer);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 240, 950, 360));
@@ -262,6 +280,10 @@ public class PosView extends javax.swing.JFrame {
         }
 
     }
+    
+    
+    
+   
 
 
     private void txtCustomerCellActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCustomerCellActionPerformed
@@ -288,6 +310,7 @@ public class PosView extends javax.swing.JFrame {
     private void btnCustomerResetMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCustomerResetMouseClicked
 
         resetCustomerForm();
+        btnCustomerAdd.setVisible(true);
 
     }//GEN-LAST:event_btnCustomerResetMouseClicked
 
@@ -302,6 +325,43 @@ public class PosView extends javax.swing.JFrame {
 
 
     }//GEN-LAST:event_btnSearchMouseClicked
+
+    private void tableCustomerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableCustomerMouseClicked
+        
+        btnCustomerAdd.setVisible(false);
+        int rowIndex=tableCustomer.getSelectedRow();
+        
+        String id=tableCustomer.getModel().getValueAt(rowIndex, 0).toString();
+        String name=tableCustomer.getModel().getValueAt(rowIndex, 1).toString();
+        String cell=tableCustomer.getModel().getValueAt(rowIndex, 2).toString();
+        String email=tableCustomer.getModel().getValueAt(rowIndex, 3).toString();
+        String address=tableCustomer.getModel().getValueAt(rowIndex, 4).toString();
+        
+        txtCustomerId.setText(id);
+        txtCustomerName.setText(name);
+        txtCustomerCell.setText(cell);
+        txtCustomerEmail.setText(email);
+        txtCustomerAddress.setText(address);
+        
+    }//GEN-LAST:event_tableCustomerMouseClicked
+
+    private void btnCustomerResetMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCustomerResetMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCustomerResetMouseEntered
+
+    private void btnCustomerDeleteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCustomerDeleteMouseClicked
+        // TODO add your handling code here:
+        
+        
+        btnCustomerAdd.setVisible(true);
+    }//GEN-LAST:event_btnCustomerDeleteMouseClicked
+
+    private void btnCustomerEditMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCustomerEditMouseClicked
+        // TODO add your handling code here:
+        
+        
+        btnCustomerAdd.setVisible(true);
+    }//GEN-LAST:event_btnCustomerEditMouseClicked
 
     /**
      * @param args the command line arguments
