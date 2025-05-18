@@ -5,6 +5,16 @@
 package projectpos.view;
 
 import dao.CustomerDao;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import projectpos.pos.PosUtil;
+
 
 /**
  *
@@ -13,12 +23,15 @@ import dao.CustomerDao;
 public class PosView extends javax.swing.JFrame {
 
     CustomerDao cd=new CustomerDao();
+    PosUtil pu=new PosUtil();
     /**
      * Creates new form PosView
      */
     public PosView() {
         initComponents();
         cd.showAllCustomer(tableCustomer);
+        
+        
     }
 
     /**
@@ -34,8 +47,14 @@ public class PosView extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
-        btnCustomer = new javax.swing.JButton();
+        btnHistory = new javax.swing.JButton();
         btnHome = new javax.swing.JButton();
+        btnCustomer = new javax.swing.JButton();
+        btnProduct = new javax.swing.JButton();
+        btnSales = new javax.swing.JButton();
+        btnCategory = new javax.swing.JButton();
+        btnStock = new javax.swing.JButton();
+        btnSuppliers = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         txtCustomerId = new javax.swing.JTextField();
         txtCustomerName = new javax.swing.JTextField();
@@ -54,6 +73,8 @@ public class PosView extends javax.swing.JFrame {
         tableCustomer = new javax.swing.JTable();
         jPanel3 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
+        btnSearch = new javax.swing.JButton();
+        txtSearchField = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(102, 255, 102));
@@ -73,11 +94,34 @@ public class PosView extends javax.swing.JFrame {
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         jPanel2.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, -1, -1));
 
-        btnCustomer.setText("Customer");
-        jPanel2.add(btnCustomer, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 150, -1));
+        btnHistory.setText("History");
+        jPanel2.add(btnHistory, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 290, 150, -1));
 
         btnHome.setText("Home");
         jPanel2.add(btnHome, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 150, -1));
+
+        btnCustomer.setText("Customer");
+        btnCustomer.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnCustomerMouseClicked(evt);
+            }
+        });
+        jPanel2.add(btnCustomer, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 150, -1));
+
+        btnProduct.setText("Product");
+        jPanel2.add(btnProduct, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 150, -1));
+
+        btnSales.setText("Sales");
+        jPanel2.add(btnSales, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, 150, -1));
+
+        btnCategory.setText("Category");
+        jPanel2.add(btnCategory, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, 150, -1));
+
+        btnStock.setText("Stock");
+        jPanel2.add(btnStock, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 210, 150, -1));
+
+        btnSuppliers.setText("Suppliers");
+        jPanel2.add(btnSuppliers, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 250, 150, -1));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 150, 540));
 
@@ -160,6 +204,15 @@ public class PosView extends javax.swing.JFrame {
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 170, 950, 50));
 
+        btnSearch.setText("Search");
+        btnSearch.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnSearchMouseClicked(evt);
+            }
+        });
+        getContentPane().add(btnSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 140, -1, -1));
+        getContentPane().add(txtSearchField, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 140, 190, -1));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -170,6 +223,51 @@ public class PosView extends javax.swing.JFrame {
         txtCustomerCell.setText("");
         txtCustomerEmail.setText("");
         txtCustomerAddress.setText("");
+        txtSearchField.setText("");
+    
+    }
+    
+    public void showSpecificCustomer(JTable jt){
+    
+        String addres="";
+        String[] ColoumnName={"ID","Name","Cell","Email","Address"};
+        DefaultTableModel tableModel=new DefaultTableModel(ColoumnName, 0);
+        jt.setModel(tableModel);
+        addres=txtSearchField.getText().trim();
+        String sql="select * from customer where address like"+ "address";
+        try {
+            PreparedStatement ps=pu.getCon().prepareStatement(sql);
+            ResultSet rs=ps.executeQuery();
+            rs.getString(sql);
+            
+             while(rs.next()){
+            
+                int id=rs.getInt("id");
+                String name=rs.getString("name");
+                String email=rs.getString("email");
+                String cell=rs.getString("cell");
+               // String address=rs.getString("address");
+                
+                Object[] rowData={id,name,email,cell,addres};
+                tableModel.addRow(rowData);
+            
+            }
+            
+           
+            
+            rs.close();
+            ps.close();
+            pu.getCon().close();
+            JOptionPane.showMessageDialog(null, "Found Succesfully ");
+            
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "! Not Found !");
+            Logger.getLogger(PosView.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+        
+    
     
     }
     
@@ -198,7 +296,21 @@ public class PosView extends javax.swing.JFrame {
     private void btnCustomerResetMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCustomerResetMouseClicked
         
         resetCustomerForm();
+        
     }//GEN-LAST:event_btnCustomerResetMouseClicked
+
+    private void btnCustomerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCustomerMouseClicked
+        cd.showAllCustomer(tableCustomer);
+    }//GEN-LAST:event_btnCustomerMouseClicked
+
+    private void btnSearchMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSearchMouseClicked
+
+           showSpecificCustomer(tableCustomer);
+           
+   
+        
+        
+    }//GEN-LAST:event_btnSearchMouseClicked
 
     /**
      * @param args the command line arguments
@@ -236,12 +348,19 @@ public class PosView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCategory;
     private javax.swing.JButton btnCustomer;
     private javax.swing.JButton btnCustomerAdd;
     private javax.swing.JButton btnCustomerDelete;
     private javax.swing.JButton btnCustomerEdit;
     private javax.swing.JButton btnCustomerReset;
+    private javax.swing.JButton btnHistory;
     private javax.swing.JButton btnHome;
+    private javax.swing.JButton btnProduct;
+    private javax.swing.JButton btnSales;
+    private javax.swing.JButton btnSearch;
+    private javax.swing.JButton btnStock;
+    private javax.swing.JButton btnSuppliers;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -260,5 +379,6 @@ public class PosView extends javax.swing.JFrame {
     private javax.swing.JTextField txtCustomerEmail;
     private javax.swing.JTextField txtCustomerId;
     private javax.swing.JTextField txtCustomerName;
+    private javax.swing.JTextField txtSearchField;
     // End of variables declaration//GEN-END:variables
 }
