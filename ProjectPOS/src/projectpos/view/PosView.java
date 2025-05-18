@@ -178,6 +178,7 @@ public class PosView extends javax.swing.JFrame {
         btnCustomerEdit.setText("EDIT");
         getContentPane().add(btnCustomerEdit, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 110, -1, -1));
 
+        tableCustomer.setBackground(new java.awt.Color(204, 204, 255));
         tableCustomer.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -213,6 +214,7 @@ public class PosView extends javax.swing.JFrame {
         getContentPane().add(txtSearchField, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 140, 190, -1));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     public void resetCustomerForm() {
