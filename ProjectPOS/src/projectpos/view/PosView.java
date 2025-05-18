@@ -4,17 +4,21 @@
  */
 package projectpos.view;
 
+import dao.CustomerDao;
+
 /**
  *
  * @author MY COMPUTER
  */
 public class PosView extends javax.swing.JFrame {
 
+    CustomerDao cd=new CustomerDao();
     /**
      * Creates new form PosView
      */
     public PosView() {
         initComponents();
+        cd.showAllCustomer(tableCustomer);
     }
 
     /**
@@ -46,6 +50,10 @@ public class PosView extends javax.swing.JFrame {
         btnCustomerAdd = new javax.swing.JButton();
         btnCustomerReset = new javax.swing.JButton();
         btnCustomerEdit = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tableCustomer = new javax.swing.JTable();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(102, 255, 102));
@@ -109,17 +117,63 @@ public class PosView extends javax.swing.JFrame {
         getContentPane().add(btnCustomerDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 70, -1, -1));
 
         btnCustomerAdd.setText("ADD");
+        btnCustomerAdd.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnCustomerAddMouseClicked(evt);
+            }
+        });
         getContentPane().add(btnCustomerAdd, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 70, -1, -1));
 
         btnCustomerReset.setText("RESET");
+        btnCustomerReset.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnCustomerResetMouseClicked(evt);
+            }
+        });
         getContentPane().add(btnCustomerReset, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 110, -1, -1));
 
         btnCustomerEdit.setText("EDIT");
         getContentPane().add(btnCustomerEdit, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 110, -1, -1));
 
+        tableCustomer.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(tableCustomer);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 240, 950, 360));
+
+        jPanel3.setBackground(new java.awt.Color(0, 153, 255));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel7.setText("Customers Update List ");
+        jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 950, 50));
+
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 170, 950, 50));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public void resetCustomerForm(){
+    
+        txtCustomerId.setText("");
+        txtCustomerName.setText("");
+        txtCustomerCell.setText("");
+        txtCustomerEmail.setText("");
+        txtCustomerAddress.setText("");
+    
+    }
+    
+    
     private void txtCustomerCellActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCustomerCellActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCustomerCellActionPerformed
@@ -127,6 +181,24 @@ public class PosView extends javax.swing.JFrame {
     private void txtCustomerNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCustomerNameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCustomerNameActionPerformed
+
+    private void btnCustomerAddMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCustomerAddMouseClicked
+       
+       String name=txtCustomerName.getText().trim();
+       String cell=txtCustomerCell.getText().trim();
+       String email=txtCustomerEmail.getText().trim();
+       String address=txtCustomerAddress.getText().trim();
+       
+       cd.saveCustomer(name, cell, email, address, tableCustomer);
+      cd.showAllCustomer(tableCustomer);
+      resetCustomerForm();
+       
+    }//GEN-LAST:event_btnCustomerAddMouseClicked
+
+    private void btnCustomerResetMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCustomerResetMouseClicked
+        
+        resetCustomerForm();
+    }//GEN-LAST:event_btnCustomerResetMouseClicked
 
     /**
      * @param args the command line arguments
@@ -176,9 +248,13 @@ public class PosView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTable tableCustomer;
     private javax.swing.JTextField txtCustomerAddress;
     private javax.swing.JTextField txtCustomerCell;
     private javax.swing.JTextField txtCustomerEmail;
