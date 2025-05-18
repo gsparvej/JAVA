@@ -281,11 +281,6 @@ public class PosView extends javax.swing.JFrame {
 
     }
     
-    
-    
-   
-
-
     private void txtCustomerCellActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCustomerCellActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCustomerCellActionPerformed
@@ -320,7 +315,7 @@ public class PosView extends javax.swing.JFrame {
 
     private void btnSearchMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSearchMouseClicked
 
-        String address=txtCustomerAddress.getText().trim();
+        String address=txtSearchField.getText().trim();
         showSpecificCustomer(tableCustomer, address);
 
 
@@ -354,9 +349,6 @@ public class PosView extends javax.swing.JFrame {
         int id=Integer.parseInt(txtCustomerId.getText());
         cd.deleteCustomer(id, tableCustomer);
         resetCustomerForm();
-        
-        
-        
         btnCustomerAdd.setVisible(true);
     }//GEN-LAST:event_btnCustomerDeleteMouseClicked
 
