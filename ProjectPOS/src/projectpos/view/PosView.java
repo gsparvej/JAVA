@@ -15,23 +15,22 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import projectpos.pos.PosUtil;
 
-
 /**
  *
  * @author MY COMPUTER
  */
 public class PosView extends javax.swing.JFrame {
 
-    CustomerDao cd=new CustomerDao();
-    PosUtil pu=new PosUtil();
+    CustomerDao cd = new CustomerDao();
+    PosUtil pu = new PosUtil();
+
     /**
      * Creates new form PosView
      */
     public PosView() {
         initComponents();
         cd.showAllCustomer(tableCustomer);
-        
-        
+
     }
 
     /**
@@ -216,62 +215,56 @@ public class PosView extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    public void resetCustomerForm(){
-    
+    public void resetCustomerForm() {
+
         txtCustomerId.setText("");
         txtCustomerName.setText("");
         txtCustomerCell.setText("");
         txtCustomerEmail.setText("");
         txtCustomerAddress.setText("");
         txtSearchField.setText("");
-    
+
     }
-    
-    public void showSpecificCustomer(JTable jt){
-    
-        String addres="";
-        String[] ColoumnName={"ID","Name","Cell","Email","Address"};
-        DefaultTableModel tableModel=new DefaultTableModel(ColoumnName, 0);
+
+    public void showSpecificCustomer(JTable jt, String address) {
+
+//        String addres="";
+        String[] ColoumnName = {"ID", "Name", "Cell", "Email", "Address"};
+        DefaultTableModel tableModel = new DefaultTableModel(ColoumnName, 0);
         jt.setModel(tableModel);
-        addres=txtSearchField.getText().trim();
-        String sql="select * from customer where address like"+ "address";
+//        addres=txtSearchField.getText().trim();
+        String sql = "select * from customer where address ;";
         try {
-            PreparedStatement ps=pu.getCon().prepareStatement(sql);
-            ResultSet rs=ps.executeQuery();
+            PreparedStatement ps = pu.getCon().prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
             rs.getString(sql);
-            
-             while(rs.next()){
-            
-                int id=rs.getInt("id");
-                String name=rs.getString("name");
-                String email=rs.getString("email");
-                String cell=rs.getString("cell");
-               // String address=rs.getString("address");
-                
-                Object[] rowData={id,name,email,cell,addres};
+
+            while (rs.next()) {
+
+                int id = rs.getInt("id");
+                String name = rs.getString("name");
+                String email = rs.getString("email");
+                String cell = rs.getString("cell");
+                // String address=rs.getString("address");
+
+                Object[] rowData = {id, name, email, cell, address};
                 tableModel.addRow(rowData);
-            
+
             }
-            
-           
-            
+
             rs.close();
             ps.close();
             pu.getCon().close();
             JOptionPane.showMessageDialog(null, "Found Succesfully ");
-            
+
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "! Not Found !");
             Logger.getLogger(PosView.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        
-        
-    
-    
+
     }
-    
-    
+
+
     private void txtCustomerCellActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCustomerCellActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCustomerCellActionPerformed
@@ -281,22 +274,22 @@ public class PosView extends javax.swing.JFrame {
     }//GEN-LAST:event_txtCustomerNameActionPerformed
 
     private void btnCustomerAddMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCustomerAddMouseClicked
-       
-       String name=txtCustomerName.getText().trim();
-       String cell=txtCustomerCell.getText().trim();
-       String email=txtCustomerEmail.getText().trim();
-       String address=txtCustomerAddress.getText().trim();
-       
-       cd.saveCustomer(name, cell, email, address, tableCustomer);
-      cd.showAllCustomer(tableCustomer);
-      resetCustomerForm();
-       
+
+        String name = txtCustomerName.getText().trim();
+        String cell = txtCustomerCell.getText().trim();
+        String email = txtCustomerEmail.getText().trim();
+        String address = txtCustomerAddress.getText().trim();
+
+        cd.saveCustomer(name, cell, email, address, tableCustomer);
+        cd.showAllCustomer(tableCustomer);
+        resetCustomerForm();
+
     }//GEN-LAST:event_btnCustomerAddMouseClicked
 
     private void btnCustomerResetMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCustomerResetMouseClicked
-        
+
         resetCustomerForm();
-        
+
     }//GEN-LAST:event_btnCustomerResetMouseClicked
 
     private void btnCustomerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCustomerMouseClicked
@@ -305,11 +298,9 @@ public class PosView extends javax.swing.JFrame {
 
     private void btnSearchMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSearchMouseClicked
 
-           showSpecificCustomer(tableCustomer);
-           
-   
-        
-        
+        showSpecificCustomer(tableCustomer, txtSearchField.getText());
+
+
     }//GEN-LAST:event_btnSearchMouseClicked
 
     /**
