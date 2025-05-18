@@ -351,6 +351,10 @@ public class PosView extends javax.swing.JFrame {
 
     private void btnCustomerDeleteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCustomerDeleteMouseClicked
         // TODO add your handling code here:
+        int id=Integer.parseInt(txtCustomerId.getText());
+        cd.deleteCustomer(id, tableCustomer);
+        resetCustomerForm();
+        
         
         
         btnCustomerAdd.setVisible(true);
@@ -359,6 +363,15 @@ public class PosView extends javax.swing.JFrame {
     private void btnCustomerEditMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCustomerEditMouseClicked
         // TODO add your handling code here:
         
+        int id=Integer.parseInt(txtCustomerId.getText());
+        String name=txtCustomerName.getText().trim();
+        String cell=txtCustomerCell.getText().trim();
+        String email=txtCustomerEmail.getText().trim();
+        String address=txtCustomerAddress.getText().trim();
+        
+        cd.editCustomer(id, name, cell, email, address, tableCustomer);
+        resetCustomerForm();
+        cd.showAllCustomer(tableCustomer);
         
         btnCustomerAdd.setVisible(true);
     }//GEN-LAST:event_btnCustomerEditMouseClicked

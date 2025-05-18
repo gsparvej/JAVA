@@ -80,8 +80,60 @@ public class CustomerDao {
     
     }
     
+    public void deleteCustomer(int id, JTable jt){
     
+        String sql="delete from customer where id=?";
+        
+        try {
+            ps=pu.getCon().prepareStatement(sql);
+            ps.setInt(1, id);
+            
+            ps.executeUpdate();
+            ps.close();
+            pu.getCon().close();
+            
+            JOptionPane.showMessageDialog(null, "Data Deleted Successfully." );
+            showAllCustomer(jt);
+            
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Data Deleted Unsuccessful ! Try Again..." );
+            Logger.getLogger(CustomerDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+    
+    
+    }
     
    
+    public void editCustomer(int id,String name,String cell,String email, String address, JTable jt){
+    
+        String sql="update customer set name=?,cell=?,email=?,address=? where id=?";
+        
+        try {
+            ps=pu.getCon().prepareStatement(sql);
+           
+            ps.setString(1, name);
+            ps.setString(2, cell);
+            ps.setString(3, email);
+            ps.setString(4, address);
+            ps.setInt(5, id);
+            
+            ps.executeUpdate();
+            ps.close();
+            pu.getCon().close();
+            
+            JOptionPane.showMessageDialog(null, "Data Updated Successfully." );
+            showAllCustomer(jt);
+            
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Data Update Unsuccessful ! Try Again..." );
+            Logger.getLogger(CustomerDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+    
+    
+    }
     
 }
