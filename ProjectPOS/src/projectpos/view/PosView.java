@@ -97,6 +97,11 @@ public class PosView extends javax.swing.JFrame {
         jPanel2.add(btnHistory, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 290, 150, -1));
 
         btnHome.setText("Home");
+        btnHome.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnHomeMouseClicked(evt);
+            }
+        });
         jPanel2.add(btnHome, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 150, -1));
 
         btnCustomer.setText("Customer");
@@ -385,6 +390,10 @@ public class PosView extends javax.swing.JFrame {
     private void btnProductMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnProductMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_btnProductMouseClicked
+
+    private void btnHomeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnHomeMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnHomeMouseClicked
 
     /**
      * @param args the command line arguments
