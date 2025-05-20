@@ -72,8 +72,29 @@ public class ProjectView extends javax.swing.JFrame {
         jPanel7 = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
         btnRefresh = new javax.swing.JButton();
-        jPanel5 = new javax.swing.JPanel();
+        tabProduct = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
+        txtProductID = new javax.swing.JTextField();
+        jLabel15 = new javax.swing.JLabel();
+        txtProductCustomerID = new javax.swing.JTextField();
+        jLabel19 = new javax.swing.JLabel();
+        txtProductExpiredDate = new javax.swing.JTextField();
+        jPanel5 = new javax.swing.JPanel();
+        jLabel16 = new javax.swing.JLabel();
+        txtProductUnitPrice = new javax.swing.JTextField();
+        jLabel17 = new javax.swing.JLabel();
+        txtProductQuantity = new javax.swing.JTextField();
+        jLabel18 = new javax.swing.JLabel();
+        txtProductTotalPrice = new javax.swing.JTextField();
+        jLabel20 = new javax.swing.JLabel();
+        jPanel8 = new javax.swing.JPanel();
+        jLabel21 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jLabel22 = new javax.swing.JLabel();
+        txtProductCustomerName = new javax.swing.JTextField();
+        jLabel23 = new javax.swing.JLabel();
+        txtProductName = new javax.swing.JTextField();
         jPanel6 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jTabbedPane2 = new javax.swing.JTabbedPane();
@@ -221,6 +242,11 @@ public class ProjectView extends javax.swing.JFrame {
 
         btnCustomerSearchByAddress.setBackground(new java.awt.Color(204, 204, 255));
         btnCustomerSearchByAddress.setText("Search By Address");
+        btnCustomerSearchByAddress.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnCustomerSearchByAddressMouseClicked(evt);
+            }
+        });
         jPanel4.add(btnCustomerSearchByAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 40, -1, -1));
 
         btnCustomerSave.setBackground(new java.awt.Color(204, 255, 204));
@@ -303,26 +329,78 @@ public class ProjectView extends javax.swing.JFrame {
 
         tabCustomer.addTab("tab2", jPanel4);
 
-        jLabel4.setText("3");
+        tabProduct.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(369, 369, 369)
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(481, Short.MAX_VALUE))
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(159, 159, 159)
-                .addComponent(jLabel4)
-                .addContainerGap(594, Short.MAX_VALUE))
-        );
+        jLabel4.setText("ID");
+        tabProduct.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 39, 57, 25));
+        tabProduct.add(txtProductID, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 40, 107, -1));
 
-        tabCustomer.addTab("tab3", jPanel5);
+        jLabel15.setText("Name");
+        tabProduct.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 40, 60, 20));
+        tabProduct.add(txtProductCustomerID, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 120, 150, -1));
+
+        jLabel19.setText("Expired Date");
+        tabProduct.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 80, 20));
+        tabProduct.add(txtProductExpiredDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 80, 110, -1));
+
+        jPanel5.setBackground(new java.awt.Color(204, 255, 204));
+        jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel16.setText("Unit Price");
+        jPanel5.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 60, 20));
+        jPanel5.add(txtProductUnitPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 70, 110, -1));
+
+        jLabel17.setText("Quantity");
+        jPanel5.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 60, 20));
+        jPanel5.add(txtProductQuantity, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 100, 110, -1));
+
+        jLabel18.setBackground(new java.awt.Color(204, 204, 255));
+        jLabel18.setText("Total Price");
+        jPanel5.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 70, 70, 20));
+        jPanel5.add(txtProductTotalPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 100, 150, -1));
+
+        jLabel20.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel20.setText("Price Section");
+        jPanel5.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 10, 170, 30));
+
+        tabProduct.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 40, 450, 160));
+
+        jPanel8.setBackground(new java.awt.Color(102, 102, 102));
+        jPanel8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel21.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        jLabel21.setForeground(new java.awt.Color(204, 204, 255));
+        jLabel21.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel21.setText("Product Details ");
+        jPanel8.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 960, 70));
+
+        tabProduct.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 210, 960, 70));
+
+        jTable1.setBackground(new java.awt.Color(204, 204, 255));
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane2.setViewportView(jTable1);
+
+        tabProduct.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 280, 960, 490));
+
+        jLabel22.setText("Customer ID by Search");
+        tabProduct.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 130, 60));
+        tabProduct.add(txtProductCustomerName, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 80, 150, -1));
+
+        jLabel23.setText("Customer Name");
+        tabProduct.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 80, 100, 20));
+        tabProduct.add(txtProductName, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 40, 150, -1));
+
+        tabCustomer.addTab("tab3", tabProduct);
 
         jLabel5.setText("4");
 
@@ -499,6 +577,13 @@ public class ProjectView extends javax.swing.JFrame {
         btnCustomerSave.setVisible(true);
     }//GEN-LAST:event_btnCustomerEditMouseClicked
 
+    private void btnCustomerSearchByAddressMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCustomerSearchByAddressMouseClicked
+        // TODO add your handling code here:
+        String address=txtCustomerSearchField.getText().toLowerCase().trim();
+        pd.searchCustomerByAddress(address, tableCustomers);
+       
+    }//GEN-LAST:event_btnCustomerSearchByAddressMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -555,7 +640,16 @@ public class ProjectView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -570,13 +664,17 @@ public class ProjectView extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JTabbedPane jTabbedPane3;
     private javax.swing.JTabbedPane jTabbedPane4;
     private javax.swing.JTabbedPane jTabbedPane5;
+    private javax.swing.JTable jTable1;
     private javax.swing.JTabbedPane tabCustomer;
+    private javax.swing.JPanel tabProduct;
     private javax.swing.JTable tableCustomers;
     private javax.swing.JTextField txtCustomerAddress;
     private javax.swing.JTextField txtCustomerCell;
@@ -584,5 +682,13 @@ public class ProjectView extends javax.swing.JFrame {
     private javax.swing.JTextField txtCustomerId;
     private javax.swing.JTextField txtCustomerName;
     private javax.swing.JTextField txtCustomerSearchField;
+    private javax.swing.JTextField txtProductCustomerID;
+    private javax.swing.JTextField txtProductCustomerName;
+    private javax.swing.JTextField txtProductExpiredDate;
+    private javax.swing.JTextField txtProductID;
+    private javax.swing.JTextField txtProductName;
+    private javax.swing.JTextField txtProductQuantity;
+    private javax.swing.JTextField txtProductTotalPrice;
+    private javax.swing.JTextField txtProductUnitPrice;
     // End of variables declaration//GEN-END:variables
 }

@@ -71,6 +71,51 @@ public class ProjectDao {
         
     }
     
+    public void searchCustomerByAddress(String address, JTable jt){
+    
+        String[] ColoumnName={"ID","Name","Cell","Email","Address"};
+        DefaultTableModel tableModel=new DefaultTableModel(ColoumnName, 0);
+        jt.setModel(tableModel);
+    
+        String sql="select * from projecttable where address=?";
+        if(address.equalsIgnoreCase(address)){
+        
+        try {
+            ps=pu.getCon().prepareStatement(sql);
+            ps.setString(1, address);
+            
+            ResultSet rs=ps.executeQuery();
+            
+            while(rs.next()){
+            
+                tableModel.addRow(new Object[]{
+                
+                rs.getInt("id"),
+                rs.getString("name"),
+                rs.getString("cell"),
+                rs.getString("email"),
+                rs.getString("address")}
+                
+                );  
+            
+            }
+            rs.close();
+            ps.close();
+            pu.getCon().close();
+            
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Does not match Address ... Try Again ! ");
+            Logger.getLogger(ProjectDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        }
+        else{
+        
+        JOptionPane.showMessageDialog(null, " ! Not Found ! Address does not matched .... Try again ...  ");
+        }
+    
+    
+    }
+    
     public void deleteCustomer(int id, JTable jt){
         
         String sql="delete from projecttable where id=?";
