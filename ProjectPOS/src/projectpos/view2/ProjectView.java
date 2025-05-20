@@ -4,12 +4,17 @@
  */
 package projectpos.view2;
 
+import dao.ProjectDao;
+import projectpos.pos.PosUtil;
+
 /**
  *
  * @author MY COMPUTER
  */
 public class ProjectView extends javax.swing.JFrame {
 
+    PosUtil pu=new PosUtil();
+    ProjectDao pd=new ProjectDao();
     /**
      * Creates new form ProjectView
      */
@@ -43,15 +48,21 @@ public class ProjectView extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtCustomerId = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        txtCustomerName = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        txtCustomerCell = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        txtCustomerEmail = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
+        txtCustomerAddress = new javax.swing.JTextField();
+        btnCustomerSearchByAddress = new javax.swing.JButton();
+        btnCustomerSave = new javax.swing.JButton();
+        btnCustomerDelete = new javax.swing.JButton();
+        btnCustomerReset = new javax.swing.JButton();
+        btnCustomerEdit = new javax.swing.JButton();
+        txtCustomerSearchField = new javax.swing.JTextField();
         jPanel5 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
@@ -171,76 +182,61 @@ public class ProjectView extends javax.swing.JFrame {
 
         tabCustomer.addTab("tab1", jPanel3);
 
+        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         jLabel3.setText("ID");
+        jPanel4.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 42, 53, -1));
+        jPanel4.add(txtCustomerId, new org.netbeans.lib.awtextra.AbsoluteConstraints(71, 39, 161, -1));
 
         jLabel10.setText("Name");
+        jPanel4.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 82, 53, -1));
 
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        txtCustomerName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                txtCustomerNameActionPerformed(evt);
             }
         });
+        jPanel4.add(txtCustomerName, new org.netbeans.lib.awtextra.AbsoluteConstraints(71, 79, 161, -1));
 
         jLabel11.setText("Cell");
+        jPanel4.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(275, 42, 53, -1));
+        jPanel4.add(txtCustomerCell, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 39, 161, -1));
 
         jLabel12.setText("Email");
+        jPanel4.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(275, 82, 53, -1));
+        jPanel4.add(txtCustomerEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 79, 161, -1));
 
         jLabel13.setText("Address");
+        jPanel4.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 116, 59, -1));
+        jPanel4.add(txtCustomerAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(71, 113, 430, -1));
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(43, 43, 43)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(459, Short.MAX_VALUE))
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(39, 39, 39)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel11)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel10)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel12)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel13)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(634, Short.MAX_VALUE))
-        );
+        btnCustomerSearchByAddress.setBackground(new java.awt.Color(204, 204, 255));
+        btnCustomerSearchByAddress.setText("Search By Address");
+        jPanel4.add(btnCustomerSearchByAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 40, -1, -1));
+
+        btnCustomerSave.setBackground(new java.awt.Color(204, 255, 204));
+        btnCustomerSave.setText("Save");
+        btnCustomerSave.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnCustomerSaveMouseClicked(evt);
+            }
+        });
+        jPanel4.add(btnCustomerSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 40, -1, -1));
+
+        btnCustomerDelete.setBackground(new java.awt.Color(255, 51, 51));
+        btnCustomerDelete.setText("Delete");
+        jPanel4.add(btnCustomerDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 40, -1, -1));
+
+        btnCustomerReset.setBackground(new java.awt.Color(255, 255, 204));
+        btnCustomerReset.setText("Reset");
+        jPanel4.add(btnCustomerReset, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 80, -1, -1));
+
+        btnCustomerEdit.setBackground(new java.awt.Color(153, 153, 153));
+        btnCustomerEdit.setText("Edit");
+        jPanel4.add(btnCustomerEdit, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 80, -1, -1));
+
+        txtCustomerSearchField.setBackground(new java.awt.Color(255, 204, 204));
+        jPanel4.add(txtCustomerSearchField, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 80, 190, -1));
 
         tabCustomer.addTab("tab2", jPanel4);
 
@@ -354,9 +350,20 @@ public class ProjectView extends javax.swing.JFrame {
         tabCustomer.setSelectedIndex(7);
     }//GEN-LAST:event_jButton7MouseClicked
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void txtCustomerNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCustomerNameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_txtCustomerNameActionPerformed
+
+    private void btnCustomerSaveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCustomerSaveMouseClicked
+        // TODO add your handling code here:
+       String name=txtCustomerName.getText().trim();
+       String cell=txtCustomerCell.getText().trim();
+       String email=txtCustomerEmail.getText().trim();
+       String address=txtCustomerAddress.getText().trim();
+        
+        pd.saveCustomer(name, cell, email, address);
+        
+    }//GEN-LAST:event_btnCustomerSaveMouseClicked
 
     /**
      * @param args the command line arguments
@@ -395,6 +402,11 @@ public class ProjectView extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCustomer;
+    private javax.swing.JButton btnCustomerDelete;
+    private javax.swing.JButton btnCustomerEdit;
+    private javax.swing.JButton btnCustomerReset;
+    private javax.swing.JButton btnCustomerSave;
+    private javax.swing.JButton btnCustomerSearchByAddress;
     private javax.swing.JButton btnHome;
     private javax.swing.JButton btnProduct;
     private javax.swing.JButton jButton3;
@@ -426,11 +438,12 @@ public class ProjectView extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPane3;
     private javax.swing.JTabbedPane jTabbedPane4;
     private javax.swing.JTabbedPane jTabbedPane5;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
     private javax.swing.JTabbedPane tabCustomer;
+    private javax.swing.JTextField txtCustomerAddress;
+    private javax.swing.JTextField txtCustomerCell;
+    private javax.swing.JTextField txtCustomerEmail;
+    private javax.swing.JTextField txtCustomerId;
+    private javax.swing.JTextField txtCustomerName;
+    private javax.swing.JTextField txtCustomerSearchField;
     // End of variables declaration//GEN-END:variables
 }
