@@ -5,6 +5,7 @@
 package projectpos.view2;
 
 import dao.ProjectDao;
+import javax.swing.JOptionPane;
 import projectpos.pos.PosUtil;
 
 /**
@@ -20,6 +21,9 @@ public class ProjectView extends javax.swing.JFrame {
      */
     public ProjectView() {
         initComponents();
+        
+       pd.showAllCustomer(tableCustomers);
+        
     }
 
     /**
@@ -63,6 +67,11 @@ public class ProjectView extends javax.swing.JFrame {
         btnCustomerReset = new javax.swing.JButton();
         btnCustomerEdit = new javax.swing.JButton();
         txtCustomerSearchField = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tableCustomers = new javax.swing.JTable();
+        jPanel7 = new javax.swing.JPanel();
+        jLabel14 = new javax.swing.JLabel();
+        btnRefresh = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
@@ -229,6 +238,11 @@ public class ProjectView extends javax.swing.JFrame {
 
         btnCustomerReset.setBackground(new java.awt.Color(255, 255, 204));
         btnCustomerReset.setText("Reset");
+        btnCustomerReset.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnCustomerResetMouseClicked(evt);
+            }
+        });
         jPanel4.add(btnCustomerReset, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 80, -1, -1));
 
         btnCustomerEdit.setBackground(new java.awt.Color(153, 153, 153));
@@ -237,6 +251,45 @@ public class ProjectView extends javax.swing.JFrame {
 
         txtCustomerSearchField.setBackground(new java.awt.Color(255, 204, 204));
         jPanel4.add(txtCustomerSearchField, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 80, 190, -1));
+
+        tableCustomers.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        tableCustomers.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tableCustomersMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(tableCustomers);
+
+        jPanel4.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 220, 960, 490));
+
+        jPanel7.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel14.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel14.setText("Customers Details ");
+        jPanel7.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 960, 60));
+
+        jPanel4.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 960, 60));
+
+        btnRefresh.setBackground(new java.awt.Color(255, 153, 51));
+        btnRefresh.setText("Refresh");
+        btnRefresh.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnRefreshMouseClicked(evt);
+            }
+        });
+        jPanel4.add(btnRefresh, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 110, -1, -1));
 
         tabCustomer.addTab("tab2", jPanel4);
 
@@ -365,6 +418,45 @@ public class ProjectView extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnCustomerSaveMouseClicked
 
+    private void btnRefreshMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRefreshMouseClicked
+        // TODO add your handling code here:
+        pd.showAllCustomer(tableCustomers);
+    }//GEN-LAST:event_btnRefreshMouseClicked
+
+    private void btnCustomerResetMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCustomerResetMouseClicked
+        // TODO add your handling code here:
+        
+        txtCustomerId.setText("");
+        txtCustomerName.setText("");
+        txtCustomerCell.setText("");
+        txtCustomerEmail.setText("");
+        txtCustomerAddress.setText("");
+        btnCustomerSave.setVisible(true);
+        
+    }//GEN-LAST:event_btnCustomerResetMouseClicked
+
+    private void tableCustomersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableCustomersMouseClicked
+        // TODO add your handling code here:
+        btnCustomerSave.setVisible(false);
+        int rowIndex=tableCustomers.getSelectedRow();
+        
+        String id=tableCustomers.getModel().getValueAt(rowIndex, 0).toString();
+        String name=tableCustomers.getModel().getValueAt(rowIndex, 1).toString();
+        String cell=tableCustomers.getModel().getValueAt(rowIndex, 2).toString();
+        String email=tableCustomers.getModel().getValueAt(rowIndex, 3).toString();
+        String address=tableCustomers.getModel().getValueAt(rowIndex, 4).toString();
+        
+        txtCustomerId.setText(id);
+        txtCustomerName.setText(name);
+        txtCustomerCell.setText(cell);
+        txtCustomerEmail.setText(email);
+        txtCustomerAddress.setText(address);
+        
+        
+        
+        
+    }//GEN-LAST:event_tableCustomersMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -409,6 +501,7 @@ public class ProjectView extends javax.swing.JFrame {
     private javax.swing.JButton btnCustomerSearchByAddress;
     private javax.swing.JButton btnHome;
     private javax.swing.JButton btnProduct;
+    private javax.swing.JButton btnRefresh;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
@@ -419,6 +512,7 @@ public class ProjectView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -433,12 +527,15 @@ public class ProjectView extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JTabbedPane jTabbedPane3;
     private javax.swing.JTabbedPane jTabbedPane4;
     private javax.swing.JTabbedPane jTabbedPane5;
     private javax.swing.JTabbedPane tabCustomer;
+    private javax.swing.JTable tableCustomers;
     private javax.swing.JTextField txtCustomerAddress;
     private javax.swing.JTextField txtCustomerCell;
     private javax.swing.JTextField txtCustomerEmail;

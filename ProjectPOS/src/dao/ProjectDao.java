@@ -1,6 +1,7 @@
 package dao;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -40,9 +41,33 @@ public class ProjectDao {
     public void showAllCustomer(JTable jt) {
 
         String[] ColoumnName = {"ID", "Name", "Cell", "Email", "Address"};
-        DefaultTableModel tableModel = new DefaultTableModel();
+        DefaultTableModel tableModel = new DefaultTableModel(ColoumnName,0);
         jt.setModel(tableModel);
         
-        String sql="";
+        String sql="select * from projecttable";
+        
+        try {
+            ps=pu.getCon().prepareStatement(sql);
+            ResultSet rs=ps.executeQuery();
+            
+            while(rs.next()){
+            int id=rs.getInt("id");
+            String name=rs.getString("name");
+            String cell=rs.getString("cell");
+            String email=rs.getString("email");
+            String address=rs.getString("address");
+            
+            Object[] rowData={id,name,cell,email,address};
+            tableModel.addRow(rowData);
+            
+            }
+            rs.close();
+            ps.close();
+            pu.getCon().close();
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(ProjectDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }
 }
