@@ -70,4 +70,50 @@ public class ProjectDao {
         }
         
     }
+    
+    public void deleteCustomer(int id, JTable jt){
+        
+        String sql="delete from projecttable where id=?";
+        
+        try {
+            ps=pu.getCon().prepareStatement(sql);
+            
+            ps.setInt(1, id);
+            
+            ps.executeUpdate();
+            ps.close();
+            pu.getCon().close();
+            
+            JOptionPane.showMessageDialog(null, "Data Deleted Successfully ! ");
+            
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Data does Not Delete Successfully ! ");
+            Logger.getLogger(ProjectDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+      
+    }
+    
+    public void editCustomer(int id,String name, String cell, String email, String address ,JTable jt){
+    
+        String sql="update projecttable set name=?,cell=?,email=?,address=? where id=?";
+        
+        try {
+            ps=pu.getCon().prepareStatement(sql);
+            ps.setString(1, name);
+            ps.setString(2, cell);
+            ps.setString(3, email);
+            ps.setString(4, address);
+            ps.setInt(5, id);
+            
+            ps.executeUpdate();
+            ps.close();
+            pu.getCon().close();
+            JOptionPane.showMessageDialog(null, "Data Edited Successfully ! ");
+            
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Data Edite Unsuccessfully ! ");
+            Logger.getLogger(ProjectDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    
+    }
 }
