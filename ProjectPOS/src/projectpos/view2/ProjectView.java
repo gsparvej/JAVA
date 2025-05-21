@@ -90,11 +90,15 @@ public class ProjectView extends javax.swing.JFrame {
         jPanel8 = new javax.swing.JPanel();
         jLabel21 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tableProduct = new javax.swing.JTable();
         jLabel22 = new javax.swing.JLabel();
         txtProductCustomerName = new javax.swing.JTextField();
         jLabel23 = new javax.swing.JLabel();
         txtProductName = new javax.swing.JTextField();
+        btnProductEdit = new javax.swing.JButton();
+        btnProductSave = new javax.swing.JButton();
+        jButton10 = new javax.swing.JButton();
+        jButton11 = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jTabbedPane2 = new javax.swing.JTabbedPane();
@@ -352,11 +356,23 @@ public class ProjectView extends javax.swing.JFrame {
 
         jLabel17.setText("Quantity");
         jPanel5.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 60, 20));
+
+        txtProductQuantity.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtProductQuantityFocusLost(evt);
+            }
+        });
         jPanel5.add(txtProductQuantity, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 100, 110, -1));
 
         jLabel18.setBackground(new java.awt.Color(204, 204, 255));
         jLabel18.setText("Total Price");
         jPanel5.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 70, 70, 20));
+
+        txtProductTotalPrice.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtProductTotalPriceMouseClicked(evt);
+            }
+        });
         jPanel5.add(txtProductTotalPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 100, 150, -1));
 
         jLabel20.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -376,8 +392,8 @@ public class ProjectView extends javax.swing.JFrame {
 
         tabProduct.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 210, 960, 70));
 
-        jTable1.setBackground(new java.awt.Color(204, 204, 255));
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tableProduct.setBackground(new java.awt.Color(204, 204, 255));
+        tableProduct.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -388,7 +404,7 @@ public class ProjectView extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane2.setViewportView(jTable1);
+        jScrollPane2.setViewportView(tableProduct);
 
         tabProduct.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 280, 960, 490));
 
@@ -399,6 +415,18 @@ public class ProjectView extends javax.swing.JFrame {
         jLabel23.setText("Customer Name");
         tabProduct.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 80, 100, 20));
         tabProduct.add(txtProductName, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 40, 150, -1));
+
+        btnProductEdit.setText("Edit");
+        tabProduct.add(btnProductEdit, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 170, -1, -1));
+
+        btnProductSave.setText("Save");
+        tabProduct.add(btnProductSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, -1, -1));
+
+        jButton10.setText("Reset");
+        tabProduct.add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 170, -1, -1));
+
+        jButton11.setText("Delete");
+        tabProduct.add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 170, -1, -1));
 
         tabCustomer.addTab("tab3", tabProduct);
 
@@ -584,6 +612,27 @@ public class ProjectView extends javax.swing.JFrame {
        
     }//GEN-LAST:event_btnCustomerSearchByAddressMouseClicked
 
+    public void productTotalPrice(){
+    
+    double n1=Double.parseDouble(txtProductUnitPrice.getText().toString().trim());
+    double n2=Double.parseDouble(txtProductQuantity.getText().toString().trim());
+    double n=n1*n2;
+    txtProductTotalPrice.setText(n+"");
+    }
+    
+    
+    
+    
+    private void txtProductTotalPriceMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtProductTotalPriceMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtProductTotalPriceMouseClicked
+
+    private void txtProductQuantityFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtProductQuantityFocusLost
+        // TODO add your handling code here:
+        productTotalPrice();
+        
+    }//GEN-LAST:event_txtProductQuantityFocusLost
+
     /**
      * @param args the command line arguments
      */
@@ -628,7 +677,11 @@ public class ProjectView extends javax.swing.JFrame {
     private javax.swing.JButton btnCustomerSearchByAddress;
     private javax.swing.JButton btnHome;
     private javax.swing.JButton btnProduct;
+    private javax.swing.JButton btnProductEdit;
+    private javax.swing.JButton btnProductSave;
     private javax.swing.JButton btnRefresh;
+    private javax.swing.JButton jButton10;
+    private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
@@ -672,10 +725,10 @@ public class ProjectView extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPane3;
     private javax.swing.JTabbedPane jTabbedPane4;
     private javax.swing.JTabbedPane jTabbedPane5;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTabbedPane tabCustomer;
     private javax.swing.JPanel tabProduct;
     private javax.swing.JTable tableCustomers;
+    private javax.swing.JTable tableProduct;
     private javax.swing.JTextField txtCustomerAddress;
     private javax.swing.JTextField txtCustomerCell;
     private javax.swing.JTextField txtCustomerEmail;
