@@ -34,13 +34,13 @@ public class ProductDao {
             while(rs.next()){
             int id=rs.getInt("id");
             String name=rs.getString("name");
-            String cell=rs.getString("expiredDate");
-            String email=rs.getString("customerName");
-            String address=rs.getString("unitePrice");
-            String address=rs.getString("quantity");
-            String address=rs.getString("totalPrice");
+            String expiredDate=rs.getString("expiredDate");
+            String customerName=rs.getString("customerName");
+            String unitePrice=rs.getString("unitePrice");
+            String quantity=rs.getString("quantity");
+            String totalPrice=rs.getString("totalPrice");
             
-            Object[] rowData={id,name,cell,email,address};
+            Object[] rowData={name,expiredDate,customerName,unitePrice,quantity,totalPrice};
             tableModel.addRow(rowData);
             
             }
