@@ -124,9 +124,27 @@ public class ProjectView extends javax.swing.JFrame {
         jTabbedPane3 = new javax.swing.JTabbedPane();
         jLabel7 = new javax.swing.JLabel();
         jTabbedPane4 = new javax.swing.JTabbedPane();
-        jLabel8 = new javax.swing.JLabel();
         jTabbedPane5 = new javax.swing.JTabbedPane();
+        jPanel13 = new javax.swing.JPanel();
+        jPanel14 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
+        JComboBoxPurchaseSupplierName = new javax.swing.JComboBox<>();
+        jPanel15 = new javax.swing.JPanel();
+        jPanel16 = new javax.swing.JPanel();
+        JComboBoxPurchaseCategory = new javax.swing.JComboBox<>();
+        jLabel26 = new javax.swing.JLabel();
+        jPanel17 = new javax.swing.JPanel();
+        jLabel27 = new javax.swing.JLabel();
+        jLabel28 = new javax.swing.JLabel();
+        JComboBoxPurchaseProductName = new javax.swing.JComboBox<>();
+        jLabel29 = new javax.swing.JLabel();
+        txtPurchaseTotalPrice = new javax.swing.JTextField();
+        txtPurchaseUnitePrice = new javax.swing.JTextField();
+        jLabel30 = new javax.swing.JLabel();
+        jLabel31 = new javax.swing.JLabel();
+        txtPurchaseQuantity = new javax.swing.JTextField();
+        btnPurchaseReset = new javax.swing.JButton();
+        btnPurchaseConfirm = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -192,7 +210,7 @@ public class ProjectView extends javax.swing.JFrame {
         });
         jPanel2.add(btnCategory, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 190, 140, 30));
 
-        btnHistory.setText("History");
+        btnHistory.setText("Purchase");
         btnHistory.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnHistoryMouseClicked(evt);
@@ -229,7 +247,7 @@ public class ProjectView extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(197, 197, 197)
                 .addComponent(jLabel2)
-                .addContainerGap(557, Short.MAX_VALUE))
+                .addContainerGap(556, Short.MAX_VALUE))
         );
 
         tabCustomer.addTab("tab1", jPanel3);
@@ -464,7 +482,7 @@ public class ProjectView extends javax.swing.JFrame {
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addGap(133, 133, 133)
                 .addComponent(jLabel5)
-                .addContainerGap(621, Short.MAX_VALUE))
+                .addContainerGap(620, Short.MAX_VALUE))
         );
 
         tabCustomer.addTab("tab4", jPanel6);
@@ -561,14 +579,71 @@ public class ProjectView extends javax.swing.JFrame {
         jTabbedPane3.addTab("tab1", jLabel7);
 
         tabCustomer.addTab("tab6", jTabbedPane3);
-
-        jLabel8.setText("7");
-        jTabbedPane4.addTab("tab1", jLabel8);
-
         tabCustomer.addTab("tab7", jTabbedPane4);
 
-        jLabel9.setText("8");
-        jTabbedPane5.addTab("tab1", jLabel9);
+        jTabbedPane5.setBackground(new java.awt.Color(102, 255, 204));
+
+        jPanel13.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel14.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel13.add(jPanel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, 954, -1));
+
+        jLabel9.setText("Supplier Name");
+        jPanel13.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 70, 90, -1));
+
+        JComboBoxPurchaseSupplierName.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel13.add(JComboBoxPurchaseSupplierName, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 70, 140, -1));
+
+        jPanel15.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel16.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel15.add(jPanel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, 954, -1));
+
+        jPanel13.add(jPanel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        JComboBoxPurchaseCategory.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel13.add(JComboBoxPurchaseCategory, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 70, 140, -1));
+
+        jLabel26.setText("Category");
+        jPanel13.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 60, 20));
+
+        jPanel17.setBackground(new java.awt.Color(0, 153, 153));
+        jPanel17.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel27.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        jLabel27.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel27.setText("Purchase");
+        jPanel17.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 960, 60));
+
+        jPanel13.add(jPanel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 960, 60));
+
+        jLabel28.setText("Product Name");
+        jPanel13.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 70, 90, -1));
+
+        JComboBoxPurchaseProductName.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel13.add(JComboBoxPurchaseProductName, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 70, 140, -1));
+
+        jLabel29.setText("Total Price");
+        jPanel13.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 120, 70, -1));
+        jPanel13.add(txtPurchaseTotalPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 120, 140, -1));
+        jPanel13.add(txtPurchaseUnitePrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 120, 140, -1));
+
+        jLabel30.setText("Quantity");
+        jPanel13.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 120, 60, -1));
+
+        jLabel31.setText("Unite Price");
+        jPanel13.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 70, -1));
+        jPanel13.add(txtPurchaseQuantity, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 120, 140, -1));
+
+        btnPurchaseReset.setBackground(new java.awt.Color(0, 255, 102));
+        btnPurchaseReset.setText("Reset");
+        jPanel13.add(btnPurchaseReset, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 170, -1, -1));
+
+        btnPurchaseConfirm.setBackground(new java.awt.Color(153, 153, 255));
+        btnPurchaseConfirm.setText("Confirm");
+        jPanel13.add(btnPurchaseConfirm, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, -1, -1));
+
+        jTabbedPane5.addTab("tab1", jPanel13);
 
         tabCustomer.addTab("tab8", jTabbedPane5);
 
@@ -817,6 +892,9 @@ public class ProjectView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> JComboBoxPurchaseCategory;
+    private javax.swing.JComboBox<String> JComboBoxPurchaseProductName;
+    private javax.swing.JComboBox<String> JComboBoxPurchaseSupplierName;
     private javax.swing.JButton btnCategory;
     private javax.swing.JButton btnCategoryDelete;
     private javax.swing.JButton btnCategoryEdit;
@@ -833,6 +911,8 @@ public class ProjectView extends javax.swing.JFrame {
     private javax.swing.JButton btnProduct;
     private javax.swing.JButton btnProductEdit;
     private javax.swing.JButton btnProductSave;
+    private javax.swing.JButton btnPurchaseConfirm;
+    private javax.swing.JButton btnPurchaseReset;
     private javax.swing.JButton btnRefresh;
     private javax.swing.JButton btnSales;
     private javax.swing.JButton btnStock;
@@ -857,17 +937,27 @@ public class ProjectView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel12;
+    private javax.swing.JPanel jPanel13;
+    private javax.swing.JPanel jPanel14;
+    private javax.swing.JPanel jPanel15;
+    private javax.swing.JPanel jPanel16;
+    private javax.swing.JPanel jPanel17;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -905,5 +995,8 @@ public class ProjectView extends javax.swing.JFrame {
     private javax.swing.JTextField txtProductQuantity;
     private javax.swing.JTextField txtProductTotalPrice;
     private javax.swing.JTextField txtProductUnitPrice;
+    private javax.swing.JTextField txtPurchaseQuantity;
+    private javax.swing.JTextField txtPurchaseTotalPrice;
+    private javax.swing.JTextField txtPurchaseUnitePrice;
     // End of variables declaration//GEN-END:variables
 }
