@@ -74,7 +74,7 @@ public class CategoryDao {
         
     }
     
-    public void editCategory(int id,String name, String cell, String email, String address ,JTable jt){
+    public void editCategory(int id,String name,JTable jt){
     
         String sql="update category set name=? where id=?";
         
@@ -86,14 +86,40 @@ public class CategoryDao {
             ps.executeUpdate();
             ps.close();
             pu.getCon().close();
-            JOptionPane.showMessageDialog(null, "Data Edited Successfully ! ");
+            JOptionPane.showMessageDialog(null, " Category Data Edited Successfully ! ");
             
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Data Edite Unsuccessfully ! ");
+            JOptionPane.showMessageDialog(null, " Category Data Edit Unsuccessfully ! ");
             Logger.getLogger(ProjectDao.class.getName()).log(Level.SEVERE, null, ex);
         }
     
     }
+    
+     
+     public void deleteCategory(int id, JTable jt){
+        
+        String sql="delete from category where id=?";
+        
+        try {
+            ps=pu.getCon().prepareStatement(sql);
+            
+            ps.setInt(1, id);
+            
+            ps.executeUpdate();
+            ps.close();
+            pu.getCon().close();
+            
+            JOptionPane.showMessageDialog(null, " Category Data Deleted Successfully ! ");
+            
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, " Category Data does Not Delete Successfully ! ");
+            Logger.getLogger(ProjectDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+      
+    }
+    
+    
+    
     
     public List<Category> getAllCategory(){
     

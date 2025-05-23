@@ -673,6 +673,11 @@ public class ProjectView extends javax.swing.JFrame {
         jPanel18.add(txtSupplierAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 80, 230, -1));
 
         btnSupplierDelete.setText("Delete");
+        btnSupplierDelete.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnSupplierDeleteMouseClicked(evt);
+            }
+        });
         jPanel18.add(btnSupplierDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 200, -1, -1));
 
         btnSupplierSave.setText("Save");
@@ -684,6 +689,11 @@ public class ProjectView extends javax.swing.JFrame {
         jPanel18.add(btnSupplierSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, -1, -1));
 
         btnSupplierEdit.setText("Edit");
+        btnSupplierEdit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnSupplierEditMouseClicked(evt);
+            }
+        });
         jPanel18.add(btnSupplierEdit, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 200, -1, -1));
 
         btnSupplierReset.setText("Reset");
@@ -724,6 +734,11 @@ public class ProjectView extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tableSuppliers.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tableSuppliersMouseClicked(evt);
+            }
+        });
         jScrollPane4.setViewportView(tableSuppliers);
 
         jPanel18.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 300, 960, 440));
@@ -1016,14 +1031,21 @@ public class ProjectView extends javax.swing.JFrame {
     private void btnCategoryEditMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCategoryEditMouseClicked
         // TODO add your handling code here:
         
-        
+        int id=Integer.parseInt(txtCategoryID.getText());
+        String name=txtCategoryName.getText().trim();
+        categoryDao.editCategory(id, name, tableCategory);
+        resetCategory();
+        categoryDao.showAllCategory(tableCategory);
          btnCategorySave.setVisible(true);
+         
     }//GEN-LAST:event_btnCategoryEditMouseClicked
 
     private void btnCategoryDeleteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCategoryDeleteMouseClicked
         // TODO add your handling code here:
-        
-        
+        int id=Integer.parseInt(txtCategoryID.getText());
+        categoryDao.deleteCategory(id, tableCategory);
+        resetCategory();
+        categoryDao.showAllCategory(tableCategory);
          btnCategorySave.setVisible(true);
     }//GEN-LAST:event_btnCategoryDeleteMouseClicked
 
@@ -1047,12 +1069,60 @@ public class ProjectView extends javax.swing.JFrame {
     private void btnSupplierResetMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSupplierResetMouseClicked
         // TODO add your handling code here:
         resetSupplier();
+        btnSupplierSave.setVisible(true);
     }//GEN-LAST:event_btnSupplierResetMouseClicked
 
     private void btnSupplierRefreshMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSupplierRefreshMouseClicked
         // TODO add your handling code here:
         supplierDao.showAllSupplier(tableSuppliers);
+        resetSupplier();
+        btnSupplierSave.setVisible(true);
     }//GEN-LAST:event_btnSupplierRefreshMouseClicked
+
+    private void btnSupplierEditMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSupplierEditMouseClicked
+        // TODO add your handling code here:
+        int id=Integer.parseInt(txtSupplierId.getText());
+        String name=txtSupplierName.getText().trim();
+        String cell=txtSupplierCell.getText().trim();
+        String email=txtSupplierEmail.getText().trim();
+        String address=txtSupplierAddress.getText().trim();
+        String contactPerson=txtSupplierContactPerson.getText().trim();
+        
+        supplierDao.editSupplier(id, name, cell, email, address, contactPerson, tableProduct);
+        supplierDao.showAllSupplier(tableSuppliers);
+        btnSupplierSave.setVisible(true);
+        
+    }//GEN-LAST:event_btnSupplierEditMouseClicked
+
+    private void btnSupplierDeleteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSupplierDeleteMouseClicked
+        // TODO add your handling code here:
+        int id=Integer.parseInt(txtSupplierId.getText());
+        supplierDao.deleteSupplier(id, tableSuppliers);
+        resetSupplier();
+        supplierDao.showAllSupplier(tableSuppliers);
+        btnSupplierSave.setVisible(true);
+    }//GEN-LAST:event_btnSupplierDeleteMouseClicked
+
+    private void tableSuppliersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableSuppliersMouseClicked
+        // TODO add your handling code here:
+        btnSupplierSave.setVisible(false);
+        int rowIndex=tableSuppliers.getSelectedRow();
+        
+        String id= tableSuppliers.getModel().getValueAt(rowIndex, 0).toString();
+        String name= tableSuppliers.getModel().getValueAt(rowIndex, 1).toString();
+        String cell= tableSuppliers.getModel().getValueAt(rowIndex, 2).toString();
+        String email= tableSuppliers.getModel().getValueAt(rowIndex, 3).toString();
+        String address= tableSuppliers.getModel().getValueAt(rowIndex, 4).toString();
+        String contactPerson= tableSuppliers.getModel().getValueAt(rowIndex, 5).toString();
+        
+        
+        txtSupplierId.setText(id);
+        txtSupplierName.setText(name);
+        txtSupplierCell.setText(cell);
+        txtSupplierEmail.setText(email);
+        txtSupplierAddress.setText(address);
+        txtSupplierContactPerson.setText(contactPerson);
+    }//GEN-LAST:event_tableSuppliersMouseClicked
 
     /**
      * @param args the command line arguments

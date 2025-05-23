@@ -77,4 +77,51 @@ public class SupplierDao {
         
     }
     
+    public void editSupplier(int id,String name, String cell, String email, String address ,String contactPerson,JTable jt){
+    
+        String sql="update supplier set name=?,cell=?,email=?,address=?,contactPerson=? where id=?";
+        
+        try {
+            ps=pu.getCon().prepareStatement(sql);
+            ps.setString(1, name);
+            ps.setString(2, cell);
+            ps.setString(3, email);
+            ps.setString(4, address);
+            ps.setString(5, contactPerson);
+            ps.setInt(6, id);
+            
+            ps.executeUpdate();
+            ps.close();
+            pu.getCon().close();
+            JOptionPane.showMessageDialog(null, " Supplier Data Edited Successfully ! ");
+            
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, " Supplier Data Edit Unsuccessfully ! ");
+            Logger.getLogger(ProjectDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    
+    }
+    
+     public void deleteSupplier(int id, JTable jt){
+        
+        String sql="delete from supplier where id=?";
+        
+        try {
+            ps=pu.getCon().prepareStatement(sql);
+            
+            ps.setInt(1, id);
+            
+            ps.executeUpdate();
+            ps.close();
+            pu.getCon().close();
+            
+            JOptionPane.showMessageDialog(null, " Supplier Data Deleted Successfully ! ");
+            
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, " Supplier Data does Not Delete Successfully ! ");
+            Logger.getLogger(ProjectDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+      
+    }
+    
 }
