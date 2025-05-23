@@ -8,6 +8,8 @@ import dao.CategoryDao;
 import dao.ProjectDao;
 import dao.PurchaseDao;
 import dao.SupplierDao;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import javax.swing.JOptionPane;
 import projectpos.pos.PosUtil;
 
@@ -23,6 +25,8 @@ public class ProjectView extends javax.swing.JFrame {
     PurchaseDao purchaseDao=new PurchaseDao();
     SupplierDao supplierDao=new SupplierDao();
     
+    
+    
     /**
      * Creates new form ProjectView
      */
@@ -32,7 +36,16 @@ public class ProjectView extends javax.swing.JFrame {
        categoryDao.showAllCategory(tableCategory);
        purchaseDao.loadCategory(comboPurchaseCategory);
        supplierDao.showAllSupplier(tableSuppliers);
-        
+       
+       comboPurchaseCategory.addItemListener(new ItemListener() {
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                String categoryName=comboPurchaseCategory.getSelectedItem().toString();
+                
+                purchaseDao.loadProduct(ComboBoxPurchaseProductName, categoryName);
+               
+            }
+       });        
     }
 
     /**
@@ -54,7 +67,7 @@ public class ProjectView extends javax.swing.JFrame {
         btnProduct = new javax.swing.JButton();
         btnStock = new javax.swing.JButton();
         btnCategory = new javax.swing.JButton();
-        btnHistory = new javax.swing.JButton();
+        btnPurchase = new javax.swing.JButton();
         btnSuppliers = new javax.swing.JButton();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         tabCustomer = new javax.swing.JTabbedPane();
@@ -130,6 +143,8 @@ public class ProjectView extends javax.swing.JFrame {
         jPanel20 = new javax.swing.JPanel();
         jLabel32 = new javax.swing.JLabel();
         jTabbedPane3 = new javax.swing.JTabbedPane();
+        jPanel22 = new javax.swing.JPanel();
+        jPanel23 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         tabSuppliers = new javax.swing.JTabbedPane();
         jPanel18 = new javax.swing.JPanel();
@@ -156,7 +171,7 @@ public class ProjectView extends javax.swing.JFrame {
         jScrollPane4 = new javax.swing.JScrollPane();
         tableSuppliers = new javax.swing.JTable();
         btnSupplierRefresh = new javax.swing.JButton();
-        jTabbedPane5 = new javax.swing.JTabbedPane();
+        tabPurchase = new javax.swing.JTabbedPane();
         jPanel13 = new javax.swing.JPanel();
         jPanel14 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
@@ -242,13 +257,13 @@ public class ProjectView extends javax.swing.JFrame {
         });
         jPanel2.add(btnCategory, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 190, 140, 30));
 
-        btnHistory.setText("Purchase");
-        btnHistory.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnPurchase.setText("Purchase");
+        btnPurchase.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnHistoryMouseClicked(evt);
+                btnPurchaseMouseClicked(evt);
             }
         });
-        jPanel2.add(btnHistory, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 310, 140, 30));
+        jPanel2.add(btnPurchase, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 310, 140, 30));
 
         btnSuppliers.setText("Suppliers");
         btnSuppliers.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -631,8 +646,19 @@ public class ProjectView extends javax.swing.JFrame {
 
         tabCustomer.addTab("tab5", tabCategory);
 
-        jLabel7.setText("6");
-        jTabbedPane3.addTab("tab1", jLabel7);
+        jPanel22.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel23.setBackground(new java.awt.Color(255, 51, 51));
+        jPanel23.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel7.setText("Stock");
+        jPanel23.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 960, 60));
+
+        jPanel22.add(jPanel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 960, 60));
+
+        jTabbedPane3.addTab("tab1", jPanel22);
 
         tabCustomer.addTab("tab6", jTabbedPane3);
 
@@ -755,7 +781,7 @@ public class ProjectView extends javax.swing.JFrame {
 
         tabCustomer.addTab("tab7", tabSuppliers);
 
-        jTabbedPane5.setBackground(new java.awt.Color(102, 255, 204));
+        tabPurchase.setBackground(new java.awt.Color(102, 255, 204));
 
         jPanel13.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -817,9 +843,9 @@ public class ProjectView extends javax.swing.JFrame {
         btnPurchaseConfirm.setText("Confirm");
         jPanel13.add(btnPurchaseConfirm, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, -1, -1));
 
-        jTabbedPane5.addTab("tab1", jPanel13);
+        tabPurchase.addTab("tab1", jPanel13);
 
-        tabCustomer.addTab("tab8", jTabbedPane5);
+        tabCustomer.addTab("tab8", tabPurchase);
 
         getContentPane().add(tabCustomer, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 0, 960, 800));
 
@@ -893,11 +919,11 @@ public class ProjectView extends javax.swing.JFrame {
         tabCustomer.setSelectedIndex(6);
     }//GEN-LAST:event_btnSuppliersMouseClicked
 
-    private void btnHistoryMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnHistoryMouseClicked
+    private void btnPurchaseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPurchaseMouseClicked
         // TODO add your handling code here:
         tabCustomer.setSelectedIndex(7);
-        purchaseDao.loadCategory(comboPurchaseCategory);
-    }//GEN-LAST:event_btnHistoryMouseClicked
+      //  purchaseDao.loadCategory(comboPurchaseCategory);
+    }//GEN-LAST:event_btnPurchaseMouseClicked
 
     private void txtCustomerNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCustomerNameActionPerformed
         // TODO add your handling code here:
@@ -1173,11 +1199,11 @@ public class ProjectView extends javax.swing.JFrame {
     private javax.swing.JButton btnCustomerReset;
     private javax.swing.JButton btnCustomerSave;
     private javax.swing.JButton btnCustomerSearchByAddress;
-    private javax.swing.JButton btnHistory;
     private javax.swing.JButton btnHome;
     private javax.swing.JButton btnProduct;
     private javax.swing.JButton btnProductEdit;
     private javax.swing.JButton btnProductSave;
+    private javax.swing.JButton btnPurchase;
     private javax.swing.JButton btnPurchaseConfirm;
     private javax.swing.JButton btnPurchaseReset;
     private javax.swing.JButton btnRefresh;
@@ -1245,6 +1271,8 @@ public class ProjectView extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel20;
     private javax.swing.JPanel jPanel21;
+    private javax.swing.JPanel jPanel22;
+    private javax.swing.JPanel jPanel23;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
@@ -1258,10 +1286,10 @@ public class ProjectView extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane3;
-    private javax.swing.JTabbedPane jTabbedPane5;
     private javax.swing.JTabbedPane tabCategory;
     private javax.swing.JTabbedPane tabCustomer;
     private javax.swing.JPanel tabProduct;
+    private javax.swing.JTabbedPane tabPurchase;
     private javax.swing.JTabbedPane tabSuppliers;
     private javax.swing.JTable tableCategory;
     private javax.swing.JTable tableCustomers;
