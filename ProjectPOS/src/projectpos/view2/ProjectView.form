@@ -1139,7 +1139,7 @@
                     </Constraint>
                   </Constraints>
                 </Component>
-                <Component class="javax.swing.JComboBox" name="JComboBoxPurchaseSupplierName">
+                <Component class="javax.swing.JComboBox" name="ComboBoxPurchaseSupplierName">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                       <StringArray count="4">
@@ -1183,7 +1183,7 @@
                     </Container>
                   </SubComponents>
                 </Container>
-                <Component class="javax.swing.JComboBox" name="JComboBoxPurchaseCategory">
+                <Component class="javax.swing.JComboBox" name="comboPurchaseCategory">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                       <StringArray count="4">
@@ -1255,7 +1255,7 @@
                     </Constraint>
                   </Constraints>
                 </Component>
-                <Component class="javax.swing.JComboBox" name="JComboBoxPurchaseProductName">
+                <Component class="javax.swing.JComboBox" name="ComboBoxPurchaseProductName">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                       <StringArray count="4">

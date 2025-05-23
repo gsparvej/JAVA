@@ -6,6 +6,7 @@ package projectpos.view2;
 
 import dao.CategoryDao;
 import dao.ProjectDao;
+import dao.PurchaseDao;
 import javax.swing.JOptionPane;
 import projectpos.pos.PosUtil;
 
@@ -18,6 +19,7 @@ public class ProjectView extends javax.swing.JFrame {
     PosUtil pu=new PosUtil();
     ProjectDao pd=new ProjectDao();
     CategoryDao categoryDao=new CategoryDao();
+    PurchaseDao purchaseDao=new PurchaseDao();
     
     /**
      * Creates new form ProjectView
@@ -26,6 +28,7 @@ public class ProjectView extends javax.swing.JFrame {
         initComponents();  
        pd.showAllCustomer(tableCustomers);
        categoryDao.showAllCategory(tableCategory);
+       purchaseDao.loadCategory(comboPurchaseCategory);
         
     }
 
@@ -128,15 +131,15 @@ public class ProjectView extends javax.swing.JFrame {
         jPanel13 = new javax.swing.JPanel();
         jPanel14 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
-        JComboBoxPurchaseSupplierName = new javax.swing.JComboBox<>();
+        ComboBoxPurchaseSupplierName = new javax.swing.JComboBox<>();
         jPanel15 = new javax.swing.JPanel();
         jPanel16 = new javax.swing.JPanel();
-        JComboBoxPurchaseCategory = new javax.swing.JComboBox<>();
+        comboPurchaseCategory = new javax.swing.JComboBox<>();
         jLabel26 = new javax.swing.JLabel();
         jPanel17 = new javax.swing.JPanel();
         jLabel27 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
-        JComboBoxPurchaseProductName = new javax.swing.JComboBox<>();
+        ComboBoxPurchaseProductName = new javax.swing.JComboBox<>();
         jLabel29 = new javax.swing.JLabel();
         txtPurchaseTotalPrice = new javax.swing.JTextField();
         txtPurchaseUnitePrice = new javax.swing.JTextField();
@@ -591,8 +594,8 @@ public class ProjectView extends javax.swing.JFrame {
         jLabel9.setText("Supplier Name");
         jPanel13.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 70, 90, -1));
 
-        JComboBoxPurchaseSupplierName.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel13.add(JComboBoxPurchaseSupplierName, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 70, 140, -1));
+        ComboBoxPurchaseSupplierName.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel13.add(ComboBoxPurchaseSupplierName, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 70, 140, -1));
 
         jPanel15.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -601,8 +604,8 @@ public class ProjectView extends javax.swing.JFrame {
 
         jPanel13.add(jPanel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        JComboBoxPurchaseCategory.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel13.add(JComboBoxPurchaseCategory, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 70, 140, -1));
+        comboPurchaseCategory.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel13.add(comboPurchaseCategory, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 70, 140, -1));
 
         jLabel26.setText("Category");
         jPanel13.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 60, 20));
@@ -620,8 +623,8 @@ public class ProjectView extends javax.swing.JFrame {
         jLabel28.setText("Product Name");
         jPanel13.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 70, 90, -1));
 
-        JComboBoxPurchaseProductName.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel13.add(JComboBoxPurchaseProductName, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 70, 140, -1));
+        ComboBoxPurchaseProductName.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel13.add(ComboBoxPurchaseProductName, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 70, 140, -1));
 
         jLabel29.setText("Total Price");
         jPanel13.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 120, 70, -1));
@@ -696,6 +699,7 @@ public class ProjectView extends javax.swing.JFrame {
     private void btnCategoryMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCategoryMouseClicked
         // TODO add your handling code here:
         tabCustomer.setSelectedIndex(4);
+        
     }//GEN-LAST:event_btnCategoryMouseClicked
 
     private void btnStockMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnStockMouseClicked
@@ -711,6 +715,7 @@ public class ProjectView extends javax.swing.JFrame {
     private void btnHistoryMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnHistoryMouseClicked
         // TODO add your handling code here:
         tabCustomer.setSelectedIndex(7);
+        purchaseDao.loadCategory(comboPurchaseCategory);
     }//GEN-LAST:event_btnHistoryMouseClicked
 
     private void txtCustomerNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCustomerNameActionPerformed
@@ -892,9 +897,8 @@ public class ProjectView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> JComboBoxPurchaseCategory;
-    private javax.swing.JComboBox<String> JComboBoxPurchaseProductName;
-    private javax.swing.JComboBox<String> JComboBoxPurchaseSupplierName;
+    private javax.swing.JComboBox<String> ComboBoxPurchaseProductName;
+    private javax.swing.JComboBox<String> ComboBoxPurchaseSupplierName;
     private javax.swing.JButton btnCategory;
     private javax.swing.JButton btnCategoryDelete;
     private javax.swing.JButton btnCategoryEdit;
@@ -917,6 +921,7 @@ public class ProjectView extends javax.swing.JFrame {
     private javax.swing.JButton btnSales;
     private javax.swing.JButton btnStock;
     private javax.swing.JButton btnSuppliers;
+    private javax.swing.JComboBox<String> comboPurchaseCategory;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
     private javax.swing.JLabel jLabel1;
