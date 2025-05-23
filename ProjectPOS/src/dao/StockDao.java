@@ -29,8 +29,23 @@ public class StockDao {
             rs=ps.executeQuery();
             while(rs.next()){
             
-                //Stock s=new Stock();
-               
+                Stock s=new Stock(rs.getInt("id"),
+                        rs.getString("productName"),
+                        rs.getString("category"),
+                        rs.getFloat("quantity")
+                );
+                
+                
+                
+                
+                
+                
+//               int id=rs.getInt("id");
+//               String productName=rs.getString("productName");
+//                category=rs.getString("category");
+//                Float quantity=rs.getFloat("quantity");   
+
+
                 
                 
                 
