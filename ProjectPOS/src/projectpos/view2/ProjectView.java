@@ -7,6 +7,7 @@ package projectpos.view2;
 import dao.CategoryDao;
 import dao.ProjectDao;
 import dao.PurchaseDao;
+import dao.SupplierDao;
 import javax.swing.JOptionPane;
 import projectpos.pos.PosUtil;
 
@@ -20,6 +21,7 @@ public class ProjectView extends javax.swing.JFrame {
     ProjectDao pd=new ProjectDao();
     CategoryDao categoryDao=new CategoryDao();
     PurchaseDao purchaseDao=new PurchaseDao();
+    SupplierDao supplierDao=new SupplierDao();
     
     /**
      * Creates new form ProjectView
@@ -29,6 +31,7 @@ public class ProjectView extends javax.swing.JFrame {
        pd.showAllCustomer(tableCustomers);
        categoryDao.showAllCategory(tableCategory);
        purchaseDao.loadCategory(comboPurchaseCategory);
+       supplierDao.showAllSupplier(tableSuppliers);
         
     }
 
@@ -144,14 +147,15 @@ public class ProjectView extends javax.swing.JFrame {
         txtSupplierName = new javax.swing.JTextField();
         jLabel38 = new javax.swing.JLabel();
         txtSupplierAddress = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        btnSupplierDelete = new javax.swing.JButton();
+        btnSupplierSave = new javax.swing.JButton();
+        btnSupplierEdit = new javax.swing.JButton();
+        btnSupplierReset = new javax.swing.JButton();
         jPanel21 = new javax.swing.JPanel();
         jLabel39 = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
         tableSuppliers = new javax.swing.JTable();
+        btnSupplierRefresh = new javax.swing.JButton();
         jTabbedPane5 = new javax.swing.JTabbedPane();
         jPanel13 = new javax.swing.JPanel();
         jPanel14 = new javax.swing.JPanel();
@@ -655,30 +659,40 @@ public class ProjectView extends javax.swing.JFrame {
         jLabel35.setText("Contact Person");
         jPanel18.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 140, 90, 20));
         jPanel18.add(txtSupplierCell, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 140, 160, -1));
-        jPanel18.add(txtSupplierEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 140, 160, -1));
+        jPanel18.add(txtSupplierEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 140, 190, -1));
 
         jLabel36.setText("Cell");
         jPanel18.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 60, 20));
 
         jLabel37.setText("Name");
         jPanel18.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 80, 60, 20));
-        jPanel18.add(txtSupplierName, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 80, 160, -1));
+        jPanel18.add(txtSupplierName, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 80, 190, -1));
 
         jLabel38.setText("Address");
         jPanel18.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 80, 70, 20));
         jPanel18.add(txtSupplierAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 80, 230, -1));
 
-        jButton1.setText("Delete");
-        jPanel18.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 200, -1, -1));
+        btnSupplierDelete.setText("Delete");
+        jPanel18.add(btnSupplierDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 200, -1, -1));
 
-        jButton2.setText("Save");
-        jPanel18.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, -1, -1));
+        btnSupplierSave.setText("Save");
+        btnSupplierSave.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnSupplierSaveMouseClicked(evt);
+            }
+        });
+        jPanel18.add(btnSupplierSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, -1, -1));
 
-        jButton3.setText("Edit");
-        jPanel18.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 200, -1, -1));
+        btnSupplierEdit.setText("Edit");
+        jPanel18.add(btnSupplierEdit, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 200, -1, -1));
 
-        jButton4.setText("Reset");
-        jPanel18.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 200, -1, -1));
+        btnSupplierReset.setText("Reset");
+        btnSupplierReset.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnSupplierResetMouseClicked(evt);
+            }
+        });
+        jPanel18.add(btnSupplierReset, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 200, -1, -1));
 
         jPanel21.setBackground(new java.awt.Color(0, 102, 51));
 
@@ -713,6 +727,14 @@ public class ProjectView extends javax.swing.JFrame {
         jScrollPane4.setViewportView(tableSuppliers);
 
         jPanel18.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 300, 960, 440));
+
+        btnSupplierRefresh.setText("Refresh");
+        btnSupplierRefresh.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnSupplierRefreshMouseClicked(evt);
+            }
+        });
+        jPanel18.add(btnSupplierRefresh, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 200, -1, -1));
 
         tabSuppliers.addTab("tab1", jPanel18);
 
@@ -800,13 +822,23 @@ public class ProjectView extends javax.swing.JFrame {
         txtCustomerEmail.setText("");
         txtCustomerAddress.setText("");
     
-    
     }
     
     public void resetCategory(){
     
         txtCategoryID.setText("");
         txtCategoryName.setText("");
+    
+    }
+    
+    public void resetSupplier(){
+    
+        txtSupplierId.setText("");
+        txtSupplierName.setText("");
+        txtSupplierCell.setText("");
+        txtSupplierEmail.setText("");
+        txtSupplierAddress.setText("");
+        txtSupplierContactPerson.setText("");
     
     
     }
@@ -999,6 +1031,29 @@ public class ProjectView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnSuppliersActionPerformed
 
+    private void btnSupplierSaveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSupplierSaveMouseClicked
+        // TODO add your handling code here:
+        String name=txtSupplierName.getText().trim();
+        String cell=txtSupplierCell.getText().trim();
+        String email=txtSupplierEmail.getText().trim();
+        String address=txtSupplierAddress.getText().trim();
+        String contactPerson=txtSupplierContactPerson.getText().trim();
+        
+        supplierDao.saveSupplier(name, cell, email, address, contactPerson);
+        supplierDao.showAllSupplier(tableSuppliers);
+        resetSupplier();
+    }//GEN-LAST:event_btnSupplierSaveMouseClicked
+
+    private void btnSupplierResetMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSupplierResetMouseClicked
+        // TODO add your handling code here:
+        resetSupplier();
+    }//GEN-LAST:event_btnSupplierResetMouseClicked
+
+    private void btnSupplierRefreshMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSupplierRefreshMouseClicked
+        // TODO add your handling code here:
+        supplierDao.showAllSupplier(tableSuppliers);
+    }//GEN-LAST:event_btnSupplierRefreshMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -1058,14 +1113,15 @@ public class ProjectView extends javax.swing.JFrame {
     private javax.swing.JButton btnRefresh;
     private javax.swing.JButton btnSales;
     private javax.swing.JButton btnStock;
+    private javax.swing.JButton btnSupplierDelete;
+    private javax.swing.JButton btnSupplierEdit;
+    private javax.swing.JButton btnSupplierRefresh;
+    private javax.swing.JButton btnSupplierReset;
+    private javax.swing.JButton btnSupplierSave;
     private javax.swing.JButton btnSuppliers;
     private javax.swing.JComboBox<String> comboPurchaseCategory;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
