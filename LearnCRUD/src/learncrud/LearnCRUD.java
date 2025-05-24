@@ -18,15 +18,22 @@ public class LearnCRUD {
     public static void main(String[] args) {
         
         
-       // saveStudent("Atik", "Arts");
+       // saveStudent("Reja", "Business");
        // saveStudent("Reja", "Arts");
        // saveStudent("Rahmat", "Business");
   //  viewStudents();
-       // updateStudent(6, "Parvej Hossen", "Science");
+       
       //  viewStudents();
-        deleteStudents(4);
+      //  deleteStudents(4);
+       // System.out.println("After Create : ");
+      //  viewStudents();
+        System.out.println("After Update : ");
+         updateStudent(2, "Parvej Hossen", "Science");
         viewStudents();
-        
+        System.out.println("----------------");
+        System.out.println("After Delete : ");
+        deleteStudents(1);
+        viewStudents();
     }
     
     public static void saveStudent(String name, String group){
