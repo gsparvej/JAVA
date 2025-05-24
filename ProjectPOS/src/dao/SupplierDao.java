@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -122,6 +123,38 @@ public class SupplierDao {
             Logger.getLogger(ProjectDao.class.getName()).log(Level.SEVERE, null, ex);
         }
       
+    }
+     
+     
+     
+      public void showAllSupplierToPurchaseComboBox(JComboBox<String> supplierList) {
+        String sql="select * from supplier";
+        
+        try {
+            ps=pu.getCon().prepareStatement(sql);
+            ResultSet rs=ps.executeQuery();
+            
+            while(rs.next()){
+            int id=rs.getInt("id");
+            String name=rs.getString("name");
+            String cell=rs.getString("cell");
+            String email=rs.getString("email");
+            String address=rs.getString("address");
+            String contactPerson=rs.getString("contactPerson");
+           
+            
+            Object[] rowData={id,name,cell,email,address,contactPerson};
+            
+            
+            }
+            rs.close();
+            ps.close();
+            pu.getCon().close();
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(ProjectDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }
     
 }
