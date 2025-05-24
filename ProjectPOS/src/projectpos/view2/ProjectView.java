@@ -838,6 +838,12 @@ public class ProjectView extends javax.swing.JFrame {
 
         jLabel31.setText("Unite Price");
         jPanel13.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 70, -1));
+
+        txtPurchaseQuantity.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtPurchaseQuantityFocusLost(evt);
+            }
+        });
         jPanel13.add(txtPurchaseQuantity, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 120, 140, -1));
 
         btnPurchaseReset.setBackground(new java.awt.Color(0, 255, 102));
@@ -1154,6 +1160,17 @@ public class ProjectView extends javax.swing.JFrame {
         txtSupplierAddress.setText(address);
         txtSupplierContactPerson.setText(contactPerson);
     }//GEN-LAST:event_tableSuppliersMouseClicked
+
+    private void txtPurchaseQuantityFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtPurchaseQuantityFocusLost
+        // TODO add your handling code here:
+        
+        float unitePrice=Float.parseFloat(txtPurchaseUnitePrice.getText().trim());
+        float quantity=Float.parseFloat(txtPurchaseQuantity.getText().trim());
+        float totalPrice=unitePrice*quantity;
+        txtPurchaseTotalPrice.setText(String.valueOf(totalPrice));
+        
+        
+    }//GEN-LAST:event_txtPurchaseQuantityFocusLost
 
     /**
      * @param args the command line arguments
