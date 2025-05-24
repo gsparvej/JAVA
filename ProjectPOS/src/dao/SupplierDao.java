@@ -1,9 +1,12 @@
 
 package dao;
 
+import entity.Supplier;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JComboBox;
@@ -127,7 +130,10 @@ public class SupplierDao {
      
      
      
-      public void showAllSupplierToPurchaseComboBox(JComboBox<String> supplierList) {
+      public void showAllSupplierToPurchaseComboBox(JComboBox<String> supplierComboList) {
+          List<Supplier> supplierList=new ArrayList<>();
+          supplierComboList.removeAllItems();
+          
         String sql="select * from supplier";
         
         try {
@@ -143,7 +149,8 @@ public class SupplierDao {
             String contactPerson=rs.getString("contactPerson");
            
             
-            Object[] rowData={id,name,cell,email,address,contactPerson};
+                Supplier s=new Supplier(id, name, cell, email, address, contactPerson);
+                supplierList.add(s);
             
             
             }
@@ -153,6 +160,12 @@ public class SupplierDao {
             
         } catch (SQLException ex) {
             Logger.getLogger(ProjectDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        for(Supplier su: supplierList){
+        
+            supplierComboList.addItem(su.getName());
+        
         }
         
     }

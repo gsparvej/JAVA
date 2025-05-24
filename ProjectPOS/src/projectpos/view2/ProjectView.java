@@ -39,6 +39,7 @@ public class ProjectView extends javax.swing.JFrame {
        supplierDao.showAllSupplier(tableSuppliers);
        
        purchaseDao.loadCategory(comboPurchaseCategory);
+       supplierDao.showAllSupplierToPurchaseComboBox(ComboBoxPurchaseSupplierName);
        
        
        
@@ -852,6 +853,11 @@ public class ProjectView extends javax.swing.JFrame {
 
         btnPurchaseConfirm.setBackground(new java.awt.Color(153, 153, 255));
         btnPurchaseConfirm.setText("Confirm");
+        btnPurchaseConfirm.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnPurchaseConfirmMouseClicked(evt);
+            }
+        });
         jPanel13.add(btnPurchaseConfirm, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, -1, -1));
 
         tabPurchase.addTab("tab1", jPanel13);
@@ -1171,6 +1177,19 @@ public class ProjectView extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_txtPurchaseQuantityFocusLost
+
+    private void btnPurchaseConfirmMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPurchaseConfirmMouseClicked
+        // TODO add your handling code here:
+        String category=comboPurchaseCategory.getSelectedItem().toString();
+        String productName=ComboBoxPurchaseProductName.getSelectedItem().toString();
+        String supplierName=ComboBoxPurchaseSupplierName.getSelectedItem().toString();
+        float unitePrice=Float.parseFloat(txtPurchaseUnitePrice.getText().trim());
+        float totalPrice=Float.parseFloat(txtPurchaseTotalPrice.getText().trim());
+        int quantity=Integer.parseInt(txtPurchaseQuantity.getText().trim());
+        
+        purchaseDao.savePurchase(productName, unitePrice, quantity, totalPrice, category, supplierName);
+        
+    }//GEN-LAST:event_btnPurchaseConfirmMouseClicked
 
     /**
      * @param args the command line arguments
