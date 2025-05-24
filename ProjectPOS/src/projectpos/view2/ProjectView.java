@@ -27,6 +27,7 @@ public class ProjectView extends javax.swing.JFrame {
     
     
     
+    
     /**
      * Creates new form ProjectView
      */
@@ -36,6 +37,10 @@ public class ProjectView extends javax.swing.JFrame {
        categoryDao.showAllCategory(tableCategory);
        purchaseDao.loadCategory(comboPurchaseCategory);
        supplierDao.showAllSupplier(tableSuppliers);
+       
+       purchaseDao.loadCategory(comboPurchaseCategory);
+       
+       
        
        comboPurchaseCategory.addItemListener(new ItemListener() {
             @Override

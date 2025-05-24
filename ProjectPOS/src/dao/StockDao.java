@@ -34,7 +34,7 @@ public class StockDao {
                         rs.getString("category"),
                         rs.getFloat("quantity")
                 );
-                
+                stockList.add(s);
                 
                 
                 

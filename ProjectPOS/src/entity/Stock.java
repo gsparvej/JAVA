@@ -6,12 +6,12 @@ public class Stock {
     private int id;
     private String productName;
     private String category;
-    private String quantity;
+    private float quantity;
 
     public Stock() {
     }
 
-    public Stock(int id, String productName, String category, String quantity) {
+    public Stock(int id, String productName, String category, float quantity) {
         this.id = id;
         this.productName = productName;
         this.category = category;
@@ -42,13 +42,15 @@ public class Stock {
         this.category = category;
     }
 
-    public String getQuantity() {
+    public float getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(String quantity) {
+    public void setQuantity(float quantity) {
         this.quantity = quantity;
     }
+
+    
 
     @Override
     public String toString() {
