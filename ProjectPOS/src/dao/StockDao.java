@@ -34,32 +34,12 @@ public class StockDao {
                         rs.getString("category"),
                         rs.getFloat("quantity")
                 );
-                stockList.add(s);
-                
-                
-                
-                
-                
-//               int id=rs.getInt("id");
-//               String productName=rs.getString("productName");
-//                category=rs.getString("category");
-//                Float quantity=rs.getFloat("quantity");   
-
-
-                
-                
-                
-               
+                stockList.add(s);      
             }
             
         } catch (SQLException ex) {
             Logger.getLogger(StockDao.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-    
-    
-    
-    
     return stockList;
     }
     
