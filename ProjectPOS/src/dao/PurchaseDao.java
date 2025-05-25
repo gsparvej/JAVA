@@ -57,16 +57,16 @@ public class PurchaseDao {
     }
     
     
-    public void savePurchase(String name, float unitePrice, int quantity,float totalPrice,String category,String supplierName){
+    public void savePurchase(String name, float unitePrice, float quantity,float totalPrice,String category,String supplierName){
         sql="insert into purchase (name,unitePrice,quantity,totalPrice,category,supplierName,date)"
-                + "values(?,?,?,?,?,?,now()";
+                + "values(?,?,?,?,?,?,now())";
         
         try {
             ps=pu.getCon().prepareStatement(sql);
             
             ps.setString(1, name);
             ps.setFloat(2, unitePrice);
-            ps.setInt(3, quantity);
+            ps.setFloat(3, quantity);
             ps.setFloat(4, totalPrice);
             ps.setString(5, category);
             ps.setString(6, supplierName);
@@ -76,7 +76,7 @@ public class PurchaseDao {
             pu.getCon().close();
             JOptionPane.showMessageDialog(null, "Purchase Data Saved Successfully ! ");
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Purchase Data Save Unsuccessful ! ");
+            JOptionPane.showMessageDialog(null, "  Unsuccessful ! ");
             Logger.getLogger(PurchaseDao.class.getName()).log(Level.SEVERE, null, ex);
         }
     

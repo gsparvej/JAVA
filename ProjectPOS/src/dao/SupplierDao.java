@@ -40,7 +40,7 @@ public class SupplierDao {
             JOptionPane.showMessageDialog(null, " Supplier Data Saved Successfully !");
 
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, " Supplier Data Save Unsccessful !");
+            JOptionPane.showMessageDialog(null, "  Unsccessful !");
             Logger.getLogger(ProjectDao.class.getName()).log(Level.SEVERE, null, ex);
         }
 

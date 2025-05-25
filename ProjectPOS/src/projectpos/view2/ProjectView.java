@@ -1185,7 +1185,7 @@ public class ProjectView extends javax.swing.JFrame {
         String supplierName=ComboBoxPurchaseSupplierName.getSelectedItem().toString();
         float unitePrice=Float.parseFloat(txtPurchaseUnitePrice.getText().trim());
         float totalPrice=Float.parseFloat(txtPurchaseTotalPrice.getText().trim());
-        int quantity=Integer.parseInt(txtPurchaseQuantity.getText().trim());
+        float quantity=Float.parseFloat(txtPurchaseQuantity.getText().trim());
         
         purchaseDao.savePurchase(productName, unitePrice, quantity, totalPrice, category, supplierName);
         
