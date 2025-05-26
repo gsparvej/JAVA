@@ -1,11 +1,15 @@
 
 package dao;
 
+import entity.Category;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -16,16 +20,17 @@ public class ProductDao {
     
     PosUtil pu=new PosUtil();
     PreparedStatement ps;
+    CategoryDao categoryDao=new CategoryDao();
     
     
     
     public void showAllProduct(JTable jt) {
 
-        String[] ColoumnName = {"ID", "Name", "ExpiredDate", "CustomerName", "UnitePrice","Quantity","TotalPrice"};
+        String[] ColoumnName = {"ID", "Product Name", "Category"};
         DefaultTableModel tableModel = new DefaultTableModel(ColoumnName,0);
         jt.setModel(tableModel);
         
-        String sql="select * from producttable";
+        String sql="select * from product";
         
         try {
             ps=pu.getCon().prepareStatement(sql);
@@ -33,14 +38,10 @@ public class ProductDao {
             
             while(rs.next()){
             int id=rs.getInt("id");
-            String name=rs.getString("name");
-            String expiredDate=rs.getString("expiredDate");
-            String customerName=rs.getString("customerName");
-            String unitePrice=rs.getString("unitePrice");
-            String quantity=rs.getString("quantity");
-            String totalPrice=rs.getString("totalPrice");
-            
-            Object[] rowData={name,expiredDate,customerName,unitePrice,quantity,totalPrice};
+            String productName=rs.getString("productName");
+            String category=rs.getString("category");
+           
+            Object[] rowData={id,productName,category};
             tableModel.addRow(rowData);
             
             }
@@ -54,27 +55,42 @@ public class ProductDao {
         
     }
     
-     public void saveProduct(String name, String cell, String email, String address) {
+     public void saveProduct(String productName, String category) {
 
-        String sql = "insert into projecttable(name,cell,email,address)values(?,?,?,?)";
+        String sql = "insert into product (productName,category)values(?,?)";
 
         try {
             ps = pu.getCon().prepareStatement(sql);
-            ps.setString(1, name);
-            ps.setString(2, cell);
-            ps.setString(3, email);
-            ps.setString(4, address);
+            ps.setString(1, productName);
+            ps.setString(2, category);
 
             ps.executeUpdate();
             ps.close();
             pu.getCon().close();
-            JOptionPane.showMessageDialog(null, "Data Saved Successfully !");
+            JOptionPane.showMessageDialog(null, " Product Data Saved Successfully !");
 
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Data Save Unsccessful !");
+            JOptionPane.showMessageDialog(null, " Product Data Not Save !");
             Logger.getLogger(ProjectDao.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }
+     
+     public void loadCategoryToProductComboBox(JComboBox<String> catList){
+     
+         catList.removeAllItems();
+         List<Category> categories=new ArrayList<>();
+         categories=categoryDao.getAllCategory();
+         
+         for(Category c: categories){
+         
+             catList.addItem(c.getName());
+         }
+         
+     
+     
+     
+     
+     }
     
 }

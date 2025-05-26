@@ -5,9 +5,12 @@
 package projectpos.view2;
 
 import dao.CategoryDao;
+import dao.ProductDao;
 import dao.ProjectDao;
 import dao.PurchaseDao;
+import dao.StockDao;
 import dao.SupplierDao;
+import entity.Stock;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import javax.swing.JOptionPane;
@@ -24,6 +27,8 @@ public class ProjectView extends javax.swing.JFrame {
     CategoryDao categoryDao=new CategoryDao();
     PurchaseDao purchaseDao=new PurchaseDao();
     SupplierDao supplierDao=new SupplierDao();
+    ProductDao productDao = new ProductDao();
+    StockDao stockDao= new StockDao();
     
     
     
@@ -37,9 +42,11 @@ public class ProjectView extends javax.swing.JFrame {
        categoryDao.showAllCategory(tableCategory);
        purchaseDao.loadCategory(comboPurchaseCategory);
        supplierDao.showAllSupplier(tableSuppliers);
-       
+       productDao.showAllProduct(tableProduct);
        purchaseDao.loadCategory(comboPurchaseCategory);
        supplierDao.showAllSupplierToPurchaseComboBox(ComboBoxPurchaseSupplierName);
+       productDao.loadCategoryToProductComboBox(ComboProductCategory);
+       productDao.showAllProduct(tableProduct);
        
        
        
@@ -105,9 +112,7 @@ public class ProjectView extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         txtProductID = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
-        txtProductCustomerID = new javax.swing.JTextField();
         jLabel19 = new javax.swing.JLabel();
-        txtProductExpiredDate = new javax.swing.JTextField();
         jPanel5 = new javax.swing.JPanel();
         jLabel16 = new javax.swing.JLabel();
         txtProductUnitPrice = new javax.swing.JTextField();
@@ -120,14 +125,12 @@ public class ProjectView extends javax.swing.JFrame {
         jLabel21 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tableProduct = new javax.swing.JTable();
-        jLabel22 = new javax.swing.JLabel();
-        txtProductCustomerName = new javax.swing.JTextField();
-        jLabel23 = new javax.swing.JLabel();
-        txtProductName = new javax.swing.JTextField();
+        txtProductProductName = new javax.swing.JTextField();
         btnProductEdit = new javax.swing.JButton();
         btnProductSave = new javax.swing.JButton();
         jButton10 = new javax.swing.JButton();
         jButton11 = new javax.swing.JButton();
+        ComboProductCategory = new javax.swing.JComboBox<>();
         jPanel6 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         tabCategory = new javax.swing.JTabbedPane();
@@ -431,15 +434,13 @@ public class ProjectView extends javax.swing.JFrame {
 
         jLabel4.setText("ID");
         tabProduct.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 39, 57, 25));
-        tabProduct.add(txtProductID, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 40, 107, -1));
+        tabProduct.add(txtProductID, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 40, 107, -1));
 
-        jLabel15.setText("Name");
-        tabProduct.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 40, 60, 20));
-        tabProduct.add(txtProductCustomerID, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 120, 150, -1));
+        jLabel15.setText("Product Name");
+        tabProduct.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, 90, 20));
 
-        jLabel19.setText("Expired Date");
+        jLabel19.setText("Category");
         tabProduct.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 80, 20));
-        tabProduct.add(txtProductExpiredDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 80, 110, -1));
 
         jPanel5.setBackground(new java.awt.Color(204, 255, 204));
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -501,26 +502,32 @@ public class ProjectView extends javax.swing.JFrame {
         jScrollPane2.setViewportView(tableProduct);
 
         tabProduct.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 280, 960, 490));
-
-        jLabel22.setText("Customer ID by Search");
-        tabProduct.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 130, 60));
-        tabProduct.add(txtProductCustomerName, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 80, 150, -1));
-
-        jLabel23.setText("Customer Name");
-        tabProduct.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 80, 100, 20));
-        tabProduct.add(txtProductName, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 40, 150, -1));
+        tabProduct.add(txtProductProductName, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 120, 200, -1));
 
         btnProductEdit.setText("Edit");
         tabProduct.add(btnProductEdit, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 170, -1, -1));
 
         btnProductSave.setText("Save");
+        btnProductSave.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnProductSaveMouseClicked(evt);
+            }
+        });
         tabProduct.add(btnProductSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, -1, -1));
 
         jButton10.setText("Reset");
+        jButton10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton10MouseClicked(evt);
+            }
+        });
         tabProduct.add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 170, -1, -1));
 
         jButton11.setText("Delete");
         tabProduct.add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 170, -1, -1));
+
+        ComboProductCategory.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        tabProduct.add(ComboProductCategory, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 80, 200, -1));
 
         tabCustomer.addTab("tab3", tabProduct);
 
@@ -849,6 +856,11 @@ public class ProjectView extends javax.swing.JFrame {
 
         btnPurchaseReset.setBackground(new java.awt.Color(0, 255, 102));
         btnPurchaseReset.setText("Reset");
+        btnPurchaseReset.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnPurchaseResetMouseClicked(evt);
+            }
+        });
         jPanel13.add(btnPurchaseReset, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 170, -1, -1));
 
         btnPurchaseConfirm.setBackground(new java.awt.Color(153, 153, 255));
@@ -897,6 +909,17 @@ public class ProjectView extends javax.swing.JFrame {
         txtSupplierEmail.setText("");
         txtSupplierAddress.setText("");
         txtSupplierContactPerson.setText("");
+    }
+    public void resetProduct(){
+    
+        txtProductID.setText("");
+        txtProductProductName.setText("");
+    }
+    public void resetPurchase(){
+    
+        txtPurchaseQuantity.setText("");
+        txtPurchaseUnitePrice.setText("");
+        txtPurchaseTotalPrice.setText("");
     
     
     }
@@ -1188,8 +1211,33 @@ public class ProjectView extends javax.swing.JFrame {
         float quantity=Float.parseFloat(txtPurchaseQuantity.getText().trim());
         
         purchaseDao.savePurchase(productName, unitePrice, quantity, totalPrice, category, supplierName);
+        resetPurchase();
         
     }//GEN-LAST:event_btnPurchaseConfirmMouseClicked
+
+    private void btnProductSaveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnProductSaveMouseClicked
+        // TODO add your handling code here:
+        String productName=txtProductProductName.getText().trim();
+        String category=ComboProductCategory.getSelectedItem().toString();
+        productDao.saveProduct(productName, category);
+        resetProduct();
+        productDao.showAllProduct(tableProduct);
+        
+        stockDao.saveStock(productName, 0, category);
+        
+        
+    }//GEN-LAST:event_btnProductSaveMouseClicked
+
+    private void jButton10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton10MouseClicked
+        // TODO add your handling code here:
+        resetProduct();
+        btnProductSave.setVisible(true);
+    }//GEN-LAST:event_jButton10MouseClicked
+
+    private void btnPurchaseResetMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPurchaseResetMouseClicked
+        // TODO add your handling code here:
+       resetPurchase();
+    }//GEN-LAST:event_btnPurchaseResetMouseClicked
 
     /**
      * @param args the command line arguments
@@ -1229,6 +1277,7 @@ public class ProjectView extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> ComboBoxPurchaseProductName;
     private javax.swing.JComboBox<String> ComboBoxPurchaseSupplierName;
+    private javax.swing.JComboBox<String> ComboProductCategory;
     private javax.swing.JButton btnCategory;
     private javax.swing.JButton btnCategoryDelete;
     private javax.swing.JButton btnCategoryEdit;
@@ -1273,8 +1322,6 @@ public class ProjectView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
@@ -1344,11 +1391,8 @@ public class ProjectView extends javax.swing.JFrame {
     private javax.swing.JTextField txtCustomerId;
     private javax.swing.JTextField txtCustomerName;
     private javax.swing.JTextField txtCustomerSearchField;
-    private javax.swing.JTextField txtProductCustomerID;
-    private javax.swing.JTextField txtProductCustomerName;
-    private javax.swing.JTextField txtProductExpiredDate;
     private javax.swing.JTextField txtProductID;
-    private javax.swing.JTextField txtProductName;
+    private javax.swing.JTextField txtProductProductName;
     private javax.swing.JTextField txtProductQuantity;
     private javax.swing.JTextField txtProductTotalPrice;
     private javax.swing.JTextField txtProductUnitPrice;
