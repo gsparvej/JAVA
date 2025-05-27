@@ -44,9 +44,7 @@ public class ProjectView extends javax.swing.JFrame {
        purchaseDao.loadCategory(comboPurchaseCategory);
        supplierDao.showAllSupplier(tableSuppliers);
        productDao.showAllProduct(tableProduct);
-       //*1
        purchaseDao.loadCategory(comboPurchaseCategory);
-       //*2
        supplierDao.showAllSupplierToPurchaseComboBox(ComboBoxPurchaseSupplierName);
        productDao.loadCategoryToProductComboBox(ComboProductCategory);
        productDao.showAllProduct(tableProduct);
@@ -967,9 +965,9 @@ public class ProjectView extends javax.swing.JFrame {
         // TODO add your handling code here:
         tabCustomer.setSelectedIndex(7);
       
-       purchaseDao.loadCategory(comboPurchaseCategory);
+      // purchaseDao.loadCategory(comboPurchaseCategory);
       
-       supplierDao.showAllSupplierToPurchaseComboBox(ComboBoxPurchaseSupplierName);
+      // supplierDao.showAllSupplierToPurchaseComboBox(ComboBoxPurchaseSupplierName);
     }//GEN-LAST:event_btnPurchaseMouseClicked
 
     private void txtCustomerNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCustomerNameActionPerformed
