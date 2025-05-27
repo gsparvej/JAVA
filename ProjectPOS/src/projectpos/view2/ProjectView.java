@@ -13,6 +13,7 @@ import dao.SupplierDao;
 import entity.Stock;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.util.List;
 import javax.swing.JOptionPane;
 import projectpos.pos.PosUtil;
 
@@ -43,7 +44,9 @@ public class ProjectView extends javax.swing.JFrame {
        purchaseDao.loadCategory(comboPurchaseCategory);
        supplierDao.showAllSupplier(tableSuppliers);
        productDao.showAllProduct(tableProduct);
+       //*1
        purchaseDao.loadCategory(comboPurchaseCategory);
+       //*2
        supplierDao.showAllSupplierToPurchaseComboBox(ComboBoxPurchaseSupplierName);
        productDao.loadCategoryToProductComboBox(ComboProductCategory);
        productDao.showAllProduct(tableProduct);
@@ -936,6 +939,7 @@ public class ProjectView extends javax.swing.JFrame {
     private void btnProductMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnProductMouseClicked
         // TODO add your handling code here:
         tabCustomer.setSelectedIndex(2);
+         productDao.loadCategoryToProductComboBox(ComboProductCategory);
     }//GEN-LAST:event_btnProductMouseClicked
 
     private void btnSalesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalesMouseClicked
@@ -962,7 +966,10 @@ public class ProjectView extends javax.swing.JFrame {
     private void btnPurchaseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPurchaseMouseClicked
         // TODO add your handling code here:
         tabCustomer.setSelectedIndex(7);
-      //  purchaseDao.loadCategory(comboPurchaseCategory);
+      
+       purchaseDao.loadCategory(comboPurchaseCategory);
+      
+       supplierDao.showAllSupplierToPurchaseComboBox(ComboBoxPurchaseSupplierName);
     }//GEN-LAST:event_btnPurchaseMouseClicked
 
     private void txtCustomerNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCustomerNameActionPerformed
@@ -1212,6 +1219,24 @@ public class ProjectView extends javax.swing.JFrame {
         
         purchaseDao.savePurchase(productName, unitePrice, quantity, totalPrice, category, supplierName);
         resetPurchase();
+        
+        
+        // START STOCK UPDATE BELOW, 
+        List<Stock> sList=stockDao.getProductByCategory(category);
+        boolean status=false;
+        
+        for(Stock s: sList){
+        
+            productName.equals(s.getProductName());
+           status=true;
+           break;
+       
+        
+        }
+        if(status){
+        
+            stockDao.updateStockQuantityByProductName(productName, quantity);
+        }
         
     }//GEN-LAST:event_btnPurchaseConfirmMouseClicked
 
