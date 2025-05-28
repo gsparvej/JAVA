@@ -91,19 +91,19 @@ public class StockDao {
         DefaultTableModel tableModel = new DefaultTableModel(ColoumnName,0);
         jt.setModel(tableModel);
         
-        String sql="select * from stock";
+         sql="select * from stock order by productName ";
         
         try {
             ps=pu.getCon().prepareStatement(sql);
-            ResultSet rs=ps.executeQuery();
+            rs=ps.executeQuery();
             
             while(rs.next()){
             int id=rs.getInt("id");
             String productName=rs.getString("productName");
             String category=rs.getString("category");
-            float category=rs.getFloat("category");
+            float quantity=rs.getFloat("quantity");
            
-            Object[] rowData={id,productName,category};
+            Object[] rowData={id,productName,category,quantity};
             tableModel.addRow(rowData);
             
             }
