@@ -10,6 +10,8 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 import projectpos.pos.PosUtil;
 
 
@@ -81,6 +83,38 @@ public class StockDao {
             Logger.getLogger(StockDao.class.getName()).log(Level.SEVERE, null, ex);
         }
     
+    }
+    
+     public void showAllStock(JTable jt) {
+
+        String[] ColoumnName = {"ID", "Product Name", "Category","Quantity"};
+        DefaultTableModel tableModel = new DefaultTableModel(ColoumnName,0);
+        jt.setModel(tableModel);
+        
+        String sql="select * from stock";
+        
+        try {
+            ps=pu.getCon().prepareStatement(sql);
+            ResultSet rs=ps.executeQuery();
+            
+            while(rs.next()){
+            int id=rs.getInt("id");
+            String productName=rs.getString("productName");
+            String category=rs.getString("category");
+            float category=rs.getFloat("category");
+           
+            Object[] rowData={id,productName,category};
+            tableModel.addRow(rowData);
+            
+            }
+            rs.close();
+            ps.close();
+            pu.getCon().close();
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(ProjectDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }
     
     
