@@ -3,10 +3,22 @@
 package dao;
 
 
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Font;
+import com.itextpdf.text.FontFactory;
+import com.itextpdf.text.PageSize;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfWriter;
+import entity.Purchase;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JTable;
@@ -21,8 +33,56 @@ public class ReportDao {
     PreparedStatement ps;
     String sql;
     ResultSet rs;
+    Purchase purchase=new Purchase();
     
-    public void purchaseReportByDate(Date from, Date to,JTable jt){
+    
+    //**** ei method evabe koreo kora jabe .....
+    
+    
+//    public void purchaseReportByDate(Date from, Date to,JTable jt){
+//    
+//        String[] ColoumnName = {"Product Name","Unite Price","Quantity","Total Price","Date And Time","Category","Supplier Name"};
+//        DefaultTableModel tableModel = new DefaultTableModel(ColoumnName,0);
+//        jt.setModel(tableModel);
+//        
+//        sql="select * from purchase where dateAndTime between ? and ? ";
+//        try {
+//            ps=pu.getCon().prepareStatement(sql);
+//            ps.setDate(1, from);
+//            ps.setDate(2, to);
+//            rs=ps.executeQuery();
+//            
+//            while(rs.next()){
+//            String productName=rs.getString("name");
+//            float unitePrice=rs.getFloat("unitePrice");
+//            float quantity=rs.getFloat("quantity");
+//            float totalPrice=rs.getFloat("totalPrice");
+//            Date dateAndTime=rs.getDate("dateAndTime");
+//            String category=rs.getString("category");
+//            String supplierName=rs.getString("supplierName");
+//            
+//            Object[] rowData={productName,unitePrice,quantity,totalPrice,dateAndTime,category,supplierName};
+//            tableModel.addRow(rowData);
+//            }
+//            
+//            rs.close();
+//            ps.close();
+//            pu.getCon().close();
+//            
+//        } catch (SQLException ex) {
+//            Logger.getLogger(ReportDao.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//    
+//    
+//    }
+    
+    
+    
+    
+    // ei method uporer tar bikolpo , evabeo kora jabe........
+    
+    public List<Purchase>purchaseReportByDate(Date from, Date to,JTable jt){
+        List<Purchase>purchaseList=new ArrayList<>();
     
         String[] ColoumnName = {"Product Name","Unite Price","Quantity","Total Price","Date And Time","Category","Supplier Name"};
         DefaultTableModel tableModel = new DefaultTableModel(ColoumnName,0);
@@ -53,6 +113,40 @@ public class ReportDao {
             pu.getCon().close();
             
         } catch (SQLException ex) {
+            Logger.getLogger(ReportDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    
+    return purchaseList;
+    }
+    
+    public void generatePDFReportForPurchase(Date from , Date to , JTable jt){
+    
+      List<Purchase> purchases=purchaseReportByDate(from, to, jt);
+      
+       
+        
+        try {
+            // create PDF document.........
+            Document document=new Document(PageSize.A4);
+            String filePath="Purchase_Report.pdf";
+            PdfWriter.getInstance(document, new FileOutputStream(filePath), document);
+            document.open();
+            
+            // Add Title to this Document......
+            Font titleFont=FontFactory.getFont(FontFactory.HELVETICA_BOLD,16);
+            Paragraph paragraphTitle=new Paragraph("Purchase Report", titleFont);
+            paragraphTitle.setAlignment(Paragraph.ALIGN_CENTER);
+            document.add(paragraphTitle);
+            
+            
+            // Add Table Headers.........
+            
+            
+            
+            
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(ReportDao.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (DocumentException ex) {
             Logger.getLogger(ReportDao.class.getName()).log(Level.SEVERE, null, ex);
         }
     
