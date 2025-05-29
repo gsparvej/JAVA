@@ -8,13 +8,16 @@ import dao.CategoryDao;
 import dao.ProductDao;
 import dao.ProjectDao;
 import dao.PurchaseDao;
+import dao.ReportDao;
 import dao.StockDao;
 import dao.SupplierDao;
 import entity.Stock;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.util.Date;
 import java.util.List;
 import javax.swing.JOptionPane;
+import projectpos.pos.DateConvert;
 import projectpos.pos.PosUtil;
 
 /**
@@ -30,6 +33,8 @@ public class ProjectView extends javax.swing.JFrame {
     SupplierDao supplierDao=new SupplierDao();
     ProductDao productDao = new ProductDao();
     StockDao stockDao= new StockDao();
+    ReportDao reportDao=new ReportDao();
+    DateConvert dateConvert=new DateConvert();
     
     
     
@@ -49,6 +54,7 @@ public class ProjectView extends javax.swing.JFrame {
        productDao.loadCategoryToProductComboBox(ComboProductCategory);
        productDao.showAllProduct(tableProduct);
        stockDao.showAllStock(tableStock);
+       
        
        
        
@@ -75,16 +81,17 @@ public class ProjectView extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel2 = new javax.swing.JPanel();
         btnCustomer = new javax.swing.JButton();
         btnHome = new javax.swing.JButton();
-        btnSales = new javax.swing.JButton();
+        btnReport = new javax.swing.JButton();
         btnProduct = new javax.swing.JButton();
         btnStock = new javax.swing.JButton();
         btnCategory = new javax.swing.JButton();
         btnSuppliers = new javax.swing.JButton();
         btnPurchase = new javax.swing.JButton();
-        btnReport = new javax.swing.JButton();
+        jButton7 = new javax.swing.JButton();
         tabCustomer = new javax.swing.JTabbedPane();
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
@@ -133,8 +140,16 @@ public class ProjectView extends javax.swing.JFrame {
         jButton10 = new javax.swing.JButton();
         jButton11 = new javax.swing.JButton();
         ComboProductCategory = new javax.swing.JComboBox<>();
-        jPanel6 = new javax.swing.JPanel();
+        tabReport = new javax.swing.JPanel();
+        jPanel25 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        jDateReportFrom = new com.toedter.calendar.JDateChooser();
+        jLabel40 = new javax.swing.JLabel();
+        jDateReportTo = new com.toedter.calendar.JDateChooser();
+        btnReportConfirm = new javax.swing.JButton();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        tableReport = new javax.swing.JTable();
         tabCategory = new javax.swing.JTabbedPane();
         jPanel9 = new javax.swing.JPanel();
         jPanel10 = new javax.swing.JPanel();
@@ -223,6 +238,7 @@ public class ProjectView extends javax.swing.JFrame {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Project POS");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1100, 60));
+        jPanel1.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 0, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1100, 60));
 
@@ -245,13 +261,13 @@ public class ProjectView extends javax.swing.JFrame {
         });
         jPanel2.add(btnHome, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 140, 30));
 
-        btnSales.setText("Sales");
-        btnSales.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnReport.setText("Report");
+        btnReport.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnSalesMouseClicked(evt);
+                btnReportMouseClicked(evt);
             }
         });
-        jPanel2.add(btnSales, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 140, 30));
+        jPanel2.add(btnReport, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 140, 30));
 
         btnProduct.setText("Product");
         btnProduct.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -298,13 +314,8 @@ public class ProjectView extends javax.swing.JFrame {
         });
         jPanel2.add(btnPurchase, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 310, 140, 30));
 
-        btnReport.setText("Report");
-        btnReport.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnReportMouseClicked(evt);
-            }
-        });
-        jPanel2.add(btnReport, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 350, 140, 30));
+        jButton7.setText("jButton7");
+        jPanel2.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 360, 140, -1));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 140, 740));
 
@@ -554,26 +565,59 @@ public class ProjectView extends javax.swing.JFrame {
 
         tabCustomer.addTab("tab3", tabProduct);
 
-        jLabel5.setText("4");
+        tabReport.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGap(365, 365, 365)
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(473, Short.MAX_VALUE))
+        jPanel25.setBackground(new java.awt.Color(0, 255, 204));
+
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setText("Report ");
+
+        javax.swing.GroupLayout jPanel25Layout = new javax.swing.GroupLayout(jPanel25);
+        jPanel25.setLayout(jPanel25Layout);
+        jPanel25Layout.setHorizontalGroup(
+            jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGap(133, 133, 133)
-                .addComponent(jLabel5)
-                .addContainerGap(620, Short.MAX_VALUE))
+        jPanel25Layout.setVerticalGroup(
+            jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 62, Short.MAX_VALUE)
         );
 
-        tabCustomer.addTab("tab4", jPanel6);
+        tabReport.add(jPanel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 33, 960, -1));
+
+        jLabel23.setText("From");
+        tabReport.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(24, 125, 71, 25));
+        tabReport.add(jDateReportFrom, new org.netbeans.lib.awtextra.AbsoluteConstraints(132, 125, 150, -1));
+
+        jLabel40.setText("To");
+        tabReport.add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(384, 121, 66, 26));
+        tabReport.add(jDateReportTo, new org.netbeans.lib.awtextra.AbsoluteConstraints(513, 125, 158, -1));
+
+        btnReportConfirm.setText("Confirm");
+        btnReportConfirm.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnReportConfirmMouseClicked(evt);
+            }
+        });
+        tabReport.add(btnReportConfirm, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 110, -1));
+
+        tableReport.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane6.setViewportView(tableReport);
+
+        tabReport.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, 920, -1));
+
+        tabCustomer.addTab("tab4", tabReport);
 
         tabCategory.setEnabled(false);
 
@@ -1002,10 +1046,10 @@ public class ProjectView extends javax.swing.JFrame {
          productDao.loadCategoryToProductComboBox(ComboProductCategory);
     }//GEN-LAST:event_btnProductMouseClicked
 
-    private void btnSalesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalesMouseClicked
+    private void btnReportMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnReportMouseClicked
         // TODO add your handling code here:
         tabCustomer.setSelectedIndex(3);
-    }//GEN-LAST:event_btnSalesMouseClicked
+    }//GEN-LAST:event_btnReportMouseClicked
 
     private void btnCategoryMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCategoryMouseClicked
         // TODO add your handling code here:
@@ -1326,10 +1370,20 @@ public class ProjectView extends javax.swing.JFrame {
         tabCustomer.setSelectedIndex(7);
     }//GEN-LAST:event_btnPurchaseMouseClicked
 
-    private void btnReportMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnReportMouseClicked
+    private void btnReportConfirmMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnReportConfirmMouseClicked
         // TODO add your handling code here:
-       tabCustomer.setSelectedIndex(8);
-    }//GEN-LAST:event_btnReportMouseClicked
+        Date dateFrom=jDateReportFrom.getDate();
+        Date dateTo=jDateReportTo.getDate();
+        
+        java.sql.Date from=dateConvert.utilDateToSqlDate(dateFrom);
+        java.sql.Date to=dateConvert.utilDateToSqlDate(dateTo);
+        
+        reportDao.purchaseReportByDate(from, to, tableStock);
+        
+        
+        
+        
+    }//GEN-LAST:event_btnReportConfirmMouseClicked
 
     /**
      * @param args the command line arguments
@@ -1390,7 +1444,7 @@ public class ProjectView extends javax.swing.JFrame {
     private javax.swing.JButton btnPurchaseReset;
     private javax.swing.JButton btnRefresh;
     private javax.swing.JButton btnReport;
-    private javax.swing.JButton btnSales;
+    private javax.swing.JButton btnReportConfirm;
     private javax.swing.JButton btnStock;
     private javax.swing.JButton btnSupplierDelete;
     private javax.swing.JButton btnSupplierEdit;
@@ -1406,6 +1460,9 @@ public class ProjectView extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton7;
+    private com.toedter.calendar.JDateChooser jDateReportFrom;
+    private com.toedter.calendar.JDateChooser jDateReportTo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1421,6 +1478,7 @@ public class ProjectView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
@@ -1439,6 +1497,7 @@ public class ProjectView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -1461,10 +1520,10 @@ public class ProjectView extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel22;
     private javax.swing.JPanel jPanel23;
     private javax.swing.JPanel jPanel24;
+    private javax.swing.JPanel jPanel25;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
@@ -1473,15 +1532,19 @@ public class ProjectView extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane tabCategory;
     private javax.swing.JTabbedPane tabCustomer;
     private javax.swing.JPanel tabProduct;
     private javax.swing.JTabbedPane tabPurchase;
+    private javax.swing.JPanel tabReport;
     private javax.swing.JTabbedPane tabStock;
     private javax.swing.JTabbedPane tabSuppliers;
     private javax.swing.JTable tableCategory;
     private javax.swing.JTable tableCustomers;
     private javax.swing.JTable tableProduct;
+    private javax.swing.JTable tableReport;
     private javax.swing.JTable tableStock;
     private javax.swing.JTable tableSuppliers;
     private javax.swing.JTextField txtCategoryID;
