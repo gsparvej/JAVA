@@ -9,6 +9,7 @@ import dao.ProductDao;
 import dao.ProjectDao;
 import dao.PurchaseDao;
 import dao.ReportDao;
+import dao.SalesDao;
 import dao.StockDao;
 import dao.SupplierDao;
 import entity.Stock;
@@ -26,15 +27,16 @@ import projectpos.pos.PosUtil;
  */
 public class ProjectView extends javax.swing.JFrame {
 
-    PosUtil pu=new PosUtil();
-    ProjectDao pd=new ProjectDao();
-    CategoryDao categoryDao=new CategoryDao();
-    PurchaseDao purchaseDao=new PurchaseDao();
-    SupplierDao supplierDao=new SupplierDao();
+    PosUtil pu = new PosUtil();
+    ProjectDao pd= new ProjectDao();
+    CategoryDao categoryDao = new CategoryDao();
+    PurchaseDao purchaseDao = new PurchaseDao();
+    SupplierDao supplierDao = new SupplierDao();
     ProductDao productDao = new ProductDao();
-    StockDao stockDao= new StockDao();
-    ReportDao reportDao=new ReportDao();
-    DateConvert dateConvert=new DateConvert();
+    StockDao stockDao = new StockDao();
+    ReportDao reportDao = new ReportDao();
+    DateConvert dateConvert =new DateConvert();
+    SalesDao salesDao = new SalesDao();
     
     
     
@@ -54,6 +56,9 @@ public class ProjectView extends javax.swing.JFrame {
        productDao.loadCategoryToProductComboBox(ComboProductCategory);
        productDao.showAllProduct(tableProduct);
        stockDao.showAllStock(tableStock);
+       salesDao.loadCategory(jComboBoxSalesCategory);
+       
+       
        
        
        
@@ -66,7 +71,16 @@ public class ProjectView extends javax.swing.JFrame {
                 purchaseDao.loadProduct(ComboBoxPurchaseProductName, categoryName);
                
             }
-       });        
+       });     
+       
+       
+       jComboBoxSalesCategory.addItemListener(new ItemListener() {
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                String categoryName = jComboBoxSalesCategory.getSelectedItem().toString();
+                salesDao.loadProduct(jComboBoxSalesProductName, categoryName);
+            }
+       });
     }
 
     /**
@@ -228,6 +242,32 @@ public class ProjectView extends javax.swing.JFrame {
         btnPurchaseReset = new javax.swing.JButton();
         btnPurchaseConfirm = new javax.swing.JButton();
         tabSales = new javax.swing.JTabbedPane();
+        jPanel6 = new javax.swing.JPanel();
+        jLabel41 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jLabel42 = new javax.swing.JLabel();
+        jComboBoxSalesProductName = new javax.swing.JComboBox<>();
+        jLabel43 = new javax.swing.JLabel();
+        jComboBoxSalesCategory = new javax.swing.JComboBox<>();
+        jPanel26 = new javax.swing.JPanel();
+        jLabel44 = new javax.swing.JLabel();
+        jLabel45 = new javax.swing.JLabel();
+        txtSalesDiscount = new javax.swing.JTextField();
+        jLabel46 = new javax.swing.JLabel();
+        txtSalesUnitePrice = new javax.swing.JTextField();
+        jLabel47 = new javax.swing.JLabel();
+        jLabel48 = new javax.swing.JLabel();
+        txtSalesQuantity = new javax.swing.JTextField();
+        txtSalesSalesPrice = new javax.swing.JTextField();
+        jLabel49 = new javax.swing.JLabel();
+        txtSalesTotalPrice = new javax.swing.JTextField();
+        btnSalesReset = new javax.swing.JButton();
+        btnSalesSave = new javax.swing.JButton();
+        jButton8 = new javax.swing.JButton();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        tableSales = new javax.swing.JTable();
+        jPanel27 = new javax.swing.JPanel();
+        jLabel50 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -502,12 +542,6 @@ public class ProjectView extends javax.swing.JFrame {
         jLabel18.setBackground(new java.awt.Color(204, 204, 255));
         jLabel18.setText("Total Price");
         jPanel5.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 70, 70, 20));
-
-        txtProductTotalPrice.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txtProductTotalPriceMouseClicked(evt);
-            }
-        });
         jPanel5.add(txtProductTotalPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 100, 150, -1));
 
         jLabel20.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -988,6 +1022,107 @@ public class ProjectView extends javax.swing.JFrame {
         tabPurchase.addTab("tab1", jPanel13);
 
         tabCustomer.addTab("tab8", tabPurchase);
+
+        jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel41.setText("ID");
+        jPanel6.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 70, 20));
+        jPanel6.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, 100, -1));
+
+        jLabel42.setText("Product Name");
+        jPanel6.add(jLabel42, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 80, 20));
+
+        jComboBoxSalesProductName.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel6.add(jComboBoxSalesProductName, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 100, 150, -1));
+
+        jLabel43.setText("Category");
+        jPanel6.add(jLabel43, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 80, 20));
+
+        jComboBoxSalesCategory.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel6.add(jComboBoxSalesCategory, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 60, 150, -1));
+
+        jPanel26.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel26.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel44.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        jLabel44.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel44.setText("Price Section");
+        jPanel26.add(jLabel44, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 10, 160, 20));
+
+        jLabel45.setText("Quantity");
+        jPanel26.add(jLabel45, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 70, -1));
+        jPanel26.add(txtSalesDiscount, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 80, 90, -1));
+
+        jLabel46.setText("Discount");
+        jPanel26.add(jLabel46, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 80, 70, -1));
+        jPanel26.add(txtSalesUnitePrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 40, 90, -1));
+
+        jLabel47.setText("Unite Price");
+        jPanel26.add(jLabel47, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 70, -1));
+
+        jLabel48.setText("Sales Price");
+        jPanel26.add(jLabel48, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 40, 70, -1));
+
+        txtSalesQuantity.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtSalesQuantityFocusLost(evt);
+            }
+        });
+        jPanel26.add(txtSalesQuantity, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 80, 90, -1));
+        jPanel26.add(txtSalesSalesPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 80, 150, -1));
+
+        jLabel49.setText("Total Price");
+        jPanel26.add(jLabel49, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 40, 70, -1));
+        jPanel26.add(txtSalesTotalPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 40, 90, -1));
+
+        jPanel6.add(jPanel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 10, 610, 160));
+
+        btnSalesReset.setText("Reset");
+        btnSalesReset.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnSalesResetMouseClicked(evt);
+            }
+        });
+        jPanel6.add(btnSalesReset, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 140, -1, -1));
+
+        btnSalesSave.setText("Save");
+        btnSalesSave.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnSalesSaveMouseClicked(evt);
+            }
+        });
+        jPanel6.add(btnSalesSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, -1, -1));
+
+        jButton8.setText("Edit");
+        jPanel6.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 140, -1, -1));
+
+        tableSales.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane7.setViewportView(tableSales);
+
+        jPanel6.add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 257, 930, 460));
+
+        jPanel27.setBackground(new java.awt.Color(255, 51, 255));
+        jPanel27.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel50.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
+        jLabel50.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel50.setText("Sales Details");
+        jPanel27.add(jLabel50, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 940, 70));
+
+        jPanel6.add(jPanel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, 940, 70));
+
+        tabSales.addTab("tab1", jPanel6);
+
         tabCustomer.addTab("tab9", tabSales);
 
         getContentPane().add(tabCustomer, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 0, 960, 800));
@@ -1034,6 +1169,15 @@ public class ProjectView extends javax.swing.JFrame {
         txtPurchaseQuantity.setText("");
         txtPurchaseUnitePrice.setText("");
         txtPurchaseTotalPrice.setText("");
+    }
+    
+    public void resetSales(){
+    
+        txtSalesUnitePrice.setText("");
+        txtSalesQuantity.setText("");
+        txtSalesTotalPrice.setText("");
+        txtSalesDiscount.setText("");
+        txtSalesSalesPrice.setText("");
     
     
     }
@@ -1166,10 +1310,6 @@ public class ProjectView extends javax.swing.JFrame {
     
     
     
-    private void txtProductTotalPriceMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtProductTotalPriceMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtProductTotalPriceMouseClicked
-
     private void txtProductQuantityFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtProductQuantityFocusLost
         // TODO add your handling code here:
         productTotalPrice();
@@ -1398,6 +1538,70 @@ public class ProjectView extends javax.swing.JFrame {
         tabCustomer.setSelectedIndex(8);
     }//GEN-LAST:event_btnSalesMouseClicked
 
+     public void salesTotalPrice(){
+    
+    float n1=Float.parseFloat(txtSalesUnitePrice.getText().toString().trim());
+    float n2=Float.parseFloat(txtSalesQuantity.getText().toString().trim());
+    float n=n1*n2;
+    
+    txtSalesTotalPrice.setText(n+"");
+    
+    txtSalesDiscount.setText("0");
+    
+    txtSalesSalesPrice.setText(n+"");
+    }
+    
+    private void txtSalesQuantityFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtSalesQuantityFocusLost
+        // TODO add your handling code here:
+        
+        salesTotalPrice();
+    }//GEN-LAST:event_txtSalesQuantityFocusLost
+
+    private void btnSalesSaveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalesSaveMouseClicked
+        // TODO add your handling code here:
+       
+       
+        String productName=jComboBoxSalesProductName.getSelectedItem().toString();
+        String category=jComboBoxSalesCategory.getSelectedItem().toString();
+        float unitePrice=Float.parseFloat(txtSalesUnitePrice.getText().trim());
+        float quantity=Float.parseFloat(txtSalesQuantity.getText().trim());
+        float totalPrice=Float.parseFloat(txtSalesTotalPrice.getText().trim());
+        float discount=Float.parseFloat(txtSalesDiscount.getText().trim());
+        float salesPrice=Float.parseFloat(txtSalesSalesPrice.getText().trim());
+       
+       salesDao.saveSales(productName, category, unitePrice, quantity, totalPrice, discount, salesPrice);
+       
+       resetSales();
+       
+       
+       
+       List<Stock> sList=stockDao.getProductByCategory(category);
+        boolean status=false;
+        
+        for(Stock s: sList){
+        
+            productName.equals(s.getProductName());
+           status=true;
+           break;
+       
+        
+        }
+        if(status){
+        
+            salesDao.updateStockQuantityByProductNameOnSales(productName, quantity);
+        }
+        
+        
+       
+       
+    }//GEN-LAST:event_btnSalesSaveMouseClicked
+
+    private void btnSalesResetMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalesResetMouseClicked
+        // TODO add your handling code here:
+        
+        resetSales();
+    }//GEN-LAST:event_btnSalesResetMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -1459,6 +1663,8 @@ public class ProjectView extends javax.swing.JFrame {
     private javax.swing.JButton btnReport;
     private javax.swing.JButton btnReportConfirm;
     private javax.swing.JButton btnSales;
+    private javax.swing.JButton btnSalesReset;
+    private javax.swing.JButton btnSalesSave;
     private javax.swing.JButton btnStock;
     private javax.swing.JButton btnSupplierDelete;
     private javax.swing.JButton btnSupplierEdit;
@@ -1474,6 +1680,9 @@ public class ProjectView extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton8;
+    private javax.swing.JComboBox<String> jComboBoxSalesCategory;
+    private javax.swing.JComboBox<String> jComboBoxSalesProductName;
     private com.toedter.calendar.JDateChooser jDateReportFrom;
     private com.toedter.calendar.JDateChooser jDateReportTo;
     private javax.swing.JLabel jLabel1;
@@ -1511,7 +1720,17 @@ public class ProjectView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel40;
+    private javax.swing.JLabel jLabel41;
+    private javax.swing.JLabel jLabel42;
+    private javax.swing.JLabel jLabel43;
+    private javax.swing.JLabel jLabel44;
+    private javax.swing.JLabel jLabel45;
+    private javax.swing.JLabel jLabel46;
+    private javax.swing.JLabel jLabel47;
+    private javax.swing.JLabel jLabel48;
+    private javax.swing.JLabel jLabel49;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel50;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
@@ -1534,9 +1753,12 @@ public class ProjectView extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel23;
     private javax.swing.JPanel jPanel24;
     private javax.swing.JPanel jPanel25;
+    private javax.swing.JPanel jPanel26;
+    private javax.swing.JPanel jPanel27;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
@@ -1546,7 +1768,9 @@ public class ProjectView extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JTabbedPane tabCategory;
     private javax.swing.JTabbedPane tabCustomer;
     private javax.swing.JPanel tabProduct;
@@ -1559,6 +1783,7 @@ public class ProjectView extends javax.swing.JFrame {
     private javax.swing.JTable tableCustomers;
     private javax.swing.JTable tableProduct;
     private javax.swing.JTable tableReport;
+    private javax.swing.JTable tableSales;
     private javax.swing.JTable tableStock;
     private javax.swing.JTable tableSuppliers;
     private javax.swing.JTextField txtCategoryID;
@@ -1577,6 +1802,11 @@ public class ProjectView extends javax.swing.JFrame {
     private javax.swing.JTextField txtPurchaseQuantity;
     private javax.swing.JTextField txtPurchaseTotalPrice;
     private javax.swing.JTextField txtPurchaseUnitePrice;
+    private javax.swing.JTextField txtSalesDiscount;
+    private javax.swing.JTextField txtSalesQuantity;
+    private javax.swing.JTextField txtSalesSalesPrice;
+    private javax.swing.JTextField txtSalesTotalPrice;
+    private javax.swing.JTextField txtSalesUnitePrice;
     private javax.swing.JTextField txtSupplierAddress;
     private javax.swing.JTextField txtSupplierCell;
     private javax.swing.JTextField txtSupplierContactPerson;

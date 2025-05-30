@@ -126,8 +126,6 @@ public class ReportDao {
     
       List<Purchase> purchases=purchaseReportByDate(from, to, jt);
       
-       
-        
         try {
             // create PDF document.........
             Document document=new Document(PageSize.A4);
