@@ -161,9 +161,10 @@ public class ProjectView extends javax.swing.JFrame {
         jDateReportFrom = new com.toedter.calendar.JDateChooser();
         jLabel40 = new javax.swing.JLabel();
         jDateReportTo = new com.toedter.calendar.JDateChooser();
-        btnReportConfirm = new javax.swing.JButton();
+        btnReportOnPurchase = new javax.swing.JButton();
         jScrollPane6 = new javax.swing.JScrollPane();
         tableReport = new javax.swing.JTable();
+        btnReportOnSales = new javax.swing.JButton();
         tabCategory = new javax.swing.JTabbedPane();
         jPanel9 = new javax.swing.JPanel();
         jPanel10 = new javax.swing.JPanel();
@@ -634,13 +635,13 @@ public class ProjectView extends javax.swing.JFrame {
         tabReport.add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(384, 121, 66, 26));
         tabReport.add(jDateReportTo, new org.netbeans.lib.awtextra.AbsoluteConstraints(513, 125, 158, -1));
 
-        btnReportConfirm.setText("Confirm");
-        btnReportConfirm.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnReportOnPurchase.setText("Report On Purchase");
+        btnReportOnPurchase.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnReportConfirmMouseClicked(evt);
+                btnReportOnPurchaseMouseClicked(evt);
             }
         });
-        tabReport.add(btnReportConfirm, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 110, -1));
+        tabReport.add(btnReportOnPurchase, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 160, 30));
 
         tableReport.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -656,6 +657,14 @@ public class ProjectView extends javax.swing.JFrame {
         jScrollPane6.setViewportView(tableReport);
 
         tabReport.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, 920, -1));
+
+        btnReportOnSales.setText("Report On Sales");
+        btnReportOnSales.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnReportOnSalesMouseClicked(evt);
+            }
+        });
+        tabReport.add(btnReportOnSales, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 190, 160, 30));
 
         tabCustomer.addTab("tab4", tabReport);
 
@@ -1517,7 +1526,7 @@ public class ProjectView extends javax.swing.JFrame {
         tabCustomer.setSelectedIndex(7);
     }//GEN-LAST:event_btnPurchaseMouseClicked
 
-    private void btnReportConfirmMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnReportConfirmMouseClicked
+    private void btnReportOnPurchaseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnReportOnPurchaseMouseClicked
         // TODO add your handling code here:
         Date dateFrom=jDateReportFrom.getDate();
         Date dateTo=jDateReportTo.getDate();
@@ -1531,7 +1540,7 @@ public class ProjectView extends javax.swing.JFrame {
         
         
         
-    }//GEN-LAST:event_btnReportConfirmMouseClicked
+    }//GEN-LAST:event_btnReportOnPurchaseMouseClicked
 
     private void btnSalesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalesMouseClicked
         // TODO add your handling code here:
@@ -1602,6 +1611,18 @@ public class ProjectView extends javax.swing.JFrame {
         resetSales();
     }//GEN-LAST:event_btnSalesResetMouseClicked
 
+    private void btnReportOnSalesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnReportOnSalesMouseClicked
+        // TODO add your handling code here:
+        Date dateFrom=jDateReportFrom.getDate();
+        Date dateTo=jDateReportTo.getDate();
+        
+        java.sql.Date from=dateConvert.utilDateToSqlDate(dateFrom);
+        java.sql.Date to=dateConvert.utilDateToSqlDate(dateTo);
+        
+        reportDao.salesReportByDate(from, to, tableReport);
+        
+    }//GEN-LAST:event_btnReportOnSalesMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -1661,7 +1682,8 @@ public class ProjectView extends javax.swing.JFrame {
     private javax.swing.JButton btnPurchaseReset;
     private javax.swing.JButton btnRefresh;
     private javax.swing.JButton btnReport;
-    private javax.swing.JButton btnReportConfirm;
+    private javax.swing.JButton btnReportOnPurchase;
+    private javax.swing.JButton btnReportOnSales;
     private javax.swing.JButton btnSales;
     private javax.swing.JButton btnSalesReset;
     private javax.swing.JButton btnSalesSave;

@@ -16,6 +16,7 @@ import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 import entity.Purchase;
+import entity.Sales;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.sql.Date;
@@ -122,6 +123,10 @@ public class ReportDao {
     return purchaseList;
     }
     
+    
+    
+    
+    
     public void generatePDFReportForPurchase(Date from , Date to , JTable jt){
     
       List<Purchase> purchases=purchaseReportByDate(from, to, jt);
@@ -188,6 +193,48 @@ public class ReportDao {
         }
     
     
+    }
+    
+    
+    
+    
+     public List<Sales>salesReportByDate(Date from, Date to,JTable jt){
+        List<Sales>salesList=new ArrayList<>();
+    
+        String[] ColoumnName = {"Product Name","Category","Unite Price","Quantity","Total Price","Discount","Sales Price","Date And Time"};
+        DefaultTableModel tableModel = new DefaultTableModel(ColoumnName,0);
+        jt.setModel(tableModel);
+        
+        sql="select * from sales where dateAndTime between ? and ? ";
+        try {
+            ps=pu.getCon().prepareStatement(sql);
+            ps.setDate(1, from);
+            ps.setDate(2, to);
+            rs=ps.executeQuery();
+            
+            while(rs.next()){
+            String productName=rs.getString("productName");
+            String category=rs.getString("category");
+            float unitePrice=rs.getFloat("unitePrice");
+            float quantity=rs.getFloat("quantity");
+            float totalPrice=rs.getFloat("totalPrice");
+            float discount=rs.getFloat("discount");
+            float salesPrice=rs.getFloat("salesPrice");
+            Date dateAndTime=rs.getDate("dateAndTime");
+            
+            Object[] rowData={productName,category,unitePrice,quantity,totalPrice,discount,salesPrice,dateAndTime};
+            tableModel.addRow(rowData);
+            }
+            
+            rs.close();
+            ps.close();
+            pu.getCon().close();
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(ReportDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    
+    return salesList;
     }
 
     
