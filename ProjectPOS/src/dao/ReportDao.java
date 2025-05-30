@@ -3,12 +3,17 @@
 package dao;
 
 
+import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Element;
 import com.itextpdf.text.Font;
 import com.itextpdf.text.FontFactory;
 import com.itextpdf.text.PageSize;
 import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.Phrase;
+import com.itextpdf.text.pdf.PdfPCell;
+import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 import entity.Purchase;
 import java.io.FileNotFoundException;
@@ -133,14 +138,36 @@ public class ReportDao {
             document.open();
             
             // Add Title to this Document......
-            Font titleFont=FontFactory.getFont(FontFactory.HELVETICA_BOLD,16);
+            Font titleFont=FontFactory.getFont(FontFactory.HELVETICA_BOLD,14);
             Paragraph paragraphTitle=new Paragraph("Purchase Report", titleFont);
             paragraphTitle.setAlignment(Paragraph.ALIGN_CENTER);
             document.add(paragraphTitle);
             
             
             // Add Table Headers.........
+            PdfPTable table=new PdfPTable(7);
+            table.setWidthPercentage(100);
+            table.setSpacingBefore(10f);
+            table.setSpacingAfter(10f);
             
+            // Set Table Coloumn's Width........
+            
+            float[] coloumnWidths={2.5f,2.5f,2f,2.5f,2.5f,2.5f,2.5f};
+            table.setWidths(coloumnWidths);
+            
+            String[] headers={"Product Name","Unite Price","Quantity","Total Price","Date","Category","Supplier Name"};
+            Font headerFont=FontFactory.getFont(FontFactory.HELVETICA_BOLD,12);
+            
+            for(String header: headers){
+            
+                PdfPCell headerCell=new PdfPCell(new Phrase(header, headerFont));
+                headerCell.setHorizontalAlignment(Element.ALIGN_CENTER);
+                headerCell.setBackgroundColor(BaseColor.DARK_GRAY);
+                table.addCell(headerCell);
+            
+            }
+            
+            //21: 40 minutes theke suru hbe video....
             
             
             
