@@ -7,6 +7,7 @@ import java.util.Date;
 public class Sales {
     
     private int id;
+    private String customerName;
     private String productName;
     private String category;
     private float unitePrice;
@@ -19,8 +20,9 @@ public class Sales {
     public Sales() {
     }
 
-    public Sales(int id, String productName, String category, float unitePrice, float quantity, float totalPrice, float discount, float salesPrice, Date dateAndTime) {
+    public Sales(int id, String customerName, String productName, String category, float unitePrice, float quantity, float totalPrice, float discount, float salesPrice, Date dateAndTime) {
         this.id = id;
+        this.customerName = customerName;
         this.productName = productName;
         this.category = category;
         this.unitePrice = unitePrice;
@@ -37,6 +39,14 @@ public class Sales {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getCustomerName() {
+        return customerName;
+    }
+
+    public void setCustomerName(String customerName) {
+        this.customerName = customerName;
     }
 
     public String getProductName() {
@@ -102,6 +112,8 @@ public class Sales {
     public void setDateAndTime(Date dateAndTime) {
         this.dateAndTime = dateAndTime;
     }
+
+    
 
    
     

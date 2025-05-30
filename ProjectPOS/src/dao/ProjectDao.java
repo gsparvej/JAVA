@@ -1,10 +1,14 @@
 package dao;
 
+import entity.Category;
+import entity.Sales;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -14,6 +18,7 @@ public class ProjectDao {
 
     PosUtil pu = new PosUtil();
     PreparedStatement ps;
+    SalesDao salesDao=new SalesDao();
 
     public void saveCustomer(String name, String cell, String email, String address) {
 
@@ -36,6 +41,19 @@ public class ProjectDao {
             Logger.getLogger(ProjectDao.class.getName()).log(Level.SEVERE, null, ex);
         }
 
+    }
+    
+    public void loadCustomerName(JComboBox<String> comboCustomerList){
+    
+        comboCustomerList.removeAllItems();
+        List<Sales> salesList=salesDao.getAllSales();
+        if(salesList.isEmpty()){
+            System.out.println("Category Not Found ! ");
+        }
+        for(Sales sal : salesList){
+          
+           comboCustomerList.addItem(sal.getCustomerName());
+        }
     }
 
     public void showAllCustomer(JTable jt) {
@@ -73,7 +91,7 @@ public class ProjectDao {
     
     public void searchCustomerByAddress(String address, JTable jt){
     
-        String[] ColoumnName={"ID","Name","Cell","Email","Address"};
+        String[] ColoumnName={"ID","Cell","Email","Address"};
         DefaultTableModel tableModel=new DefaultTableModel(ColoumnName, 0);
         jt.setModel(tableModel);
     
@@ -91,7 +109,7 @@ public class ProjectDao {
                 tableModel.addRow(new Object[]{
                 
                 rs.getInt("id"),
-                rs.getString("name"),
+               // rs.getString("name"),
                 rs.getString("cell"),
                 rs.getString("email"),
                 rs.getString("address")}
@@ -138,17 +156,17 @@ public class ProjectDao {
       
     }
     
-    public void editCustomer(int id,String name, String cell, String email, String address ,JTable jt){
+    public void editCustomer(int id, String cell, String email, String address ,JTable jt){
     
         String sql="update projecttable set name=?,cell=?,email=?,address=? where id=?";
         
         try {
             ps=pu.getCon().prepareStatement(sql);
-            ps.setString(1, name);
-            ps.setString(2, cell);
-            ps.setString(3, email);
-            ps.setString(4, address);
-            ps.setInt(5, id);
+           // ps.setString(1, name);
+            ps.setString(1, cell);
+            ps.setString(2, email);
+            ps.setString(3, address);
+            ps.setInt(4, id);
             
             ps.executeUpdate();
             ps.close();
