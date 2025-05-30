@@ -26,6 +26,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import projectpos.pos.PosUtil;
@@ -80,9 +81,6 @@ public class ReportDao {
 //    
 //    
 //    }
-    
-    
-    
     
     // ei method uporer tar bikolpo , evabeo kora jabe........
     
@@ -167,8 +165,22 @@ public class ReportDao {
             
             }
             
-            //21: 40 minutes theke suru hbe video....
+            Font dataFont=FontFactory.getFont(FontFactory.HELVETICA,10);
+            for(Purchase p : purchases){
             
+                table.addCell(new PdfPCell(new Phrase(p.getName(), dataFont)));
+                table.addCell(new PdfPCell(new Phrase(String.valueOf(p.getUnitePrice()), dataFont)));
+                table.addCell(new PdfPCell(new Phrase(String.valueOf(p.getQuantity()), dataFont)));
+                table.addCell(new PdfPCell(new Phrase(String.valueOf(p.getTotalPrice()), dataFont)));
+                table.addCell(new PdfPCell(new Phrase(p.getDateAndTime().toString(), dataFont)));
+                table.addCell(new PdfPCell(new Phrase(p.getCategory(), dataFont)));
+                table.addCell(new PdfPCell(new Phrase(p.getSupplierName(), dataFont)));
+            
+            }
+            document.add(table);
+            document.close();
+        
+            JOptionPane.showMessageDialog(null, "PDF Generated Successfully ! ");
             
             
         } catch (FileNotFoundException ex) {

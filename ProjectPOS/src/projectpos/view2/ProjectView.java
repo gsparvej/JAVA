@@ -1385,7 +1385,8 @@ public class ProjectView extends javax.swing.JFrame {
         java.sql.Date from=dateConvert.utilDateToSqlDate(dateFrom);
         java.sql.Date to=dateConvert.utilDateToSqlDate(dateTo);
         
-        reportDao.purchaseReportByDate(from, to, tableReport);
+       // reportDao.purchaseReportByDate(from, to, tableReport);
+        reportDao.generatePDFReportForPurchase(from, to, tableReport);
         
         
         
