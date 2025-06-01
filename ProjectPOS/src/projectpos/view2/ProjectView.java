@@ -1549,6 +1549,8 @@ public class ProjectView extends javax.swing.JFrame {
      
      
      // Category Based Discount 
+     
+     
      public void salesDiscount(){
      
         salesTotalPrice();
@@ -1647,7 +1649,7 @@ public class ProjectView extends javax.swing.JFrame {
     private void txtSalesQuantityFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtSalesQuantityFocusLost
         // TODO add your handling code here:
         
-        salesTotalPriceAndDiscount();
+        salesDiscount();
     }//GEN-LAST:event_txtSalesQuantityFocusLost
 
     private void btnSalesSaveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalesSaveMouseClicked
