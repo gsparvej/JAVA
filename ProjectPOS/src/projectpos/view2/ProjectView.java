@@ -1541,21 +1541,110 @@ public class ProjectView extends javax.swing.JFrame {
 
      public void salesTotalPrice(){
     
-    float n1=Float.parseFloat(txtSalesUnitePrice.getText().toString().trim());
-    float n2=Float.parseFloat(txtSalesQuantity.getText().toString().trim());
-    float n=n1*n2;
-    
-    txtSalesTotalPrice.setText(n+"");
-    
-    txtSalesDiscount.setText("0");
-    
-    txtSalesSalesPrice.setText(n+"");
+         float unitePrice=Float.parseFloat(txtSalesUnitePrice.getText().toString().trim());
+         float quantity=Float.parseFloat(txtSalesQuantity.getText().toString().trim());
+         float totalPrice=unitePrice*quantity;
+         txtSalesTotalPrice.setText(totalPrice+"");
     }
+     
+     
+     // Category Based Discount 
+     public void salesTotalPriceAndDiscount(){
+     
+        salesTotalPrice();
+        float totalPrice=Float.parseFloat(txtSalesTotalPrice.getText().toString());
+         
+         // Fruits........
+         
+         Object selectedItem=jComboBoxSalesCategory.getSelectedItem();
+         
+         if("Fruits".equals(selectedItem) && totalPrice <5000){
+         
+             float discount=(float) (totalPrice*0);
+             float salesPrice=totalPrice-discount;
+             
+             txtSalesDiscount.setText(discount+"");
+             txtSalesSalesPrice.setText(salesPrice+"");
+             
+         
+         }
+         else if("Fruits".equals(selectedItem) && totalPrice>=5000){
+         
+             float discount=(float) (totalPrice*0.07);
+             float salesPrice=totalPrice-discount;
+             
+             txtSalesDiscount.setText(discount+"");
+             txtSalesSalesPrice.setText(salesPrice+"");
+          
+         }
+         else if("Fruits".equals(selectedItem) && totalPrice>= 8000){
+         
+             float discount=(float) (totalPrice*0.1);
+             float salesPrice=totalPrice-discount;
+             
+             txtSalesDiscount.setText(discount+"");
+             txtSalesSalesPrice.setText(salesPrice+"");
+           
+         }
+         else if("Fruits".equals(selectedItem) && totalPrice >= 10000){
+         
+             float discount=(float) (totalPrice*0.12);
+             float salesPrice=totalPrice-discount;
+              
+             txtSalesDiscount.setText(discount+"");
+             txtSalesSalesPrice.setText(salesPrice+"");
+         }
+        
+     
+         
+         
+         // Computer ....
+         
+         if("Computer".equals(selectedItem) && totalPrice <30000){
+         
+             float discount=(float) (totalPrice*0);
+             float salesPrice=totalPrice-discount;
+             
+             txtSalesDiscount.setText(discount+"");
+             txtSalesSalesPrice.setText(salesPrice+"");
+             
+         
+         }
+         else if("Computer".equals(selectedItem) && totalPrice>=30000){
+         
+             float discount=(float) (totalPrice*0.07);
+             float salesPrice=totalPrice-discount;
+             
+             txtSalesDiscount.setText(discount+"");
+             txtSalesSalesPrice.setText(salesPrice+"");
+          
+         }
+         else if("Computer".equals(selectedItem) && totalPrice>= 50000){
+         
+             float discount=(float) (totalPrice*0.1);
+             float salesPrice=totalPrice-discount;
+             
+             txtSalesDiscount.setText(discount+"");
+             txtSalesSalesPrice.setText(salesPrice+"");
+           
+         }
+         else if("Computer".equals(selectedItem) && totalPrice >= 70000){
+         
+             float discount=(float) (totalPrice*0.12);
+             float salesPrice=totalPrice-discount;
+              
+             txtSalesDiscount.setText(discount+"");
+             txtSalesSalesPrice.setText(salesPrice+"");
+         }
+     
+     }
+     
+     
     
     private void txtSalesQuantityFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtSalesQuantityFocusLost
         // TODO add your handling code here:
         
-        salesTotalPrice();
+        salesTotalPriceAndDiscount();
     }//GEN-LAST:event_txtSalesQuantityFocusLost
 
     private void btnSalesSaveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalesSaveMouseClicked
