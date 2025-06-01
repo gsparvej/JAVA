@@ -86,7 +86,7 @@ public class ReportDao {
     // ei method uporer tar bikolpo , evabeo kora jabe........
     
     public List<Purchase>purchaseReportByDate(Date from, Date to,JTable jt){
-        List<Purchase>purchaseList=new ArrayList<>();
+        List<Purchase> purchaseList=new ArrayList<>();
     
         String[] ColoumnName = {"Product Name","Unite Price","Quantity","Total Price","Date And Time","Category","Supplier Name"};
         DefaultTableModel tableModel = new DefaultTableModel(ColoumnName,0);
@@ -100,6 +100,7 @@ public class ReportDao {
             rs=ps.executeQuery();
             
             while(rs.next()){
+                
             String productName=rs.getString("name");
             float unitePrice=rs.getFloat("unitePrice");
             float quantity=rs.getFloat("quantity");
@@ -108,8 +109,13 @@ public class ReportDao {
             String category=rs.getString("category");
             String supplierName=rs.getString("supplierName");
             
+            
+                Purchase p=new Purchase(productName, unitePrice, quantity, totalPrice, dateAndTime, category, supplierName);
+            
             Object[] rowData={productName,unitePrice,quantity,totalPrice,dateAndTime,category,supplierName};
             tableModel.addRow(rowData);
+            
+            purchaseList.add(p);
             }
             
             rs.close();
