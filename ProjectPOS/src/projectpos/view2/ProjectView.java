@@ -1549,7 +1549,7 @@ public class ProjectView extends javax.swing.JFrame {
      
      
      // Category Based Discount 
-     public void salesTotalPriceAndDiscount(){
+     public void salesDiscount(){
      
         salesTotalPrice();
         float totalPrice=Float.parseFloat(txtSalesTotalPrice.getText().toString());
@@ -1636,6 +1636,9 @@ public class ProjectView extends javax.swing.JFrame {
              txtSalesDiscount.setText(discount+"");
              txtSalesSalesPrice.setText(salesPrice+"");
          }
+         
+         
+         
      
      }
      
