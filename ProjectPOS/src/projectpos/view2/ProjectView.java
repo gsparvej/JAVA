@@ -107,6 +107,7 @@ public class ProjectView extends javax.swing.JFrame {
         btnSuppliers = new javax.swing.JButton();
         btnPurchase = new javax.swing.JButton();
         btnSales = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
         tabCustomer = new javax.swing.JTabbedPane();
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
@@ -270,6 +271,8 @@ public class ProjectView extends javax.swing.JFrame {
         tableSales = new javax.swing.JTable();
         jPanel27 = new javax.swing.JPanel();
         jLabel50 = new javax.swing.JLabel();
+        jTabbedPane2 = new javax.swing.JTabbedPane();
+        tabparvej = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -364,6 +367,14 @@ public class ProjectView extends javax.swing.JFrame {
             }
         });
         jPanel2.add(btnSales, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 350, 140, -1));
+
+        jButton6.setText("jButton6");
+        jButton6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton6MouseClicked(evt);
+            }
+        });
+        jPanel2.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 390, 140, -1));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 140, 740));
 
@@ -1131,6 +1142,11 @@ public class ProjectView extends javax.swing.JFrame {
 
         tabCustomer.addTab("tab9", tabSales);
 
+        tabparvej.setText("jLabel51");
+        jTabbedPane2.addTab("tab1", tabparvej);
+
+        tabCustomer.addTab("tab10", jTabbedPane2);
+
         getContentPane().add(tabCustomer, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 0, 960, 800));
 
         pack();
@@ -1709,6 +1725,12 @@ public class ProjectView extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnReportOnSalesMouseClicked
 
+    private void jButton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseClicked
+        // TODO add your handling code here:
+        
+        tabCustomer.setSelectedIndex(9);
+    }//GEN-LAST:event_jButton6MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -1788,6 +1810,7 @@ public class ProjectView extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton8;
     private javax.swing.JComboBox<String> jComboBoxCustomerCustomerName;
     private javax.swing.JComboBox<String> jComboBoxSalesCategory;
@@ -1879,6 +1902,7 @@ public class ProjectView extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JTabbedPane tabCategory;
     private javax.swing.JTabbedPane tabCustomer;
     private javax.swing.JPanel tabProduct;
@@ -1894,6 +1918,7 @@ public class ProjectView extends javax.swing.JFrame {
     private javax.swing.JTable tableSales;
     private javax.swing.JTable tableStock;
     private javax.swing.JTable tableSuppliers;
+    private javax.swing.JLabel tabparvej;
     private javax.swing.JTextField txtCategoryID;
     private javax.swing.JTextField txtCategoryName;
     private javax.swing.JTextField txtCustomerAddress;
