@@ -2,6 +2,7 @@
 package dao;
 
 import entity.Category;
+import entity.Customer;
 import entity.Sales;
 import entity.Stock;
 import java.sql.PreparedStatement;
@@ -27,6 +28,7 @@ public class SalesDao {
     
     CategoryDao categoryDao=new CategoryDao();
     StockDao stockDao=new StockDao();
+    CustomerDao customerDao=new CustomerDao();
     
     
     
@@ -95,6 +97,20 @@ public class SalesDao {
         }
     
     
+    }
+    
+    
+     public void loadCustomerName(JComboBox<String> comboCustomerList){
+    
+        comboCustomerList.removeAllItems();
+        List<Customer> customers=customerDao.getAllCustomers();
+        if(customers.isEmpty()){
+            System.out.println("Customer Not Found ! ");
+        }
+        for(Customer cus : customers){
+          
+           comboCustomerList.addItem(cus.getCustomerName());
+        }
     }
     
     

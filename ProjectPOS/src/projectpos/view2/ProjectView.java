@@ -5,6 +5,7 @@
 package projectpos.view2;
 
 import dao.CategoryDao;
+import dao.CustomerDao;
 import dao.ProductDao;
 import dao.ProjectDao;
 import dao.PurchaseDao;
@@ -37,6 +38,7 @@ public class ProjectView extends javax.swing.JFrame {
     ReportDao reportDao = new ReportDao();
     DateConvert dateConvert =new DateConvert();
     SalesDao salesDao = new SalesDao();
+    CustomerDao customerDao=new CustomerDao();
     
     
     
@@ -46,7 +48,7 @@ public class ProjectView extends javax.swing.JFrame {
      */
     public ProjectView() {
         initComponents();  
-       pd.showAllCustomer(tableCustomers);
+       customerDao.showAllCustomer(tableCustomers);
        categoryDao.showAllCategory(tableCategory);
        purchaseDao.loadCategory(comboPurchaseCategory);
        supplierDao.showAllSupplier(tableSuppliers);
@@ -57,7 +59,9 @@ public class ProjectView extends javax.swing.JFrame {
        productDao.showAllProduct(tableProduct);
        stockDao.showAllStock(tableStock);
        salesDao.loadCategory(jComboBoxSalesCategory);
-      pd.loadCustomerName(jComboBoxCustomerCustomerName);
+   //    pd.loadCustomerName(jComboBoxCustomerCustomerName);
+       salesDao.loadCustomerName(jComboBoxSalesCustomerName);
+       
        
        
        
@@ -113,7 +117,7 @@ public class ProjectView extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        txtCustomerId = new javax.swing.JTextField();
+        txtCustomerName = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         txtCustomerCell = new javax.swing.JTextField();
@@ -132,7 +136,7 @@ public class ProjectView extends javax.swing.JFrame {
         jPanel7 = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
         btnRefresh = new javax.swing.JButton();
-        jComboBoxCustomerCustomerName = new javax.swing.JComboBox<>();
+        txtCustomerId = new javax.swing.JTextField();
         tabProduct = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         txtProductID = new javax.swing.JTextField();
@@ -247,7 +251,6 @@ public class ProjectView extends javax.swing.JFrame {
         tabSales = new javax.swing.JTabbedPane();
         jPanel6 = new javax.swing.JPanel();
         jLabel41 = new javax.swing.JLabel();
-        txtSalesCustomerName = new javax.swing.JTextField();
         jLabel42 = new javax.swing.JLabel();
         jComboBoxSalesProductName = new javax.swing.JComboBox<>();
         jLabel43 = new javax.swing.JLabel();
@@ -271,6 +274,7 @@ public class ProjectView extends javax.swing.JFrame {
         tableSales = new javax.swing.JTable();
         jPanel27 = new javax.swing.JPanel();
         jLabel50 = new javax.swing.JLabel();
+        jComboBoxSalesCustomerName = new javax.swing.JComboBox<>();
         jTabbedPane2 = new javax.swing.JTabbedPane();
         tabparvej = new javax.swing.JLabel();
 
@@ -396,7 +400,7 @@ public class ProjectView extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(197, 197, 197)
                 .addComponent(jLabel2)
-                .addContainerGap(556, Short.MAX_VALUE))
+                .addContainerGap(558, Short.MAX_VALUE))
         );
 
         tabCustomer.addTab("tab1", jPanel3);
@@ -405,7 +409,7 @@ public class ProjectView extends javax.swing.JFrame {
 
         jLabel3.setText("ID");
         jPanel4.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 42, 53, -1));
-        jPanel4.add(txtCustomerId, new org.netbeans.lib.awtextra.AbsoluteConstraints(71, 39, 161, -1));
+        jPanel4.add(txtCustomerName, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 80, 161, -1));
 
         jLabel10.setText("Name");
         jPanel4.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 82, 53, -1));
@@ -513,9 +517,7 @@ public class ProjectView extends javax.swing.JFrame {
             }
         });
         jPanel4.add(btnRefresh, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 110, -1, -1));
-
-        jComboBoxCustomerCustomerName.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel4.add(jComboBoxCustomerCustomerName, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 80, 160, -1));
+        jPanel4.add(txtCustomerId, new org.netbeans.lib.awtextra.AbsoluteConstraints(71, 39, 161, -1));
 
         tabCustomer.addTab("tab2", jPanel4);
 
@@ -1044,7 +1046,6 @@ public class ProjectView extends javax.swing.JFrame {
 
         jLabel41.setText("Customer Name");
         jPanel6.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 100, 20));
-        jPanel6.add(txtSalesCustomerName, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 20, 150, -1));
 
         jLabel42.setText("Product Name");
         jPanel6.add(jLabel42, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 80, 20));
@@ -1138,6 +1139,9 @@ public class ProjectView extends javax.swing.JFrame {
 
         jPanel6.add(jPanel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, 940, 70));
 
+        jComboBoxSalesCustomerName.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel6.add(jComboBoxSalesCustomerName, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 20, 150, -1));
+
         tabSales.addTab("tab1", jPanel6);
 
         tabCustomer.addTab("tab9", tabSales);
@@ -1157,10 +1161,11 @@ public class ProjectView extends javax.swing.JFrame {
     
     public void resetCustomer(){
     
-        txtCustomerId.setText("");
+        txtCustomerName.setText("");
         txtCustomerCell.setText("");
         txtCustomerEmail.setText("");
         txtCustomerAddress.setText("");
+        txtCustomerSearchField.setText("");
     
     }
     
@@ -1194,7 +1199,7 @@ public class ProjectView extends javax.swing.JFrame {
     
     public void resetSales(){
     
-        txtSalesCustomerName.setText("");
+       // txtSalesCustomerName.setText("");
         txtSalesUnitePrice.setText("");
         txtSalesQuantity.setText("");
         txtSalesTotalPrice.setText("");
@@ -1242,19 +1247,20 @@ public class ProjectView extends javax.swing.JFrame {
 
     private void btnCustomerSaveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCustomerSaveMouseClicked
         // TODO add your handling code here:
-       String name=jComboBoxCustomerCustomerName.getSelectedItem().toString();
+       String name=txtCustomerName.getText().trim();
        String cell=txtCustomerCell.getText().trim();
        String email=txtCustomerEmail.getText().trim();
        String address=txtCustomerAddress.getText().trim();
         
-        pd.saveCustomer(name, cell, email, address);
+        customerDao.saveCustomer(name, cell, email, address, tableCustomers);
         resetCustomer();
+        customerDao.showAllCustomer(tableCustomers);
         
     }//GEN-LAST:event_btnCustomerSaveMouseClicked
 
     private void btnRefreshMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRefreshMouseClicked
         // TODO add your handling code here:
-        pd.showAllCustomer(tableCustomers);
+        customerDao.showAllCustomer(tableCustomers);
         resetCustomer();
         btnCustomerSave.setVisible(true);
     }//GEN-LAST:event_btnRefreshMouseClicked
@@ -1273,12 +1279,13 @@ public class ProjectView extends javax.swing.JFrame {
         int rowIndex=tableCustomers.getSelectedRow();
         
         String id=tableCustomers.getModel().getValueAt(rowIndex, 0).toString();
-       // String name=tableCustomers.getModel().getValueAt(rowIndex, 1).toString();
+        String name=tableCustomers.getModel().getValueAt(rowIndex, 1).toString();
         String cell=tableCustomers.getModel().getValueAt(rowIndex, 2).toString();
         String email=tableCustomers.getModel().getValueAt(rowIndex, 3).toString();
         String address=tableCustomers.getModel().getValueAt(rowIndex, 4).toString();
         
-        txtCustomerId.setText(id);
+        txtCustomerName.setText(id);
+        txtCustomerName.setText(name);
         txtCustomerCell.setText(cell);
         txtCustomerEmail.setText(email);
         txtCustomerAddress.setText(address);
@@ -1291,28 +1298,30 @@ public class ProjectView extends javax.swing.JFrame {
     private void btnCustomerDeleteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCustomerDeleteMouseClicked
         // TODO add your handling code here:
         int id=Integer.parseInt(txtCustomerId.getText());
-        pd.deleteCustomer(id, tableCustomers);
+        customerDao.deleteCustomer(id, tableCustomers);
         resetCustomer();
         btnCustomerSave.setVisible(true);
+        customerDao.showAllCustomer(tableCustomers);
     }//GEN-LAST:event_btnCustomerDeleteMouseClicked
 
     private void btnCustomerEditMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCustomerEditMouseClicked
         // TODO add your handling code here:
-        int id=Integer.parseInt(txtCustomerId.getText());
-      //  String name=txtCustomerName.getText().trim();
+        int id=Integer.parseInt(txtCustomerName.getText());
+        String name=txtCustomerName.getText().trim();
         String cell=txtCustomerCell.getText().trim();
         String email=txtCustomerEmail.getText().trim();
         String address=txtCustomerAddress.getText().trim();
         
-        pd.editCustomer(id, cell, email, address, tableCustomers);
+        customerDao.editCustomer(id,name, cell, email, address, tableCustomers);
         resetCustomer();
         btnCustomerSave.setVisible(true);
+        customerDao.showAllCustomer(tableCustomers);
     }//GEN-LAST:event_btnCustomerEditMouseClicked
 
     private void btnCustomerSearchByAddressMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCustomerSearchByAddressMouseClicked
         // TODO add your handling code here:
         String address=txtCustomerSearchField.getText().toLowerCase().trim();
-        pd.searchCustomerByAddress(address, tableCustomers);
+        customerDao.searchCustomerByAddress(address, tableCustomers);
        
     }//GEN-LAST:event_btnCustomerSearchByAddressMouseClicked
 
@@ -1671,7 +1680,7 @@ public class ProjectView extends javax.swing.JFrame {
     private void btnSalesSaveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalesSaveMouseClicked
         // TODO add your handling code here:
        
-        String customerName=txtSalesCustomerName.getText().trim();
+        String customerName=jComboBoxSalesCustomerName.getSelectedItem().toString();
         String productName=jComboBoxSalesProductName.getSelectedItem().toString();
         String category=jComboBoxSalesCategory.getSelectedItem().toString();
         float unitePrice=Float.parseFloat(txtSalesUnitePrice.getText().trim());
@@ -1812,8 +1821,8 @@ public class ProjectView extends javax.swing.JFrame {
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton8;
-    private javax.swing.JComboBox<String> jComboBoxCustomerCustomerName;
     private javax.swing.JComboBox<String> jComboBoxSalesCategory;
+    private javax.swing.JComboBox<String> jComboBoxSalesCustomerName;
     private javax.swing.JComboBox<String> jComboBoxSalesProductName;
     private com.toedter.calendar.JDateChooser jDateReportFrom;
     private com.toedter.calendar.JDateChooser jDateReportTo;
@@ -1925,6 +1934,7 @@ public class ProjectView extends javax.swing.JFrame {
     private javax.swing.JTextField txtCustomerCell;
     private javax.swing.JTextField txtCustomerEmail;
     private javax.swing.JTextField txtCustomerId;
+    private javax.swing.JTextField txtCustomerName;
     private javax.swing.JTextField txtCustomerSearchField;
     private javax.swing.JTextField txtProductID;
     private javax.swing.JTextField txtProductProductName;
@@ -1934,7 +1944,6 @@ public class ProjectView extends javax.swing.JFrame {
     private javax.swing.JTextField txtPurchaseQuantity;
     private javax.swing.JTextField txtPurchaseTotalPrice;
     private javax.swing.JTextField txtPurchaseUnitePrice;
-    private javax.swing.JTextField txtSalesCustomerName;
     private javax.swing.JTextField txtSalesDiscount;
     private javax.swing.JTextField txtSalesQuantity;
     private javax.swing.JTextField txtSalesSalesPrice;
