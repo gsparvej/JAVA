@@ -111,7 +111,7 @@ public class ProjectView extends javax.swing.JFrame {
         btnSuppliers = new javax.swing.JButton();
         btnPurchase = new javax.swing.JButton();
         btnSales = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        btnAccounts = new javax.swing.JButton();
         tabCustomer = new javax.swing.JTabbedPane();
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
@@ -275,7 +275,7 @@ public class ProjectView extends javax.swing.JFrame {
         jPanel27 = new javax.swing.JPanel();
         jLabel50 = new javax.swing.JLabel();
         jComboBoxSalesCustomerName = new javax.swing.JComboBox<>();
-        jTabbedPane2 = new javax.swing.JTabbedPane();
+        tabAccounts = new javax.swing.JTabbedPane();
         tabparvej = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -372,13 +372,13 @@ public class ProjectView extends javax.swing.JFrame {
         });
         jPanel2.add(btnSales, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 350, 140, -1));
 
-        jButton6.setText("jButton6");
-        jButton6.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnAccounts.setText("Accounts");
+        btnAccounts.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton6MouseClicked(evt);
+                btnAccountsMouseClicked(evt);
             }
         });
-        jPanel2.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 390, 140, -1));
+        jPanel2.add(btnAccounts, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 390, 140, -1));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 140, 740));
 
@@ -1147,9 +1147,9 @@ public class ProjectView extends javax.swing.JFrame {
         tabCustomer.addTab("tab9", tabSales);
 
         tabparvej.setText("jLabel51");
-        jTabbedPane2.addTab("tab1", tabparvej);
+        tabAccounts.addTab("tab1", tabparvej);
 
-        tabCustomer.addTab("tab10", jTabbedPane2);
+        tabCustomer.addTab("tab10", tabAccounts);
 
         getContentPane().add(tabCustomer, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 0, 960, 800));
 
@@ -1734,11 +1734,11 @@ public class ProjectView extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnReportOnSalesMouseClicked
 
-    private void jButton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseClicked
+    private void btnAccountsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAccountsMouseClicked
         // TODO add your handling code here:
         
         tabCustomer.setSelectedIndex(9);
-    }//GEN-LAST:event_jButton6MouseClicked
+    }//GEN-LAST:event_btnAccountsMouseClicked
 
     /**
      * @param args the command line arguments
@@ -1779,6 +1779,7 @@ public class ProjectView extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> ComboBoxPurchaseProductName;
     private javax.swing.JComboBox<String> ComboBoxPurchaseSupplierName;
     private javax.swing.JComboBox<String> ComboProductCategory;
+    private javax.swing.JButton btnAccounts;
     private javax.swing.JButton btnCategory;
     private javax.swing.JButton btnCategoryDelete;
     private javax.swing.JButton btnCategoryEdit;
@@ -1819,7 +1820,6 @@ public class ProjectView extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton8;
     private javax.swing.JComboBox<String> jComboBoxSalesCategory;
     private javax.swing.JComboBox<String> jComboBoxSalesCustomerName;
@@ -1911,7 +1911,7 @@ public class ProjectView extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTabbedPane jTabbedPane2;
+    private javax.swing.JTabbedPane tabAccounts;
     private javax.swing.JTabbedPane tabCategory;
     private javax.swing.JTabbedPane tabCustomer;
     private javax.swing.JPanel tabProduct;
