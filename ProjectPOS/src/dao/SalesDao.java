@@ -90,7 +90,7 @@ public class SalesDao {
             ps.close();
             pu.getCon().close();
             
-            JOptionPane.showMessageDialog(null, "Sales Data Saved Successfully ! ");
+            JOptionPane.showMessageDialog(null, "Sales Successfully ! ");
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "  Unsuccessful ! ");
             Logger.getLogger(PurchaseDao.class.getName()).log(Level.SEVERE, null, ex);
@@ -98,6 +98,43 @@ public class SalesDao {
     
     
     }
+    
+    
+    
+    
+    
+    
+    // save korar eita arekta method, ei style eo kora jay.........***** 
+     public void saveSales(Sales sa){
+        sql="insert into sales (customerName,productName,category,unitePrice,quantity,totalPrice,discount,salesPrice,dateAndTime)"
+                + "values(?,?,?,?,?,?,?,?,now())";
+        
+        try {
+            ps=pu.getCon().prepareStatement(sql);
+            
+            ps.setString(1, sa.getCustomerName());
+            ps.setString(2, sa.getProductName());
+            ps.setString(3, sa.getCategory());
+            ps.setFloat(4, sa.getUnitePrice());
+            ps.setFloat(5, sa.getQuantity());
+            ps.setFloat(6, sa.getTotalPrice());
+            ps.setFloat(7, sa.getDiscount());
+            ps.setFloat(8, sa.getSalesPrice());
+           
+            
+            ps.executeUpdate();
+            ps.close();
+            pu.getCon().close();
+            
+            JOptionPane.showMessageDialog(null, "Sales  Successfully ! ");
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "  Unsuccessful ! ");
+            Logger.getLogger(PurchaseDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    
+    
+    }
+    
     
     
      public void loadCustomerName(JComboBox<String> comboCustomerList){

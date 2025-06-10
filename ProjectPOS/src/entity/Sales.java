@@ -20,6 +20,20 @@ public class Sales {
     public Sales() {
     }
 
+    public Sales(String customerName, String productName, String category, float unitePrice, float quantity, float totalPrice, float discount, float salesPrice) {
+        this.customerName = customerName;
+        this.productName = productName;
+        this.category = category;
+        this.unitePrice = unitePrice;
+        this.quantity = quantity;
+        this.totalPrice = totalPrice;
+        this.discount = discount;
+        this.salesPrice = salesPrice;
+    }
+
+    
+    
+    
     public Sales(int id, String customerName, String productName, String category, float unitePrice, float quantity, float totalPrice, float discount, float salesPrice, Date dateAndTime) {
         this.id = id;
         this.customerName = customerName;

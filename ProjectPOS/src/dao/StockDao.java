@@ -116,6 +116,32 @@ public class StockDao {
         }
         
     }
+     
+     
+     public  float getStockQuantityByProductName(String productName){
+     
+         sql="select quantity from stock where productName=?";
+         float quantity=0;
+        try {
+            ps=pu.getCon().prepareStatement(sql);
+            ps.setString(1, productName);
+            rs=ps.executeQuery();
+            
+            while(rs.next()){
+            
+                quantity=rs.getFloat("quantity");
+            
+            }
+            
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(StockDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+     
+     
+     
+     return quantity;
+     } 
     
     
 }

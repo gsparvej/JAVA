@@ -13,6 +13,7 @@ import dao.ReportDao;
 import dao.SalesDao;
 import dao.StockDao;
 import dao.SupplierDao;
+import entity.Sales;
 import entity.Stock;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
@@ -86,6 +87,41 @@ public class ProjectView extends javax.swing.JFrame {
                 salesDao.loadProduct(jComboBoxSalesProductName, categoryName);
             }
        });
+       
+       
+       
+       
+//       jComboBoxSalesProductName.addItemListener(new ItemListener() {
+//            @Override
+//            public void itemStateChanged(ItemEvent e) {
+//                String productName = jComboBoxSalesProductName.getSelectedItem().toString();
+//                float quantity=stockDao.getStockQuantityByProductName(productName);
+//                txtSalesStock.setText(String.valueOf(quantity));
+//            }
+//       });
+       
+       
+       jComboBoxSalesCategory.addItemListener(e->{
+       if(e.getStateChange()==ItemEvent.SELECTED && jComboBoxSalesCategory.getSelectedItem() != null){
+       String categoryName=jComboBoxSalesCategory.getSelectedItem().toString();
+       salesDao.loadProduct(jComboBoxSalesProductName, categoryName);
+       
+       }
+       });
+       
+       jComboBoxSalesProductName.addItemListener(e->{
+       
+           if(e.getStateChange()==ItemEvent.SELECTED && jComboBoxSalesProductName.getSelectedItem() !=null){
+           String productName=jComboBoxSalesProductName.getSelectedItem().toString();
+           float quantity=stockDao.getStockQuantityByProductName(productName);
+           txtSalesStock.setText(String.valueOf(quantity));
+          
+           }
+       });
+       
+       
+       
+       
     }
 
     /**
@@ -267,6 +303,8 @@ public class ProjectView extends javax.swing.JFrame {
         txtSalesSalesPrice = new javax.swing.JTextField();
         jLabel49 = new javax.swing.JLabel();
         txtSalesTotalPrice = new javax.swing.JTextField();
+        jLabel51 = new javax.swing.JLabel();
+        txtSalesStock = new javax.swing.JTextField();
         btnSalesReset = new javax.swing.JButton();
         btnSalesSave = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
@@ -1068,30 +1106,35 @@ public class ProjectView extends javax.swing.JFrame {
         jPanel26.add(jLabel44, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 10, 160, 20));
 
         jLabel45.setText("Quantity");
-        jPanel26.add(jLabel45, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 70, -1));
-        jPanel26.add(txtSalesDiscount, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 80, 90, -1));
+        jPanel26.add(jLabel45, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 70, -1));
+        jPanel26.add(txtSalesDiscount, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 130, 90, -1));
 
         jLabel46.setText("Discount");
-        jPanel26.add(jLabel46, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 80, 70, -1));
-        jPanel26.add(txtSalesUnitePrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 40, 90, -1));
+        jPanel26.add(jLabel46, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 130, 70, -1));
+        jPanel26.add(txtSalesUnitePrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 90, 90, -1));
 
         jLabel47.setText("Unite Price");
-        jPanel26.add(jLabel47, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 70, -1));
+        jPanel26.add(jLabel47, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 70, -1));
 
         jLabel48.setText("Sales Price");
-        jPanel26.add(jLabel48, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 40, 70, -1));
+        jPanel26.add(jLabel48, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 80, 70, -1));
 
         txtSalesQuantity.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 txtSalesQuantityFocusLost(evt);
             }
         });
-        jPanel26.add(txtSalesQuantity, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 80, 90, -1));
-        jPanel26.add(txtSalesSalesPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 80, 150, -1));
+        jPanel26.add(txtSalesQuantity, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 130, 90, -1));
+        jPanel26.add(txtSalesSalesPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 120, 150, -1));
 
         jLabel49.setText("Total Price");
-        jPanel26.add(jLabel49, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 40, 70, -1));
-        jPanel26.add(txtSalesTotalPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 40, 90, -1));
+        jPanel26.add(jLabel49, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 90, 70, -1));
+        jPanel26.add(txtSalesTotalPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 80, 90, -1));
+
+        jLabel51.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel51.setText("Stock");
+        jPanel26.add(jLabel51, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 70, 30));
+        jPanel26.add(txtSalesStock, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 32, 90, 40));
 
         jPanel6.add(jPanel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 10, 610, 160));
 
@@ -1578,91 +1621,101 @@ public class ProjectView extends javax.swing.JFrame {
      
      public void salesDiscount(){
      
-        salesTotalPrice();
-        float totalPrice=Float.parseFloat(txtSalesTotalPrice.getText().toString());
-         
-         // Fruits........
-         
-         Object selectedItem=jComboBoxSalesCategory.getSelectedItem();
-         
-         if("Fruits".equals(selectedItem) && totalPrice <5000){
-         
-             float discount=(float) (totalPrice*0);
-             float salesPrice=totalPrice-discount;
-             
-             txtSalesDiscount.setText(discount+"");
-             txtSalesSalesPrice.setText(salesPrice+"");
-             
-         
-         }
-         else if("Fruits".equals(selectedItem) && totalPrice>=5000){
-         
-             float discount=(float) (totalPrice*0.07);
-             float salesPrice=totalPrice-discount;
-             
-             txtSalesDiscount.setText(discount+"");
-             txtSalesSalesPrice.setText(salesPrice+"");
-          
-         }
-         else if("Fruits".equals(selectedItem) && totalPrice>= 8000){
-         
-             float discount=(float) (totalPrice*0.1);
-             float salesPrice=totalPrice-discount;
-             
-             txtSalesDiscount.setText(discount+"");
-             txtSalesSalesPrice.setText(salesPrice+"");
-           
-         }
-         else if("Fruits".equals(selectedItem) && totalPrice >= 10000){
-         
-             float discount=(float) (totalPrice*0.12);
-             float salesPrice=totalPrice-discount;
-              
-             txtSalesDiscount.setText(discount+"");
-             txtSalesSalesPrice.setText(salesPrice+"");
-         }
+         float unitePrice=Float.parseFloat(txtSalesUnitePrice.getText().toString().trim());
+         float quantity=Float.parseFloat(txtSalesQuantity.getText().toString().trim());
+         float totalPrice=unitePrice*quantity;
+         txtSalesTotalPrice.setText(totalPrice+"");
+      
+         float discount=Float.parseFloat(txtSalesDiscount.getText().toString().trim());
+         float salesPrice=(float)(totalPrice-(totalPrice*(discount*0.01)));
+         txtSalesSalesPrice.setText(salesPrice+"");
         
-     
-         
-         
-         // Computer ....
-         
-         if("Computer".equals(selectedItem) && totalPrice <30000){
-         
-             float discount=(float) (totalPrice*0);
-             float salesPrice=totalPrice-discount;
-             
-             txtSalesDiscount.setText(discount+"");
-             txtSalesSalesPrice.setText(salesPrice+"");
-             
-         
-         }
-         else if("Computer".equals(selectedItem) && totalPrice>=30000){
-         
-             float discount=(float) (totalPrice*0.07);
-             float salesPrice=totalPrice-discount;
-             
-             txtSalesDiscount.setText(discount+"");
-             txtSalesSalesPrice.setText(salesPrice+"");
-          
-         }
-         else if("Computer".equals(selectedItem) && totalPrice>= 50000){
-         
-             float discount=(float) (totalPrice*0.1);
-             float salesPrice=totalPrice-discount;
-             
-             txtSalesDiscount.setText(discount+"");
-             txtSalesSalesPrice.setText(salesPrice+"");
-           
-         }
-         else if("Computer".equals(selectedItem) && totalPrice >= 70000){
-         
-             float discount=(float) (totalPrice*0.12);
-             float salesPrice=totalPrice-discount;
-              
-             txtSalesDiscount.setText(discount+"");
-             txtSalesSalesPrice.setText(salesPrice+"");
-         }
+        
+        
+//        float totalPrice=Float.parseFloat(txtSalesTotalPrice.getText().toString());
+//         
+//         // Fruits........
+//         
+//         Object selectedItem=jComboBoxSalesCategory.getSelectedItem();
+//         
+//         if("Fruits".equals(selectedItem) && totalPrice <5000){
+//         
+//             float discount=(float) (totalPrice*0);
+//             float salesPrice=totalPrice-discount;
+//             
+//             txtSalesDiscount.setText(discount+"");
+//             txtSalesSalesPrice.setText(salesPrice+"");
+//             
+//         
+//         }
+//         else if("Fruits".equals(selectedItem) && totalPrice>=5000){
+//         
+//             float discount=(float) (totalPrice*0.07);
+//             float salesPrice=totalPrice-discount;
+//             
+//             txtSalesDiscount.setText(discount+"");
+//             txtSalesSalesPrice.setText(salesPrice+"");
+//          
+//         }
+//         else if("Fruits".equals(selectedItem) && totalPrice>= 8000){
+//         
+//             float discount=(float) (totalPrice*0.1);
+//             float salesPrice=totalPrice-discount;
+//             
+//             txtSalesDiscount.setText(discount+"");
+//             txtSalesSalesPrice.setText(salesPrice+"");
+//           
+//         }
+//         else if("Fruits".equals(selectedItem) && totalPrice >= 10000){
+//         
+//             float discount=(float) (totalPrice*0.12);
+//             float salesPrice=totalPrice-discount;
+//              
+//             txtSalesDiscount.setText(discount+"");
+//             txtSalesSalesPrice.setText(salesPrice+"");
+//         }
+//        
+//     
+//         
+//         
+//         // Computer ....
+//         
+//         if("Computer".equals(selectedItem) && totalPrice <30000){
+//         
+//             float discount=(float) (totalPrice*0);
+//             float salesPrice=totalPrice-discount;
+//             
+//             txtSalesDiscount.setText(discount+"");
+//             txtSalesSalesPrice.setText(salesPrice+"");
+//             
+//         
+//         }
+//         else if("Computer".equals(selectedItem) && totalPrice>=30000){
+//         
+//             float discount=(float) (totalPrice*0.07);
+//             float salesPrice=totalPrice-discount;
+//             
+//             txtSalesDiscount.setText(discount+"");
+//             txtSalesSalesPrice.setText(salesPrice+"");
+//          
+//         }
+//         else if("Computer".equals(selectedItem) && totalPrice>= 50000){
+//         
+//             float discount=(float) (totalPrice*0.1);
+//             float salesPrice=totalPrice-discount;
+//             
+//             txtSalesDiscount.setText(discount+"");
+//             txtSalesSalesPrice.setText(salesPrice+"");
+//           
+//         }
+//         else if("Computer".equals(selectedItem) && totalPrice >= 70000){
+//         
+//             float discount=(float) (totalPrice*0.12);
+//             float salesPrice=totalPrice-discount;
+//              
+//             txtSalesDiscount.setText(discount+"");
+//             txtSalesSalesPrice.setText(salesPrice+"");
+//         }
          
          
          
@@ -1674,7 +1727,19 @@ public class ProjectView extends javax.swing.JFrame {
     private void txtSalesQuantityFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtSalesQuantityFocusLost
         // TODO add your handling code here:
         
+        
+        float stock=Float.parseFloat(txtSalesStock.getText());
+        float quantity=Float.parseFloat(txtSalesQuantity.getText());
+        if(stock < quantity){
+        
+            JOptionPane.showMessageDialog(null, "Stock Out !" );
+            txtSalesQuantity.requestFocus();
+        
+        }
         salesDiscount();
+        
+        
+        
     }//GEN-LAST:event_txtSalesQuantityFocusLost
 
     private void btnSalesSaveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalesSaveMouseClicked
@@ -1689,7 +1754,13 @@ public class ProjectView extends javax.swing.JFrame {
         float discount=Float.parseFloat(txtSalesDiscount.getText().trim());
         float salesPrice=Float.parseFloat(txtSalesSalesPrice.getText().trim());
        
-       salesDao.saveSales(customerName,productName, category, unitePrice, quantity, totalPrice, discount, salesPrice);
+        
+        // ei save system ta vinno arekta style e kora hoise..........**********
+        
+        Sales sa=new Sales(customerName, productName, category, unitePrice, quantity, totalPrice, discount, salesPrice);
+        salesDao.saveSales(sa);
+        
+      // salesDao.saveSales(customerName,productName, category, unitePrice, quantity, totalPrice, discount, salesPrice);
        
        resetSales();
        
@@ -1872,6 +1943,7 @@ public class ProjectView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel49;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel50;
+    private javax.swing.JLabel jLabel51;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
@@ -1947,6 +2019,7 @@ public class ProjectView extends javax.swing.JFrame {
     private javax.swing.JTextField txtSalesDiscount;
     private javax.swing.JTextField txtSalesQuantity;
     private javax.swing.JTextField txtSalesSalesPrice;
+    private javax.swing.JTextField txtSalesStock;
     private javax.swing.JTextField txtSalesTotalPrice;
     private javax.swing.JTextField txtSalesUnitePrice;
     private javax.swing.JTextField txtSupplierAddress;
